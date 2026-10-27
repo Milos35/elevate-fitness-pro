@@ -55,7 +55,7 @@ export const programMeta = {
   audience: "Busy fathers 35+ in Dubai & the UAE",
   sessionsPerWeek: 3,
   sessionLength: "30–40 minutes",
-  priceLaunchAed: 169,
+  priceLaunchAed: 407,
   coach: { name: "Coach Milos", handle: "@_coachmilos" },
   quote: "You don't need to suffer more. You need to suffer smarter.",
 } as const;
@@ -683,7 +683,7 @@ export const faqs = [
   },
   {
     q: "What's the difference between self-guided and coaching?",
-    a: "Self-guided (169 AED) gives you the full 90-day system — training, nutrition framework, habits. Coached Strong 90 (1,299 AED/month) adds a plan built for your calendar, weekly check-ins, form reviews via video, and someone who won't let you quietly disappear after week three. If you've quit programs alone before, coaching is the practical fix.",
+    a: "Self-guided (407 AED) gives you the full 90-day system — training, nutrition framework, habits. Coached Strong 90 (1,299 AED/month) adds a plan built for your calendar, weekly check-ins, form reviews via video, and someone who won't let you quietly disappear after week three. If you've quit programs alone before, coaching is the practical fix.",
   },
   {
     q: "How is this different from hiring a personal trainer?",

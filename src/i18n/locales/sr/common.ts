@@ -58,6 +58,7 @@ export default {
     label: "Valuta",
     eur: "Evro (EUR)",
     aed: "Dirham (AED)",
+    rsd: "Dinar (RSD)",
   },
   misc: {
     oneTime: "jednokratno",

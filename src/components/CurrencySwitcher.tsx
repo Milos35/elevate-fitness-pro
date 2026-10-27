@@ -9,9 +9,10 @@ import {
 import { useDisplayCurrency } from "@/context/CurrencyContext";
 import type { DisplayCurrency } from "@/lib/pricing";
 
-const LABEL_KEY: Record<DisplayCurrency, "eur" | "aed"> = {
+const LABEL_KEY: Record<DisplayCurrency, "eur" | "aed" | "rsd"> = {
   EUR: "eur",
   AED: "aed",
+  RSD: "rsd",
 };
 
 type Props = {

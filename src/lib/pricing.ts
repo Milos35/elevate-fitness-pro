@@ -1,6 +1,6 @@
 import { resolveHomepageLocale } from "@/i18n/constants";
 
-export type DisplayCurrency = "EUR" | "AED";
+export type DisplayCurrency = "EUR" | "AED" | "RSD";
 
 export type PricingTier = {
   amount: number;
@@ -22,21 +22,29 @@ type PriceSuffixes = {
   perMonth: string;
 };
 
-/** Stripe checkout stays in AED fils. Display currency can differ. */
-const STRIPE_SELF_GUIDED_FILS = 16900;
+/** Stripe checkout stays in AED fils. Display currency can differ.
+ *  The amount actually charged comes from the Stripe price (STRIPE_PRICE_ID) — keep it in sync with this. */
+const STRIPE_SELF_GUIDED_FILS = 40700;
 
 const AMOUNTS: Record<DisplayCurrency, { selfGuided: number; coachedStrong90: number; privateTransformation: number }> = {
   EUR: { selfGuided: 99, coachedStrong90: 299, privateTransformation: 699 },
-  AED: { selfGuided: 169, coachedStrong90: 1299, privateTransformation: 2999 },
+  // €99 at ~4.11 AED/EUR (mid-market, 27 Oct 2026)
+  AED: { selfGuided: 407, coachedStrong90: 1299, privateTransformation: 2999 },
+  // EUR prices at the NBS middle rate 117.498 RSD/EUR (26 Oct 2026), rounded to 10 dinars
+  RSD: { selfGuided: 11630, coachedStrong90: 35130, privateTransformation: 82130 },
 };
 
-/** Arabic → dirham. English and Serbian → euro. */
+/** Arabic → dirham, Serbian → dinar, English → euro. */
 export function currencyForLanguage(lang: string): DisplayCurrency {
-  return resolveHomepageLocale(lang) === "ar" ? "AED" : "EUR";
+  const locale = resolveHomepageLocale(lang);
+  if (locale === "ar") return "AED";
+  if (locale === "sr") return "RSD";
+  return "EUR";
 }
 
 export function formatPriceAmount(amount: number, currency: DisplayCurrency): string {
   if (currency === "EUR") return `€${amount}`;
+  if (currency === "RSD") return `${amount.toLocaleString("sr-RS")} RSD`;
   return `${amount.toLocaleString("en-US")} AED`;
 }
 

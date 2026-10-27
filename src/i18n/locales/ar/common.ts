@@ -58,6 +58,7 @@ export default {
     label: "العملة",
     eur: "يورو (EUR)",
     aed: "درهم (AED)",
+    rsd: "دينار صربي (RSD)",
   },
   misc: {
     oneTime: "دفعة واحدة",
