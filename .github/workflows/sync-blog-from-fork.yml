@@ -1,0 +1,47 @@
+# Brings new blog posts from Milos's fork (Milos35/elevate-fitness-pro, branch main) into this repo's main,
+# so Vercel publishes them without anyone clicking Merge.
+# Only fast-forwards: if the fork is not a clean continuation of main, nothing is changed and the run fails.
+name: Sync blog from Milos35 fork
+
+on:
+  schedule:
+    - cron: "20 * * * *" # every hour at :20 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-blog-from-fork
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Fast-forward main to the fork's main
+        run: |
+          git fetch https://github.com/Milos35/elevate-fitness-pro.git main
+          if git merge-base --is-ancestor FETCH_HEAD HEAD; then
+            echo "Nothing new in the fork."
+            exit 0
+          fi
+          if ! git merge-base --is-ancestor HEAD FETCH_HEAD; then
+            echo "::error::The fork's main is not a continuation of this main. Rebase the fork on this main first."
+            exit 1
+          fi
+          # Only blog content may come through this path.
+          disallowed=$(git diff --name-only HEAD FETCH_HEAD | grep -vE '^(src/data/blog/|public/blog/|public/sitemap\.xml$|api/rss\.ts$)' || true)
+          if [ -n "$disallowed" ]; then
+            echo "::error::The fork changes files outside the blog, so it was not synced automatically:"
+            echo "$disallowed"
+            exit 1
+          fi
+          git merge --ff-only FETCH_HEAD
+          git push origin HEAD:main
+          git log --oneline -5
