@@ -1,9 +1,53 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { blogPosts } from "../src/data/blog/index.js";
-import enBlog from "../src/i18n/locales/en/blog.js";
 
 const SITE = "https://busystrong90.com";
 type Post = { slug: string; title: string; excerpt: string; publishedAt: string; enabled?: boolean };
+// Snapshot of the existing built-in articles; new CMS publications are fetched on every cache refresh.
+const builtinPosts: Post[] = [
+  {
+    "slug": "tips-for-muscle-growth",
+    "title": "4 Hacks for Massive Muscle Growth",
+    "excerpt": "Protein at every meal, eat more, compound lifts, and train heavy — four proven hacks for building serious muscle mass without the Instagram hype.",
+    "publishedAt": "2026-06-10"
+  },
+  {
+    "slug": "five-foods-for-bodybuilding",
+    "title": "Eat to Grow – 5 Foods Perfect for Bodybuilders",
+    "excerpt": "Muscle is built in the kitchen. Five bodybuilding staples — eggs, salmon, oats, beef, and chicken — and why each earns a place on your plate.",
+    "publishedAt": "2026-06-12"
+  },
+  {
+    "slug": "four-mistakes-training-arms",
+    "title": "4 Mistakes When Training Arms",
+    "excerpt": "From leaning back on curls to skipping triceps — four common arm training mistakes that stop your biceps and triceps from growing.",
+    "publishedAt": "2026-06-14"
+  },
+  {
+    "slug": "health-fitness-supplements",
+    "title": "4 Supplements for the Ultimate Health and Fitness Stack",
+    "excerpt": "Omega-3, creatine, multivitamins, and protein — four supplements to build the ultimate health and fitness stack alongside diet and exercise.",
+    "publishedAt": "2026-06-16"
+  },
+  {
+    "slug": "no-time-too-tired-workout-busy-men",
+    "title": "No Time to Work Out? Too Tired? Here's What Actually Works for Busy Men",
+    "excerpt": "No time and too tired to exercise? Why busy men 35+ fail at fitness — and how 30-minute, 3×/week home workouts restore energy without adding hours to your schedule.",
+    "publishedAt": "2026-05-20"
+  },
+  {
+    "slug": "fallen-off-wagon-fitness-consistency-busy-men",
+    "title": "Fallen Off the Wagon? How Busy Men Build Fitness Consistency Without Motivation",
+    "excerpt": "Off and on with fitness? Why busy men quit, how to stop the rinse-and-repeat cycle, and build workout habits that stick — without relying on motivation.",
+    "publishedAt": "2026-05-22"
+  },
+  {
+    "slug": "dad-bod-out-of-shape-after-kids-fitness",
+    "title": "Dad Bod and Out of Shape After Kids? How to Get Strong Again Without Starting Over",
+    "excerpt": "Out of shape after kids? A practical guide for men 35+ to rebuild strength, lose weight, and get back the body — and energy — you had before life got busy.",
+    "publishedAt": "2026-05-25"
+  }
+];
+
 const record = (v: unknown): v is Record<string, unknown> => !!v && typeof v === "object" && !Array.isArray(v);
 const str = (v: unknown, fallback: string) => typeof v === "string" ? v : fallback;
 const xml = (v: string) => v.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, "")
@@ -12,10 +56,7 @@ const xml = (v: string) => v.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g
 
 // Match the English blog's built-in articles and CMS fallback behavior.
 export function resolveFeedPosts(payload: unknown): Post[] {
-  const meta = enBlog.posts as Record<string, { title: string; excerpt: string }>;
-  const defaults = blogPosts.map(p => ({ ...p,
-    title: meta[p.slug]?.title ?? p.title, excerpt: meta[p.slug]?.excerpt ?? p.excerpt,
-  }));
+  const defaults = builtinPosts.map(p => ({ ...p }));
   if (!record(payload) || !Array.isArray(payload.posts)) return defaults;
   const posts = payload.posts.filter(record).map(raw => {
     const fallback = defaults.find(p => p.slug === str(raw.id, str(raw.slug, "")));
