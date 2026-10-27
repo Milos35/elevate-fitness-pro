@@ -30,6 +30,8 @@ export type BlogPost = {
   coverImage?: string;
   coverImageAlt?: string;
   featuredOnHomepage?: boolean;
+  /** Added from the repo by the daily blog workflow; shown even when the CMS has its own post list. */
+  autoPublished?: boolean;
   blocks: BlogBlock[];
   blocksByLocale?: Partial<Record<AppLanguage, BlogBlock[]>>;
 };
