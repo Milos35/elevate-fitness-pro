@@ -71,7 +71,7 @@ export default {
     coached: {
       tier: "Osnovni coaching",
       name: "Coached Strong 90",
-      recommended: "Preporučeno",
+      recommended: "Najpopularnije",
       recommendedNote: "Za očeve koji žele odgovornost bez elitne cene.",
       benefits: [
         "Sve iz samostalnog programa",
@@ -95,6 +95,27 @@ export default {
         "Mesečni video poziv sa analizom napretka",
       ],
       cta: "Zakaži strategijski poziv",
+    },
+  },
+  tiersCta: {
+    eyebrow: "Niste sigurni?",
+    headline: "Ne znate koji put vam odgovara? Prvo razgovarajte sa trenerom Milošem.",
+    body: "Zakažite besplatan poziv — recite Milošu svoj raspored i ciljeve, a on će vam iskreno reći da li vam više odgovara program ili lični coaching.",
+    chips: ["Sesije od 30–40 min", "3× nedeljno", "Treniraj kod kuće", "Bez kuhinjske vage"],
+  },
+  app: {
+    eyebrow: "Uključeno uz program",
+    headline: "Ceo program",
+    headlineHighlight: "u jednoj aplikaciji",
+    subhead: "Kupovinom programa dobijate Busy Strong 90 aplikaciju za članove — svaki trening, plan ishrane i praćenje napretka, direktno na telefonu.",
+    locked: "Svi detalji se otključavaju kupovinom programa",
+    features: {
+      overview: { title: "Vaš 90-dnevni kontrolni centar", text: "Tačno vidite gde ste — dan programa, nedelju i koliko vam je trening nedelja ostalo." },
+      week: { title: "Treninzi ove nedelje", text: "Pon / Sre / Pet plus opcioni bonus od 10 minuta. Štiklirajte ih usput — teretana, kuća ili verzija od 10 minuta." },
+      workout: { title: "Treninzi sa video demonstracijom", text: "Serije, ponavljanja, odmor i savet trenera za svaku vežbu, uz kratak video tehnike." },
+      nutrition: { title: "Ishrana bez kuhinjske vage", text: "Tri jednostavna pravila, primer dnevnog jelovnika sa makroima i kako da jedete napolju." },
+      progress: { title: "Praćenje težine i napretka", text: "Upišite težinu svakog ponedeljka i kratku belešku — grafikon prikazuje trend iz nedelje u nedelju." },
+      roadmap: { title: "Plan za 12 nedelja", text: "Tri faze od po 4 nedelje — Osnova, Intenzitet, Transformacija — pa uvek znate šta sledi." },
     },
   },
   pillars: {

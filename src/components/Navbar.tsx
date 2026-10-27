@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Menu, X, Dumbbell, Instagram, LayoutDashboard, Link2, Shield } from "lucide-react";
@@ -49,9 +49,23 @@ const Navbar = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   };
 
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
-      <div className="container mx-auto flex items-center justify-between h-16 px-4">
+    <nav className="fixed top-0 left-0 right-0 z-50 px-3 pt-3 md:px-4">
+      <div
+        className={`mx-auto flex h-14 max-w-[1320px] items-center justify-between rounded-full border border-white/10 pe-2 ps-5 transition-[background-color,box-shadow] duration-300 ${
+          scrolled || open
+            ? "bg-[hsl(0_0%_6%/0.72)] shadow-[0_8px_32px_rgba(0,0,0,0.35)] backdrop-blur-xl"
+            : "bg-white/[0.06] backdrop-blur-md"
+        }`}
+      >
         <Link to={to("/")} onClick={scrollHomeTop} className="flex items-center gap-2 font-display text-xl font-bold tracking-tight">
           <Dumbbell className="h-6 w-6 text-primary" aria-hidden />
           <span>
@@ -59,7 +73,7 @@ const Navbar = () => {
           </span>
         </Link>
 
-        <div className="hidden lg:flex items-center gap-1">
+        <div className="hidden xl:flex items-center gap-1">
           {navHrefs.map((link) => {
             const to = linkTo(link.href);
             return (
@@ -67,8 +81,8 @@ const Navbar = () => {
                 key={link.href}
                 to={to}
                 onClick={link.href === "/" ? scrollHomeTop : undefined}
-                className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  linkActive(link.href) ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                className={`px-3 py-2 rounded-full text-sm font-medium transition-colors ${
+                  linkActive(link.href) ? "text-primary bg-primary/10" : "text-white/70 hover:text-white hover:bg-white/10"
                 }`}
               >
                 {t(`nav.${link.key}`)}
@@ -77,7 +91,7 @@ const Navbar = () => {
           })}
         </div>
 
-        <div className="hidden lg:flex items-center gap-2">
+        <div className="hidden xl:flex items-center gap-2">
           <CurrencySwitcher />
           <LanguageSwitcher />
           <div className="flex items-center gap-1">
@@ -123,7 +137,7 @@ const Navbar = () => {
                     {t("nav.bookFreeCall")}
                   </a>
                 </Button>
-                <Button asChild size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold">
+                <Button asChild size="sm" className="rounded-full bg-primary px-4 text-primary-foreground hover:bg-primary/90 font-bold">
                   <Link to={to("/pricing")}>{t("nav.programCta", { price: pricing.selfGuided.label })}</Link>
                 </Button>
               </>
@@ -131,7 +145,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="flex items-center gap-2 lg:hidden">
+        <div className="flex items-center gap-2 xl:hidden">
           <CurrencySwitcher />
           <LanguageSwitcher size="icon" />
           <button
@@ -148,8 +162,11 @@ const Navbar = () => {
       </div>
 
       {open && (
-        <div id="mobile-nav-menu" className="lg:hidden bg-background/95 backdrop-blur-xl border-b border-border">
-          <div className="container mx-auto px-4 py-4 flex flex-col gap-2">
+        <div
+          id="mobile-nav-menu"
+          className="xl:hidden mx-auto mt-2 max-h-[calc(100svh-5.5rem)] max-w-[1320px] overflow-y-auto rounded-3xl border border-white/10 bg-[hsl(0_0%_6%/0.92)] backdrop-blur-xl"
+        >
+          <div className="px-4 py-4 flex flex-col gap-2">
             {navHrefs.map((link) => {
               const to = linkTo(link.href);
               return (

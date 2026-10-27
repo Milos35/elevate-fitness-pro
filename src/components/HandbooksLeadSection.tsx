@@ -100,7 +100,7 @@ export function HandbooksLeadSection() {
     <section
       ref={sectionRef}
       id="free-handbooks"
-      className="section-padding scroll-mt-24 border-y border-border bg-[hsl(0_0%_6.5%)]"
+      className="theme-light section-padding scroll-mt-24 bg-background"
     >
       {sentCount !== null ? (
         <div className="container mx-auto max-w-[640px] px-6 text-center">
@@ -119,7 +119,7 @@ export function HandbooksLeadSection() {
         </div>
       ) : (
         <div className="container mx-auto max-w-[1100px] px-6">
-        <p className="text-center text-xs font-semibold uppercase tracking-widest text-primary">{content.eyebrow}</p>
+        <p className="text-center text-xs font-semibold uppercase tracking-widest text-[hsl(171_55%_32%)]">{content.eyebrow}</p>
         <h2 className="font-display mt-2 text-balance text-center text-[clamp(1.75rem,4vw,2.75rem)] text-foreground">
           {content.title}
         </h2>
@@ -139,8 +139,8 @@ export function HandbooksLeadSection() {
                 className={cn(
                   "group flex cursor-pointer flex-col overflow-hidden rounded-xl border transition-all",
                   checked
-                    ? "border-primary/60 bg-primary/5 ring-1 ring-primary/30"
-                    : "border-border bg-[#111] hover:border-primary/30",
+                    ? "border-primary bg-primary/5 ring-1 ring-primary/40"
+                    : "border-border bg-card hover:border-primary/50",
                 )}
               >
                 <div className="relative aspect-[16/10] overflow-hidden">
@@ -151,7 +151,6 @@ export function HandbooksLeadSection() {
                     loading="lazy"
                     decoding="async"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-[#111]/50 to-black/10" aria-hidden />
                   <Checkbox
                     id={cardId}
                     checked={checked}
@@ -168,7 +167,7 @@ export function HandbooksLeadSection() {
                 </div>
                 <span className="flex flex-1 flex-col p-5">
                   <span className="flex items-center gap-2">
-                    <Icon className="h-4 w-4 shrink-0 text-primary" aria-hidden />
+                    <Icon className="h-4 w-4 shrink-0 text-[hsl(171_55%_32%)]" aria-hidden />
                     <span className="font-display text-lg text-foreground">{item?.title ?? t(`items.${id}.title`)}</span>
                   </span>
                   <span className="mt-2 block text-sm leading-relaxed text-muted-foreground">
@@ -183,10 +182,10 @@ export function HandbooksLeadSection() {
 
         <form
           onSubmit={(e) => void onSubmit(e)}
-          className="mx-auto mt-10 max-w-lg rounded-xl border border-border bg-[#111] p-6 md:p-8"
+          className="mx-auto mt-10 max-w-lg rounded-xl border border-border bg-card p-6 md:p-8"
         >
           <div className="mb-2 flex items-center gap-2 text-sm font-semibold text-foreground">
-            <BookOpen className="h-4 w-4 text-primary" aria-hidden />
+            <BookOpen className="h-4 w-4 text-[hsl(171_55%_32%)]" aria-hidden />
             {selected.size === 0 ? t("form.selectHint") : null}
             {selected.size === 1 ? t("form.submit") : selected.size > 1 ? t("form.submitPlural") : null}
           </div>

@@ -71,7 +71,7 @@ export default {
     coached: {
       tier: "Core Coaching",
       name: "Coached Strong 90",
-      recommended: "Recommended",
+      recommended: "Most Popular",
       recommendedNote: "For fathers who want accountability without the elite price.",
       benefits: [
         "Everything in Self-Guided",
@@ -95,6 +95,27 @@ export default {
         "Monthly video call with progress analysis",
       ],
       cta: "Book Strategy Call",
+    },
+  },
+  tiersCta: {
+    eyebrow: "Not sure yet?",
+    headline: "Not sure which path fits? Talk to Coach Milos first.",
+    body: "Book a free call — tell Milos about your schedule and goals, and he'll tell you honestly whether the program or coaching is the right fit.",
+    chips: ["30–40 min sessions", "3× per week", "Train at home", "No food scale"],
+  },
+  app: {
+    eyebrow: "Included with the program",
+    headline: "Your whole program",
+    headlineHighlight: "in one app",
+    subhead: "Buy the program and you get the Busy Strong 90 member app — every workout, the meal plan and your progress tracking, right on your phone.",
+    locked: "Full details unlock when you buy the program",
+    features: {
+      overview: { title: "Your 90-day command center", text: "See exactly where you are — day of the program, week, and how many training weeks are left." },
+      week: { title: "This week's sessions", text: "Mon / Wed / Fri plus an optional 10-minute bonus. Tick them off as you go — gym, home or 10-minute versions." },
+      workout: { title: "Workouts with video demos", text: "Sets, reps, rest and a coach tip for every exercise, plus a short form video." },
+      nutrition: { title: "Nutrition without a food scale", text: "Three simple rules, a sample day of meals with macros, and how to eat out." },
+      progress: { title: "Weight & progress tracking", text: "Log your Monday weight and a short note — the chart shows your trend week by week." },
+      roadmap: { title: "12-week roadmap", text: "Three 4-week phases — Foundation, Intensity, Transformation — so you always know what's next." },
     },
   },
   pillars: {

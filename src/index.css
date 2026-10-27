@@ -39,6 +39,21 @@
     --sidebar-border: 0 0% 16.5%;
     --sidebar-ring: 171 47% 50%;
   }
+
+  /* Light theme scope for redesigned sections — background #fdfcfa */
+  .theme-light {
+    --background: 40 43% 98.6%;
+    --foreground: 0 0% 7%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
+    --secondary: 40 15% 93%;
+    --secondary-foreground: 0 0% 7%;
+    --muted: 40 15% 93%;
+    --muted-foreground: 0 0% 40%;
+    --border: 40 12% 88%;
+    --input: 40 12% 88%;
+    color: hsl(var(--foreground));
+  }
 }
 
 @layer base {
@@ -64,6 +79,18 @@
   .glass-card {
     @apply bg-card/60 backdrop-blur-xl border border-border/50 rounded-2xl;
   }
+  /* Subtle frosted glass for elements over photos (white 12%, 12px blur) */
+  .glass-subtle {
+    @apply border border-white/20 bg-white/[0.12] backdrop-blur-md backdrop-saturate-150;
+  }
+  /* Fully transparent glass (pricing cards on dark) — no fill, only a blur of the glows behind it */
+  .glass-clear {
+    @apply border border-white/10 bg-transparent shadow-[inset_0_1px_0_rgb(255_255_255/0.06)] backdrop-blur-xl backdrop-saturate-150;
+  }
+  /* Frosted glass card for light (#fdfcfa) sections */
+  .glass-light {
+    @apply border border-white/80 bg-white/55 shadow-[0_8px_32px_hsl(0_0%_0%/0.06)] backdrop-blur-xl backdrop-saturate-150;
+  }
   .glow-green {
     box-shadow: 0 0 40px hsl(171 47% 50% / 0.2), 0 0 80px hsl(171 47% 50% / 0.08);
   }
@@ -79,4 +106,100 @@
       radial-gradient(ellipse 50% 40% at 100% 10%, hsl(180 40% 45% / 0.08), transparent 50%),
       radial-gradient(ellipse 45% 35% at 0% 80%, hsl(171 47% 50% / 0.06), transparent 45%);
   }
+}
+
+/* Neon border (Originkit "Pricing 04" style): two teal light arcs orbit the card edge,
+   with blurred glow rings that are masked to stay outside the card. Card sets --neon-radius. */
+@property --neon-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: true;
+}
+
+@keyframes neon-orbit {
+  to {
+    --neon-angle: 360deg;
+  }
+}
+
+.neon-border {
+  --neon-radius: 2rem;
+  --neon-color: 171 47% 50%;
+  --neon-arc: conic-gradient(
+    from var(--neon-angle),
+    hsl(var(--neon-color) / 0) 0deg,
+    hsl(var(--neon-color) / 0.18) 6deg,
+    hsl(var(--neon-color) / 0.58) 12deg,
+    hsl(var(--neon-color) / 0.92) 18deg,
+    hsl(var(--neon-color)) 23deg,
+    hsl(var(--neon-color)) 39deg,
+    hsl(var(--neon-color) / 0.92) 43deg,
+    hsl(var(--neon-color) / 0.58) 48deg,
+    hsl(var(--neon-color) / 0.18) 54deg,
+    hsl(var(--neon-color) / 0) 61deg,
+    hsl(var(--neon-color) / 0) 180deg,
+    hsl(var(--neon-color) / 0.18) 186deg,
+    hsl(var(--neon-color) / 0.58) 192deg,
+    hsl(var(--neon-color) / 0.92) 198deg,
+    hsl(var(--neon-color)) 203deg,
+    hsl(var(--neon-color)) 219deg,
+    hsl(var(--neon-color) / 0.92) 223deg,
+    hsl(var(--neon-color) / 0.58) 228deg,
+    hsl(var(--neon-color) / 0.18) 234deg,
+    hsl(var(--neon-color) / 0) 241deg
+  );
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: inherit;
+  animation: neon-orbit 8s linear infinite;
+}
+
+/* A ring of width --w hugging the outside of the card edge, painted with the arcs */
+.neon-ring {
+  position: absolute;
+  inset: calc(var(--w) * -1);
+  box-sizing: border-box;
+  padding: var(--w);
+  border-radius: calc(var(--neon-radius) + var(--w));
+  background: var(--neon-arc);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+}
+
+/* Blurred copy of a ring; the mask cuts the card interior out after the blur */
+.neon-glow {
+  position: absolute;
+  inset: -160px;
+  box-sizing: border-box;
+  padding: 160px;
+  border-radius: calc(var(--neon-radius) + 160px);
+  mix-blend-mode: plus-lighter;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+}
+.neon-glow > .neon-ring {
+  inset: calc(160px - var(--w));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .neon-border {
+    animation: none;
+  }
+}
+
+/* App showcase: progress bar under the active feature while it auto-advances */
+@keyframes app-feature-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+.app-feature-progress {
+  animation: app-feature-progress linear forwards;
 }

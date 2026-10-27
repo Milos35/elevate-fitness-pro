@@ -14,11 +14,11 @@ export function HomeBlogSection() {
   if (featured.length === 0) return null;
 
   return (
-    <section className="section-padding border-t border-border/60 bg-background">
+    <section className="theme-light section-padding bg-background">
       <div className="container mx-auto max-w-[1100px] px-6">
-        <p className="text-center text-xs font-semibold uppercase tracking-widest text-primary">{t("home.eyebrow")}</p>
+        <p className="text-center text-xs font-semibold uppercase tracking-widest text-[hsl(171_55%_32%)]">{t("home.eyebrow")}</p>
         <h2 className="font-display mt-2 text-balance text-center text-[clamp(2rem,5vw,3rem)] text-foreground">
-          {t("home.headline")} <span className="text-primary">{t("home.headlineHighlight")}</span>
+          {t("home.headline")} <span className="text-[hsl(171_55%_36%)]">{t("home.headlineHighlight")}</span>
         </h2>
         <p className="mx-auto mt-2 max-w-[560px] text-center text-pretty text-muted-foreground">{t("home.subhead")}</p>
 
@@ -26,7 +26,7 @@ export function HomeBlogSection() {
           {featured.map((post) => (
             <article
               key={post.slug}
-              className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card/50 transition-colors hover:border-primary/40"
+              className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-colors hover:border-primary/60"
             >
               {post.coverImage && (
                 <Link to={to(`/blog/${post.slug}`)} className="block aspect-[16/10] overflow-hidden">
@@ -49,7 +49,7 @@ export function HomeBlogSection() {
                   </span>
                 </div>
                 <h3 className="font-display mt-3 text-xl leading-snug text-foreground">
-                  <Link to={to(`/blog/${post.slug}`)} className="hover:text-primary transition-colors">
+                  <Link to={to(`/blog/${post.slug}`)} className="transition-colors hover:text-[hsl(171_55%_32%)]">
                     {post.title}
                   </Link>
                 </h3>
@@ -58,7 +58,7 @@ export function HomeBlogSection() {
                 </p>
                 <Link
                   to={to(`/blog/${post.slug}`)}
-                  className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:text-primary/90"
+                  className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[hsl(171_55%_32%)] hover:text-[hsl(171_55%_26%)]"
                 >
                   {t("index.readArticle")}
                   <ArrowRight className="icon-directional h-4 w-4" aria-hidden />
@@ -71,7 +71,7 @@ export function HomeBlogSection() {
         <div className="mt-10 text-center">
           <Link
             to={to("/blog")}
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary/90"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-[hsl(171_55%_32%)] hover:text-[hsl(171_55%_26%)]"
           >
             {t("home.viewAll")}
             <ArrowRight className="icon-directional h-4 w-4" aria-hidden />

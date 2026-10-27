@@ -26,7 +26,7 @@ type PriceSuffixes = {
 const STRIPE_SELF_GUIDED_FILS = 16900;
 
 const AMOUNTS: Record<DisplayCurrency, { selfGuided: number; coachedStrong90: number; privateTransformation: number }> = {
-  EUR: { selfGuided: 39, coachedStrong90: 299, privateTransformation: 699 },
+  EUR: { selfGuided: 99, coachedStrong90: 299, privateTransformation: 699 },
   AED: { selfGuided: 169, coachedStrong90: 1299, privateTransformation: 2999 },
 };
 
