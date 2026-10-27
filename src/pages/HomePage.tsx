@@ -596,22 +596,58 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section id="apply" className="section-padding border-t border-border/50 pb-24 text-center">
-        <div className="container mx-auto max-w-3xl px-6">
-          <h2 className="font-display text-balance text-[clamp(2.2rem,6vw,3.5rem)] text-foreground">
-            {finalCta.headline} <span className="text-primary">{finalCta.headlineHighlight}</span>
-          </h2>
-          <p className="mx-auto mt-4 max-w-lg text-pretty text-muted-foreground">{finalCta.body}</p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
-            <Button asChild className="h-12 rounded-lg bg-primary px-8 text-base font-bold text-primary-foreground">
-              <Link to={to("/pricing")}>{tCommon("cta.getProgramPrice", { price: pricing.selfGuided.label })}</Link>
-            </Button>
-            <Button asChild variant="outline" className="h-12 rounded-lg border-border px-8 text-base font-semibold">
-              <a href={CALENDLY_FREE_CALL_URL} target="_blank" rel="noopener noreferrer">
-                {tCommon("cta.bookFreeCall")}
-              </a>
-            </Button>
+      {/* Final CTA — light #fdfcfa. lg+: the photo spans the whole section like the hero, 120% wide so the figure sits on the right,
+          cropped at the waist (section is 50vw tall ≈ waist line), text on the left over a light fade.
+          Below lg: photo first (image 135% of the box, so the box ends at the waist), text underneath. */}
+      <section id="apply" className="theme-light relative isolate flex flex-col overflow-hidden bg-background lg:h-[max(560px,50vw)] lg:justify-center">
+        <div className="relative aspect-[4/3] w-full overflow-hidden sm:aspect-[16/9] lg:absolute lg:inset-0 lg:-z-10 lg:aspect-auto">
+          <img
+            src="/final-cta.webp"
+            srcSet="/final-cta-1280.webp 1280w, /final-cta.webp 2000w"
+            sizes="(min-width: 1024px) 120vw, 100vw"
+            alt=""
+            width={2000}
+            height={1125}
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-x-0 top-0 h-[135%] w-full object-cover object-top lg:inset-x-auto lg:start-0 lg:h-auto lg:w-[120%] lg:max-w-none"
+          />
+          <div
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-background to-transparent lg:hidden"
+            aria-hidden
+          />
+        </div>
+        <div
+          className="pointer-events-none absolute inset-0 -z-10 hidden bg-gradient-to-r from-background from-[30%] via-background/70 via-[40%] to-transparent to-[52%] rtl:bg-gradient-to-l lg:block"
+          aria-hidden
+        />
+
+        <div className="container relative mx-auto px-6 pb-16 pt-6 lg:mx-0 lg:max-w-none lg:px-[5vw] lg:py-16">
+          <div className="max-w-[560px] lg:max-w-[min(440px,32vw)]">
+            <h2 className="font-display text-balance text-[clamp(2.5rem,4.5vw,4rem)] leading-[0.95] text-foreground">
+              {finalCta.headline} <span className="text-[hsl(171_55%_36%)]">{finalCta.headlineHighlight}</span>
+            </h2>
+            <p className="mt-5 text-pretty leading-relaxed text-muted-foreground lg:text-lg">{finalCta.body}</p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+              <Button
+                asChild
+                className="h-12 rounded-full bg-primary px-7 text-base font-bold text-primary-foreground shadow-[0_8px_30px_hsl(171_47%_50%/0.35)] transition-[transform,background-color,box-shadow] duration-300 hover:scale-[1.04] hover:bg-primary/90 motion-reduce:hover:scale-100"
+              >
+                <Link to={to("/pricing")}>
+                  {tCommon("cta.getProgramPrice", { price: pricing.selfGuided.label })}
+                  <ArrowRight className="icon-directional ms-1 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                className="h-12 rounded-full border-foreground/15 bg-card px-7 text-base font-semibold text-foreground hover:bg-card/80"
+              >
+                <a href={CALENDLY_FREE_CALL_URL} target="_blank" rel="noopener noreferrer">
+                  {tCommon("cta.bookFreeCall")}
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
