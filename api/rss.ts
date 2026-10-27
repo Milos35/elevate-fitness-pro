@@ -48,6 +48,20 @@ const builtinPosts: Post[] = [
   }
 ];
 
+// Articles published from the repo (autoPublished in src/data/blog). Always in the feed, even when the CMS has its own list.
+// Newest first; add each new auto-published article here too.
+const autoPosts: Post[] = [
+  {
+    "slug": "online-vs-in-person-personal-trainer-dubai",
+    "title": "Online Personal Trainer vs In-Person Personal Trainer in Dubai: Which Is Right for a Busy Parent?",
+    "excerpt": "Choosing a personal trainer in Dubai? Compare online coaching and in-person training for busy parents over 35, and find the option you will still be doing in six months.",
+    "publishedAt": "2026-10-27"
+  }
+];
+
+const withAutoPosts = (posts: Post[]): Post[] =>
+  [...posts, ...autoPosts.filter(a => !posts.some(p => p.slug === a.slug)).map(a => ({ ...a }))];
+
 const record = (v: unknown): v is Record<string, unknown> => !!v && typeof v === "object" && !Array.isArray(v);
 const str = (v: unknown, fallback: string) => typeof v === "string" ? v : fallback;
 const xml = (v: string) => v.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, "")
@@ -57,7 +71,7 @@ const xml = (v: string) => v.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g
 // Match the English blog's built-in articles and CMS fallback behavior.
 export function resolveFeedPosts(payload: unknown): Post[] {
   const defaults = builtinPosts.map(p => ({ ...p }));
-  if (!record(payload) || !Array.isArray(payload.posts)) return defaults;
+  if (!record(payload) || !Array.isArray(payload.posts)) return withAutoPosts(defaults);
   const posts = payload.posts.filter(record).map(raw => {
     const fallback = defaults.find(p => p.slug === str(raw.id, str(raw.slug, "")));
     return {
@@ -68,7 +82,7 @@ export function resolveFeedPosts(payload: unknown): Post[] {
       enabled: typeof raw.enabled === "boolean" ? raw.enabled : true,
     };
   }).filter(p => p.slug);
-  return posts.length ? posts : defaults;
+  return withAutoPosts(posts.length ? posts : defaults);
 }
 
 export function renderFeed(posts: Post[], now = Date.now()): string {
