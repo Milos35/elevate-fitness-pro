@@ -9,7 +9,6 @@ import { HomeBlogSection } from "@/components/blog/HomeBlogSection";
 import { resolveTestimonialsCms } from "@/lib/memberAppCms";
 import { usePublishedTestimonials } from "@/hooks/usePublishedTestimonials";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import privateTrainerFitness from "@/assets/private-trainer-fitness.webp";
 import coachAbout from "@/assets/coach-about.webp";
 import { PageMeta } from "@/components/seo/PageMeta";
 import { HandbooksLeadSection } from "@/components/HandbooksLeadSection";
@@ -72,7 +71,11 @@ const HomePage = () => {
     a: applyPricingTokens(item.a, pricing),
   }));
 
-  const heroImage = homepageStorageUrl(hero.imagePath) ?? privateTrainerFitness;
+  // Fallback matches what index.html preloads (same srcset/sizes), so the LCP image is fetched once
+  const heroImage = homepageStorageUrl(hero.imagePath) ?? "/hero-lcp.webp";
+  const heroSrcSet = hero.imagePath
+    ? undefined
+    : "/hero-lcp-1280.webp 1280w, /hero-lcp.webp 1920w, /hero-lcp-2560.webp 2560w";
   const coachImage = homepageStorageUrl(coach.imagePath) ?? coachAbout;
   const heroSubhead = applyPricingTokens(hero.subhead, pricing);
   const metaDescription = applyPricingTokens(t("meta.description"), pricing);
@@ -142,9 +145,11 @@ const HomePage = () => {
           <img
             data-hero-image
             src={heroImage}
+            srcSet={heroSrcSet}
+            sizes="100vw"
             alt={hero.imageAlt}
-            width={1024}
-            height={576}
+            width={1920}
+            height={1080}
             decoding="async"
             fetchPriority="high"
             className="h-full w-full object-cover object-[50%_20%] lg:object-[25%_20%] lg:rtl:object-[75%_20%]"
@@ -187,7 +192,7 @@ const HomePage = () => {
             <div data-hero-reveal className="mt-[2em] flex flex-col gap-[0.75em] sm:flex-row sm:flex-wrap sm:items-center">
               <Button
                 asChild
-                className="h-[3em] rounded-full bg-primary px-[1.75em] text-[1em] font-bold text-primary-foreground shadow-[0_8px_30px_hsl(171_47%_50%/0.35)] hover:bg-primary/90"
+                className="h-[3em] rounded-full bg-primary px-[1.75em] text-[1em] font-bold text-primary-foreground shadow-[0_8px_30px_hsl(171_47%_50%/0.35)] transition-[transform,background-color,box-shadow] duration-300 hover:scale-[1.04] hover:bg-primary/90 hover:shadow-[0_12px_40px_hsl(171_47%_50%/0.5)] motion-reduce:hover:scale-100"
               >
                 <Link to={to("/pricing")}>
                   {tCommon("cta.getProgramPrice", { price: pricing.selfGuided.label })}
