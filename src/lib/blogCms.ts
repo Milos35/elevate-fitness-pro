@@ -181,7 +181,12 @@ export function resolveBlogCms(cms: BlogCmsPayload | null | undefined, locale: H
     }));
   }
 
-  return cms.posts
+  const cmsSlugs = new Set(cms.posts.map((p) => p.slug));
+  const autoPosts = blogPosts
+    .filter((post) => post.autoPublished && !cmsSlugs.has(post.slug))
+    .map((post) => postToCms(post, locale));
+
+  return [...cms.posts, ...autoPosts]
     .filter((p) => p.enabled && p.slug.trim())
     .slice()
     .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))

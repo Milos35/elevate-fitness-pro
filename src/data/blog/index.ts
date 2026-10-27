@@ -4,6 +4,7 @@ import { fiveFoodsBodybuildingPost } from "./five-foods-bodybuilding";
 import { fourMistakesArmsPost } from "./four-mistakes-training-arms";
 import { healthFitnessSupplementsPost } from "./health-fitness-supplements";
 import { noTimeTooTiredPost } from "./no-time-too-tired";
+import { onlineVsInPersonTrainerDubaiPost } from "./online-vs-in-person-personal-trainer-dubai";
 import { tipsMuscleGrowthPost } from "./tips-muscle-growth";
 import type { AppLanguage } from "@/i18n/constants";
 import type { BlogBlock, BlogPost } from "./types";
@@ -11,6 +12,7 @@ import type { BlogBlock, BlogPost } from "./types";
 export type { BlogBlock, BlogPost } from "./types";
 
 export const blogPosts: BlogPost[] = [
+  onlineVsInPersonTrainerDubaiPost,
   tipsMuscleGrowthPost,
   fiveFoodsBodybuildingPost,
   fourMistakesArmsPost,
