@@ -19,7 +19,7 @@ export const onlineVsInPersonTrainerDubaiPost: BlogPost = {
   ],
   publishedAt: "2026-10-27",
   readingTimeMinutes: 7,
-  coverImage: "https://mcp.ootto.ai/media/carousel/acc_ca7b323e88a3-be2b257d41/01.png",
+  coverImage: "/blog/online-vs-in-person-personal-trainer-dubai.jpg",
   coverImageAlt: "Milos Ilic, personal trainer in Dubai and online fitness coach, in the gym with dumbbells",
   autoPublished: true,
   blocks: [
