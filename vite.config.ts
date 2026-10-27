@@ -55,7 +55,8 @@ export default defineConfig(({ mode }) => ({
         navigateFallbackDenylist: [/^\/api\//],
         // Precache icons/static only — hashed JS/CSS must always come from network to avoid blank screen after deploy.
         globPatterns: ["**/*.{ico,png,svg,webp,woff2}", "manifest.webmanifest", "robots.txt"],
-        globIgnores: ["**/index.html", "**/assets/**"],
+        // Hero-slika.png is the 8 MB 4K original; the site uses the hero-lcp*.webp versions made from it
+        globIgnores: ["**/index.html", "**/assets/**", "**/Hero-slika.png"],
         runtimeCaching: [
           {
             urlPattern: ({ request }) => request.mode === "navigate",
