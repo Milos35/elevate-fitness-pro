@@ -118,6 +118,13 @@ export default {
       roadmap: { title: "Plan za 12 nedelja", text: "Tri faze od po 4 nedelje — Osnova, Intenzitet, Transformacija — pa uvek znate šta sledi." },
     },
   },
+  transformations: {
+    eyebrow: "Prave transformacije",
+    headline: "Pravi ljudi.",
+    headlineHighlight: "Pravi rezultati.",
+    subhead: "Zaposleni roditelji i profesionalci koji su trenirali sa trenerom Milošem — isti sistem, tri treninga nedeljno.",
+    imageAlt: "Transformacija klijenta {{n}} — pre i posle",
+  },
   pillars: {
     eyebrow: "Metoda",
     headlinePrefix: "Tri stuba",

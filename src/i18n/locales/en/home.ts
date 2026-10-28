@@ -118,6 +118,13 @@ export default {
       roadmap: { title: "12-week roadmap", text: "Three 4-week phases — Foundation, Intensity, Transformation — so you always know what's next." },
     },
   },
+  transformations: {
+    eyebrow: "Real transformations",
+    headline: "Real people.",
+    headlineHighlight: "Real results.",
+    subhead: "Busy parents and professionals who trained with Coach Milos — same system, three sessions a week.",
+    imageAlt: "Client transformation {{n}} — before and after",
+  },
   pillars: {
     eyebrow: "The Method",
     headlinePrefix: "Three Pillars of",
