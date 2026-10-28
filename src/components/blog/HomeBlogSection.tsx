@@ -9,7 +9,10 @@ export function HomeBlogSection() {
   const { t, i18n } = useTranslation("blog");
   const { to } = useAppLocale();
   const { posts } = usePublishedBlogPosts();
-  const featured = posts.filter((post) => post.featuredOnHomepage).slice(0, 3);
+  // Always the 3 newest posts; older ones stay on the /blog page
+  const featured = [...posts]
+    .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+    .slice(0, 3);
 
   if (featured.length === 0) return null;
 
