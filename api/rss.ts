@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    "slug": "lose-weight-without-counting-calories-after-40",
+    "title": "How to Lose Weight Without Counting Calories After 40: A Simple System for Busy Parents",
+    "excerpt": "You can lose weight without counting calories after 40. Here is the simple plate system I use with busy parents: protein first, hand-sized portions and a few rules you can follow at a family dinner.",
+    "publishedAt": "2026-10-28"
+  },
+  {
     "slug": "online-vs-in-person-personal-trainer-dubai",
     "title": "Online Personal Trainer vs In-Person Personal Trainer in Dubai: Which Is Right for a Busy Parent?",
     "excerpt": "Choosing a personal trainer in Dubai? Compare online coaching and in-person training for busy parents over 35, and find the option you will still be doing in six months.",
