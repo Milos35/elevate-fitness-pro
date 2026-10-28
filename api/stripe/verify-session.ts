@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import Stripe from "stripe";
-import { getUserFromBearer } from "../_lib/authUser";
-import { grantProgramAccess } from "../_lib/grantProgramAccess";
+import { getUserFromBearer } from "../_lib/authUser.js";
+import { grantProgramAccess } from "../_lib/grantProgramAccess.js";
 
 type Body = { sessionId?: string };
 

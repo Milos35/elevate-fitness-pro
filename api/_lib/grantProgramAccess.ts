@@ -1,4 +1,4 @@
-import { getSupabaseAdmin } from "./supabaseAdmin";
+import { getSupabaseAdmin } from "./supabaseAdmin.js";
 
 export async function grantProgramAccess(userId: string, source: "stripe" | "stripe_webhook") {
   const admin = getSupabaseAdmin();
