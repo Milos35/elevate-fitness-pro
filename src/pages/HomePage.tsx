@@ -75,7 +75,7 @@ const HomePage = () => {
   const heroImage = homepageStorageUrl(hero.imagePath) ?? "/hero-lcp.webp";
   const heroSrcSet = hero.imagePath
     ? undefined
-    : "/hero-lcp-1280.webp 1280w, /hero-lcp.webp 1920w, /hero-lcp-2560.webp 2560w";
+    : "/hero-lcp-1280.webp 1280w, /hero-lcp.webp 1920w, /hero-lcp-2000.webp 2000w";
   const coachImage = homepageStorageUrl(coach.imagePath) ?? coachAbout;
   const heroSubhead = applyPricingTokens(hero.subhead, pricing);
   const metaDescription = applyPricingTokens(t("meta.description"), pricing);
