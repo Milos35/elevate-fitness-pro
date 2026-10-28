@@ -196,13 +196,13 @@ export default {
     minTrack: " · 10 min track",
     markWholeWeek: "Označi celu nedelju završenom",
     markWholeWeekDesc:
-      "Označava sve četiri {{variant}} sesije za nedelju {{week}}. Kad je ova nedelja potpuno gotova, vaš {{days}}-dnevni luk napreduje — isti brojevi kao prsten na pregledu.",
+      "Označava sve četiri {{variant}} sesije za nedelju {{week}}. Svaki označeni trening pomera Vaše odbrojavanje od {{days}} dana — isti brojevi kao prsten na pregledu.",
     programArc: "90-dnevni program",
     arcComplete: "Luk završen — svih 12 nedelja označeno redom. Nastavite trening ako želite.",
     daysLeft: "dana preostalo",
     dayOf: "Dan {{current}} od {{total}}",
     finishSlotsDesc:
-      "Završite sva četiri slota za nedelju {{week}} na ovom tabu (ili koristite dugme Označi celu nedelju završenom) da pomerite odbrojavanje. Gym, Kuća i 10 min se prate odvojeno; bilo koji završen slot računa se u nedelju.",
+      "Svaki trening koji označite (pon, sre, pet) pomera odbrojavanje — oko 2,5 dana po treningu. Subotnji bonus je opcion. Računaju se i Gym, i Kuća, i 10 min.",
     slots: {
       mon: "Pon · A",
       wed: "Sre · B",

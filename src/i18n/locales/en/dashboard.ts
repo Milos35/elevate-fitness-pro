@@ -196,13 +196,13 @@ export default {
     minTrack: " · 10 min track",
     markWholeWeek: "Mark whole week complete",
     markWholeWeekDesc:
-      "Checks all four {{variant}} sessions for week {{week}}. When this week is fully done, your {{days}}-day arc advances — same numbers as the overview ring.",
+      "Checks all four {{variant}} sessions for week {{week}}. Every checked session moves your {{days}}-day count — same numbers as the overview ring.",
     programArc: "90-day program",
     arcComplete: "Arc complete — all 12 weeks checked off in order. Keep training if you want.",
     daysLeft: "days left",
     dayOf: "Day {{current}} of {{total}}",
     finishSlotsDesc:
-      "Finish all four slots for week {{week}} on this tab (or use “Mark whole week complete”) to move the countdown. Gym, Home, and 10 min each track separately; any one completed slot counts toward the week.",
+      "Every session you check (Mon, Wed, Fri) moves the countdown — about 2.5 days each. The Saturday bonus is optional. Gym, Home and 10 min all count.",
     slots: {
       mon: "Mon · A",
       wed: "Wed · B",

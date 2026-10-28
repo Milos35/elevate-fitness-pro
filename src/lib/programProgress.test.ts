@@ -60,52 +60,52 @@ describe("getProgramProgressFromSessionLogs", () => {
     expect(p.percentComplete).toBe(1);
   });
 
-  it("advances after one full week (gym)", () => {
-    const logs = [
-      row(1, "mon", "gym", true),
-      row(1, "wed", "gym", true),
-      row(1, "fri", "gym", true),
-      row(1, "sat_bonus", "gym", true),
-    ];
-    const p = getProgramProgressFromSessionLogs(logs);
-    expect(p.completedContiguousWeeks).toBe(1);
-    expect(p.weekNumber).toBe(2);
-    expect(p.currentDay).toBe(Math.floor((1 / 12) * PROGRAM_TOTAL_DAYS));
-  });
-
-  it("does not count week 2 if week 1 incomplete", () => {
-    const logs = [
-      row(2, "mon", "gym", true),
-      row(2, "wed", "gym", true),
-      row(2, "fri", "gym", true),
-      row(2, "sat_bonus", "gym", true),
-    ];
-    const p = getProgramProgressFromSessionLogs(logs);
-    expect(p.completedContiguousWeeks).toBe(0);
+  it("moves the count after a single session", () => {
+    const p = getProgramProgressFromSessionLogs([row(1, "mon", "gym", true)]);
+    expect(p.currentDay).toBe(3); // 1/36 of 90 = 2.5 → 3
     expect(p.weekNumber).toBe(1);
   });
 
-  it("allows gym/home mix per slot", () => {
-    const logs = [
-      row(1, "mon", "gym", true),
-      row(1, "wed", "home", true),
-      row(1, "fri", "gym", true),
-      row(1, "sat_bonus", "home", true),
-    ];
+  it("completes a week with Mon/Wed/Fri — Saturday bonus is optional", () => {
+    const logs = [row(1, "mon", "gym", true), row(1, "wed", "gym", true), row(1, "fri", "gym", true)];
+    const p = getProgramProgressFromSessionLogs(logs);
+    expect(p.completedContiguousWeeks).toBe(1);
+    expect(p.weekNumber).toBe(2);
+    expect(p.currentDay).toBe(8); // 3/36 of 90 = 7.5 → 8
+  });
+
+  it("does not count the Saturday bonus toward the 90 days", () => {
+    const p = getProgramProgressFromSessionLogs([row(1, "sat_bonus", "gym", true)]);
+    expect(p.currentDay).toBe(1);
+  });
+
+  it("counts sessions from later weeks even if an earlier week is incomplete", () => {
+    const logs = [row(2, "mon", "gym", true), row(2, "wed", "gym", true), row(2, "fri", "gym", true)];
+    const p = getProgramProgressFromSessionLogs(logs);
+    expect(p.currentDay).toBe(8);
+    expect(p.completedContiguousWeeks).toBe(1);
+    expect(p.weekNumber).toBe(1);
+  });
+
+  it("allows gym/home/10 min mix per slot", () => {
+    const logs = [row(1, "mon", "gym", true), row(1, "wed", "home", true), row(1, "fri", "emergency", true)];
     const p = getProgramProgressFromSessionLogs(logs);
     expect(p.completedContiguousWeeks).toBe(1);
     expect(p.weekNumber).toBe(2);
   });
 
-  it("allows 10 min (emergency) track to complete a week", () => {
-    const logs = [
-      row(1, "mon", "emergency", true),
-      row(1, "wed", "emergency", true),
-      row(1, "fri", "emergency", true),
-      row(1, "sat_bonus", "emergency", true),
-    ];
+  it("ignores unchecked sessions", () => {
+    const p = getProgramProgressFromSessionLogs([row(1, "mon", "gym", false)]);
+    expect(p.currentDay).toBe(1);
+  });
+
+  it("reaches day 90 after all 36 sessions", () => {
+    const logs = [];
+    for (let w = 1; w <= 12; w++) for (const slot of ["mon", "wed", "fri"] as const) logs.push(row(w, slot, "gym", true));
     const p = getProgramProgressFromSessionLogs(logs);
-    expect(p.completedContiguousWeeks).toBe(1);
-    expect(p.weekNumber).toBe(2);
+    expect(p.currentDay).toBe(PROGRAM_TOTAL_DAYS);
+    expect(p.isComplete).toBe(true);
+    expect(p.daysRemaining).toBe(0);
+    expect(p.completedContiguousWeeks).toBe(12);
   });
 });

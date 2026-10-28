@@ -1,6 +1,11 @@
 import { differenceInCalendarDays, startOfDay } from "date-fns";
 import type { Database } from "@/types/database";
-import { countContiguousCompletedWeeksFromStart } from "@/lib/weekCompletionStats";
+import {
+  PROGRAM_SESSIONS,
+  countCompletedCoreSessions,
+  countCoreCompletedWeeks,
+  isWeekFullyCompleteUnion,
+} from "@/lib/weekCompletionStats";
 
 export const PROGRAM_TOTAL_DAYS = 90;
 export const PROGRAM_WEEKS = 12;
@@ -17,30 +22,31 @@ export type ProgramProgress = {
   daysRemaining: number;
   isComplete: boolean;
   anchorDate: Date | null;
-  /** Weeks 1..n fully checked in order (Mon+Wed+Fri+Sat; any track per slot). */
+  /** Weeks with Mon + Wed + Fri checked (any track per slot, any order). Name kept for existing callers. */
   completedContiguousWeeks: number;
 };
 
 /**
- * Member dashboard: progress only from session checkboxes.
- * One program week = all four slots done (Mon, Wed, Fri, Sat bonus) — gym, home, or 10 min per slot.
- * Weeks count in order from 1; if week 2 is incomplete, week 3+ do not advance the bar.
- * Day 1–90 is spread across 12 completed weeks (linear).
+ * Member dashboard: progress from session checkboxes.
+ * Every checked program session (Mon, Wed, Fri of weeks 1–12 — gym, home or 10 min) moves the 90-day count:
+ * 36 sessions = 90 days, about 2.5 days per session. The Saturday bonus is optional and does not count.
+ * Current week = first week whose Mon/Wed/Fri are not all done.
  */
 export function getProgramProgressFromSessionLogs(logs: WLog[]): ProgramProgress {
-  const contiguous = countContiguousCompletedWeeksFromStart(logs);
-  const isComplete = contiguous >= PROGRAM_WEEKS;
-  const weekNumber = Math.min(PROGRAM_WEEKS, contiguous + 1);
+  const sessions = countCompletedCoreSessions(logs);
+  const completedWeeks = countCoreCompletedWeeks(logs);
+  const isComplete = sessions >= PROGRAM_SESSIONS;
 
-  let currentDay: number;
-  if (isComplete) {
-    currentDay = PROGRAM_TOTAL_DAYS;
-  } else if (contiguous === 0) {
-    currentDay = 1;
-  } else {
-    currentDay = Math.min(PROGRAM_TOTAL_DAYS - 1, Math.floor((contiguous / PROGRAM_WEEKS) * PROGRAM_TOTAL_DAYS));
+  let weekNumber = PROGRAM_WEEKS;
+  for (let w = 1; w <= PROGRAM_WEEKS; w++) {
+    if (!isWeekFullyCompleteUnion(logs, w)) {
+      weekNumber = w;
+      break;
+    }
   }
 
+  const currentDay =
+    sessions === 0 ? 1 : Math.min(PROGRAM_TOTAL_DAYS, Math.round((sessions / PROGRAM_SESSIONS) * PROGRAM_TOTAL_DAYS));
   const daysRemaining = Math.max(0, PROGRAM_TOTAL_DAYS - currentDay);
   const percentComplete = Math.min(100, Math.round((currentDay / PROGRAM_TOTAL_DAYS) * 100));
 
@@ -52,7 +58,7 @@ export function getProgramProgressFromSessionLogs(logs: WLog[]): ProgramProgress
     daysRemaining,
     isComplete,
     anchorDate: null,
-    completedContiguousWeeks: contiguous,
+    completedContiguousWeeks: completedWeeks,
   };
 }
 
