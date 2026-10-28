@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { MemberGate } from "@/components/MemberGate";
+import { DailyMotivationCard } from "@/components/dashboard/DailyMotivationCard";
 import { useAuth } from "@/context/AuthContext";
 import { supabase } from "@/lib/supabase";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -59,6 +60,8 @@ export default function DashboardNotificationsPage() {
           <p className="text-muted-foreground mt-2">{t("notifications.subhead")}</p>
         </div>
 
+        <DailyMotivationCard />
+
         <Card className="glass-card">
           <CardHeader>
             <CardTitle className="text-lg">{t("notifications.preferences")}</CardTitle>
@@ -75,13 +78,6 @@ export default function DashboardNotificationsPage() {
                     <p className="text-xs text-muted-foreground">{t("notifications.emailRemindersSub")}</p>
                   </div>
                   <Switch checked={prefs.email_reminders} onCheckedChange={(v) => patch({ email_reminders: v })} />
-                </div>
-                <div className="flex items-center justify-between gap-4">
-                  <div>
-                    <Label className="text-base">{t("notifications.pushFuture")}</Label>
-                    <p className="text-xs text-muted-foreground">{t("notifications.pushFutureSub")}</p>
-                  </div>
-                  <Switch checked={prefs.push_enabled} onCheckedChange={(v) => patch({ push_enabled: v })} />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="tz">{t("notifications.timezone")}</Label>

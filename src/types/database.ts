@@ -201,6 +201,41 @@ export type Database = {
           updated_at?: string;
         };
       };
+      push_subscriptions: {
+        Row: {
+          id: string;
+          user_id: string;
+          endpoint: string;
+          p256dh: string;
+          auth: string;
+          locale: string;
+          user_agent: string | null;
+          created_at: string;
+          last_sent_at: string | null;
+        };
+        Insert: {
+          id?: string;
+          user_id: string;
+          endpoint: string;
+          p256dh: string;
+          auth: string;
+          locale?: string;
+          user_agent?: string | null;
+          created_at?: string;
+          last_sent_at?: string | null;
+        };
+        Update: {
+          id?: string;
+          user_id?: string;
+          endpoint?: string;
+          p256dh?: string;
+          auth?: string;
+          locale?: string;
+          user_agent?: string | null;
+          created_at?: string;
+          last_sent_at?: string | null;
+        };
+      };
       reminder_jobs: {
         Row: {
           id: string;

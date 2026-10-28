@@ -53,6 +53,8 @@ export default defineConfig(({ mode }) => ({
         cleanupOutdatedCaches: true,
         navigateFallback: "/index.html",
         navigateFallbackDenylist: [/^\/api\//],
+        // Daily motivation push + notification click handlers
+        importScripts: ["/push-sw.js"],
         // Precache icons/static only — hashed JS/CSS must always come from network to avoid blank screen after deploy.
         globPatterns: ["**/*.{ico,png,svg,webp,woff2}", "manifest.webmanifest", "robots.txt"],
         // Hero-slika.png is the 8 MB 4K original; the site uses the hero-lcp*.webp versions made from it

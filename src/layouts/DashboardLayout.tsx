@@ -8,6 +8,7 @@ import {
   Utensils,
   Map,
   LineChart,
+  BellRing,
   User,
   LogOut,
   Shield,
@@ -22,6 +23,7 @@ const navKeys = [
   { to: "/dashboard/nutrition", key: "nutrition", icon: Utensils },
   { to: "/dashboard/roadmap", key: "roadmap", icon: Map },
   { to: "/dashboard/progress", key: "progress", icon: LineChart },
+  { to: "/dashboard/reminders", key: "reminders", icon: BellRing },
   { to: "/dashboard/profile", key: "profile", icon: User },
 ] as const;
 
