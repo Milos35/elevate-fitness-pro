@@ -203,3 +203,54 @@
 .app-feature-progress {
   animation: app-feature-progress linear forwards;
 }
+
+/* Member dashboard: dark page with teal glows and light, see-through frosted-glass cards.
+   Inner surfaces (inputs, chips, stat boxes) get slightly lighter tones to sit on the glass. */
+.dashboard-app :is([data-ui="card"], .glass-card) {
+  /* Solid tones that match white glass over the dark page (alpha tokens would break bg-x/60 style classes) */
+  --background: 0 0% 9%;
+  --secondary: 0 0% 15%;
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 68%;
+  --border: 0 0% 24%;
+  --input: 0 0% 26%;
+  border-color: rgb(255 255 255 / 0.12);
+  border-radius: 1.75rem;
+  background-color: rgb(255 255 255 / 0.07);
+  box-shadow: 0 20px 50px hsl(0 0% 0% / 0.3), inset 0 1px 0 rgb(255 255 255 / 0.1);
+  -webkit-backdrop-filter: blur(24px) saturate(1.5);
+  backdrop-filter: blur(24px) saturate(1.5);
+}
+/* Cards inside cards stay subtle instead of stacking another glass layer */
+.dashboard-app :is([data-ui="card"], .glass-card) :is([data-ui="card"], .glass-card) {
+  border-radius: 1.25rem;
+  background-color: rgb(255 255 255 / 0.04);
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.dashboard-surface {
+  border: 1px solid rgb(255 255 255 / 0.12);
+  background-color: rgb(255 255 255 / 0.07);
+  box-shadow: 0 20px 50px hsl(0 0% 0% / 0.3), inset 0 1px 0 rgb(255 255 255 / 0.1);
+  -webkit-backdrop-filter: blur(24px) saturate(1.5);
+  backdrop-filter: blur(24px) saturate(1.5);
+}
+/* Pill buttons and tab lists, like the public site */
+.dashboard-app .inline-flex.rounded-md,
+.dashboard-surface .inline-flex.rounded-md {
+  border-radius: 9999px;
+}
+.dashboard-app .inline-flex.rounded-md.bg-primary {
+  box-shadow: 0 8px 24px hsl(171 47% 50% / 0.3);
+  transition: transform 0.3s, background-color 0.2s, box-shadow 0.3s;
+}
+.dashboard-app .inline-flex.rounded-md.bg-primary:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 32px hsl(171 47% 50% / 0.42);
+}
+@media (prefers-reduced-motion: reduce) {
+  .dashboard-app .inline-flex.rounded-md.bg-primary:hover {
+    transform: none;
+  }
+}
