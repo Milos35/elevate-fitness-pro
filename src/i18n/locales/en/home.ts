@@ -124,6 +124,9 @@ export default {
     headlineHighlight: "Real results.",
     subhead: "Busy parents and professionals who trained with Coach Milos — same system, three sessions a week.",
     imageAlt: "Client transformation {{n}} — before and after",
+    prev: "Previous transformation",
+    next: "Next transformation",
+    goTo: "Show transformation {{n}}",
   },
   pillars: {
     eyebrow: "The Method",

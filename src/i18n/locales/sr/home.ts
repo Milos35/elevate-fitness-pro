@@ -124,6 +124,9 @@ export default {
     headlineHighlight: "Pravi rezultati.",
     subhead: "Zaposleni roditelji i profesionalci koji su trenirali sa trenerom Milošem — isti sistem, tri treninga nedeljno.",
     imageAlt: "Transformacija klijenta {{n}} — pre i posle",
+    prev: "Prethodna transformacija",
+    next: "Sledeća transformacija",
+    goTo: "Prikaži transformaciju {{n}}",
   },
   pillars: {
     eyebrow: "Metoda",

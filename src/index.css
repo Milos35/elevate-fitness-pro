@@ -254,27 +254,3 @@
     transform: none;
   }
 }
-
-/* Transformations showcase: endless horizontal scroll of two identical sets (translate -50% = one set) */
-@keyframes marquee-scroll {
-  to {
-    transform: translateX(-50%);
-  }
-}
-.marquee-track {
-  animation: marquee-scroll 70s linear infinite;
-}
-[dir="rtl"] .marquee-track {
-  animation-direction: reverse;
-}
-.marquee:hover .marquee-track {
-  animation-play-state: paused;
-}
-@media (prefers-reduced-motion: reduce) {
-  .marquee {
-    overflow-x: auto;
-  }
-  .marquee-track {
-    animation: none;
-  }
-}

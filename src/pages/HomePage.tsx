@@ -13,7 +13,7 @@ import coachAbout from "@/assets/coach-about.webp";
 import { PageMeta } from "@/components/seo/PageMeta";
 import { HandbooksLeadSection } from "@/components/HandbooksLeadSection";
 import { AppShowcaseSection } from "@/components/AppShowcaseSection";
-import { TransformationsMarquee } from "@/components/TransformationsMarquee";
+import { TransformationsGallery } from "@/components/TransformationsGallery";
 import { CALENDLY_FREE_CALL_URL } from "@/lib/pricing";
 import { usePricing } from "@/hooks/usePricing";
 import { usePublishedHomepageCms } from "@/hooks/usePublishedHomepageCms";
@@ -561,7 +561,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <TransformationsMarquee />
+      <TransformationsGallery />
 
       <HomeBlogSection />
 
