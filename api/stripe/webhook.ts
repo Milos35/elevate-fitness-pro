@@ -1,8 +1,8 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import getRawBody from "raw-body";
 import Stripe from "stripe";
-import { grantProgramAccess } from "../lib/grantProgramAccess";
-import { getSupabaseAdmin } from "../lib/supabaseAdmin";
+import { grantProgramAccess } from "../_lib/grantProgramAccess";
+import { getSupabaseAdmin } from "../_lib/supabaseAdmin";
 
 const DEFAULT_NOTIFY = "info@ptmilosilic.com";
 

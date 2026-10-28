@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import Stripe from "stripe";
-import { getUserFromBearer } from "../lib/authUser";
-import { getSiteUrl } from "../lib/siteUrl";
+import { getUserFromBearer } from "../_lib/authUser";
+import { getSiteUrl } from "../_lib/siteUrl";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {

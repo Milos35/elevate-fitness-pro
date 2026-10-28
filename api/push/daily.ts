@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import webpush from "web-push";
-import { getSupabaseAdmin } from "../lib/supabaseAdmin";
-import { getMotivationMessage } from "../lib/motivationMessages";
+import { getSupabaseAdmin } from "../_lib/supabaseAdmin";
+import { getMotivationMessage } from "../_lib/motivationMessages";
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
