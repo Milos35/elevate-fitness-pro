@@ -471,9 +471,11 @@ const HomePage = () => {
 
       <HandbooksLeadSection />
 
-      {/* Pillars */}
-      <section className="section-padding">
-        <div className="container mx-auto max-w-[1100px] px-6">
+      {/* Pillars — fully transparent glass cards over soft teal glows */}
+      <section className="section-padding relative overflow-hidden">
+        <div className="pointer-events-none absolute start-[8%] top-[45%] h-[24rem] w-[24rem] rounded-full bg-primary/25 blur-3xl" aria-hidden />
+        <div className="pointer-events-none absolute end-[6%] top-[35%] h-[22rem] w-[22rem] rounded-full bg-[hsl(190_70%_55%/0.2)] blur-3xl" aria-hidden />
+        <div className="container relative mx-auto max-w-[1100px] px-6">
           <p className="text-center text-xs font-semibold uppercase tracking-widest text-primary">{pillars.eyebrow}</p>
           <h2 className="font-display mt-2 text-balance text-center text-[clamp(2rem,5vw,3rem)] text-foreground">
             {pillars.headlinePrefix} <span className="text-primary">{pillars.headlineBrand}</span>
@@ -483,10 +485,10 @@ const HomePage = () => {
             {pillars.items.map((p) => (
               <div
                 key={p.num}
-                className="relative overflow-hidden rounded-xl border border-border bg-[#111] p-8 pt-10 text-center"
+                className="glass-clear relative overflow-hidden rounded-[2rem] p-8 pt-10 text-center"
               >
                 <div className="absolute left-0 right-0 top-0 h-0.5 bg-primary" />
-                <div className="font-display text-5xl text-primary/15 md:text-6xl">{p.num}</div>
+                <div className="font-display text-5xl text-primary/30 md:text-6xl">{p.num}</div>
                 <h3 className="mt-1 font-display text-2xl text-foreground md:text-3xl">{p.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.text}</p>
               </div>
