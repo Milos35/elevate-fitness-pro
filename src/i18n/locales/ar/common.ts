@@ -2,6 +2,7 @@ export default {
   nav: {
     home: "الرئيسية",
     program: "البرنامج",
+    app: "التطبيق",
     training: "التدريب",
     nutrition: "التغذية",
     results: "النتائج",

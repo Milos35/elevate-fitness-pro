@@ -34,6 +34,7 @@ const Footer = () => {
             <h4 className="font-sans font-semibold text-sm uppercase tracking-wider mb-4 text-primary">{t("footer.program")}</h4>
             <div className="flex flex-col gap-2">
               <Link to={to("/program")} className="text-sm text-muted-foreground hover:text-foreground transition-colors">{t("footer.programOverview")}</Link>
+              <Link to={to("/app")} className="text-sm text-muted-foreground hover:text-foreground transition-colors">{t("nav.app")}</Link>
               <Link to={nutritionTo} className="text-sm text-muted-foreground hover:text-foreground transition-colors">{t("footer.nutritionGuide")}</Link>
             </div>
           </div>

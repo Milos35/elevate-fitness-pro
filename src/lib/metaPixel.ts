@@ -95,6 +95,7 @@ export function trackPageView(): void {
 const VIEW_CONTENT_PATHS: Record<string, MetaEventParams> = {
   "/pricing": { content_name: "Pricing", content_category: "product" },
   "/program": { content_name: "Program", content_category: "product" },
+  "/app": { content_name: "App", content_category: "product" },
   "/coaching-apply": { content_name: "Coaching Apply", content_category: "lead" },
 };
 

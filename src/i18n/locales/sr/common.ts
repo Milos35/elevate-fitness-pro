@@ -2,6 +2,7 @@ export default {
   nav: {
     home: "Početna",
     program: "Program",
+    app: "Aplikacija",
     training: "Trening",
     nutrition: "Ishrana",
     results: "Rezultati",

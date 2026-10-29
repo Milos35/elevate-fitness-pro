@@ -204,6 +204,25 @@
   animation: app-feature-progress linear forwards;
 }
 
+/* Endless ticker strip: the track holds the list twice, so sliding by half loops seamlessly */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
 /* Member dashboard: dark page with teal glows and light, see-through frosted-glass cards.
    Inner surfaces (inputs, chips, stat boxes) get slightly lighter tones to sit on the glass. */
 .dashboard-app :is([data-ui="card"], .glass-card) {

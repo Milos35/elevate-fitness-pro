@@ -15,6 +15,7 @@ import enAuth from "./locales/en/auth";
 import enBlog from "./locales/en/blog";
 import enDashboard from "./locales/en/dashboard";
 import enHandbooks from "./locales/en/handbooks";
+import enAppPage from "./locales/en/appPage";
 import arCommon from "./locales/ar/common";
 import arHome from "./locales/ar/home";
 import arPricing from "./locales/ar/pricing";
@@ -28,6 +29,7 @@ import arAuth from "./locales/ar/auth";
 import arBlog from "./locales/ar/blog";
 import arDashboard from "./locales/ar/dashboard";
 import arHandbooks from "./locales/ar/handbooks";
+import arAppPage from "./locales/ar/appPage";
 import srAuth from "./locales/sr/auth";
 import srBlog from "./locales/sr/blog";
 import srCoaching from "./locales/sr/coaching";
@@ -41,6 +43,7 @@ import srPricing from "./locales/sr/pricing";
 import srProgram from "./locales/sr/program";
 import srResults from "./locales/sr/results";
 import srTraining from "./locales/sr/training";
+import srAppPage from "./locales/sr/appPage";
 
 void i18n
   .use(LanguageDetector)
@@ -61,6 +64,7 @@ void i18n
         blog: enBlog,
         dashboard: enDashboard,
         handbooks: enHandbooks,
+        appPage: enAppPage,
       },
       ar: {
         common: arCommon,
@@ -76,6 +80,7 @@ void i18n
         blog: arBlog,
         dashboard: arDashboard,
         handbooks: arHandbooks,
+        appPage: arAppPage,
       },
       sr: {
         common: srCommon,
@@ -91,6 +96,7 @@ void i18n
         blog: srBlog,
         dashboard: srDashboard,
         handbooks: srHandbooks,
+        appPage: srAppPage,
       },
     },
     fallbackLng: DEFAULT_LANGUAGE,
@@ -109,6 +115,7 @@ void i18n
       "blog",
       "dashboard",
       "handbooks",
+      "appPage",
     ],
     defaultNS: "common",
     interpolation: { escapeValue: false },

@@ -6,6 +6,7 @@ import { Suspense, type ReactNode } from "react";
 import { RoutePageFallback } from "@/components/RoutePageFallback";
 
 const ProgramPage = lazyRoute(() => import("@/pages/ProgramPage"));
+const AppPage = lazyRoute(() => import("@/pages/AppPage"));
 const TrainingPage = lazyRoute(() => import("@/pages/TrainingPage"));
 const NutritionPage = lazyRoute(() => import("@/pages/NutritionPage"));
 const FAQPage = lazyRoute(() => import("@/pages/FAQPage"));
@@ -27,6 +28,14 @@ export function publicRouteElements() {
         element={
           <Lazy>
             <ProgramPage />
+          </Lazy>
+        }
+      />
+      <Route
+        path="app"
+        element={
+          <Lazy>
+            <AppPage />
           </Lazy>
         }
       />

@@ -2,6 +2,7 @@ export default {
   nav: {
     home: "Home",
     program: "Program",
+    app: "The App",
     training: "Training",
     nutrition: "Nutrition",
     results: "Results",

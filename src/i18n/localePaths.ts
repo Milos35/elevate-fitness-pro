@@ -5,6 +5,7 @@ const LOCALE_PREFIXES = new Set<AppLanguage>(["sr", "ar"]);
 const PUBLIC_PATHS = new Set([
   "/",
   "/program",
+  "/app",
   "/training",
   "/nutrition",
   "/faq",

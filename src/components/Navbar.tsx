@@ -14,6 +14,7 @@ import { useAppLocale } from "@/hooks/useAppLocale";
 const navHrefs = [
   { href: "/", key: "home" },
   { href: "/program", key: "program" },
+  { href: "/app", key: "app" },
   { href: "/training", key: "training" },
   { href: "/nutrition", key: "nutrition" },
   { href: "/faq", key: "faq" },
