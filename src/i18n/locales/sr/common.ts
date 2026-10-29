@@ -63,6 +63,7 @@ export default {
   misc: {
     oneTime: "jednokratno",
     perMonth: "/ mesec",
+    paidOnce: "{{price}} jednokratno",
     watchStory: "Pogledaj priču",
   },
   notFound: {

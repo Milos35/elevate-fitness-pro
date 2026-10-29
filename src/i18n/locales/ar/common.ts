@@ -63,6 +63,7 @@ export default {
   misc: {
     oneTime: "دفعة واحدة",
     perMonth: "/ شهر",
+    paidOnce: "{{price}} دفعة واحدة",
     watchStory: "شاهد القصة",
   },
   notFound: {

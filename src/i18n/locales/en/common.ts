@@ -63,6 +63,7 @@ export default {
   misc: {
     oneTime: "one-time",
     perMonth: "/ month",
+    paidOnce: "{{price}} paid once",
     watchStory: "Watch story",
   },
   notFound: {

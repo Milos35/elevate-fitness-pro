@@ -12,7 +12,8 @@ export type PricingTier = {
 
 export type PricingSet = {
   currency: DisplayCurrency;
-  selfGuided: PricingTier & { labelOneTime: string; stripeAmountFils: number };
+  /** monthlyEquivalent: the one-time price spread over 12 months, shown as a "per month" marketing figure (still charged once). */
+  selfGuided: PricingTier & { labelOneTime: string; monthlyEquivalent: string; stripeAmountFils: number };
   coachedStrong90: PricingTier & { labelMonthly: string };
   privateTransformation: PricingTier & { labelMonthly: string };
 };
@@ -48,9 +49,16 @@ export function formatPriceAmount(amount: number, currency: DisplayCurrency): st
   return `${amount.toLocaleString("en-US")} AED`;
 }
 
+/** Price over 12 months, rounded up (cents for EUR/AED, whole dinars for RSD) so 12× never undercuts the real price. */
+function monthlyOverYear(amount: number, currency: DisplayCurrency): number {
+  const step = currency === "RSD" ? 1 : 100;
+  return Math.ceil((amount / 12) * step) / step;
+}
+
 export function buildPricing(currency: DisplayCurrency, suffixes: PriceSuffixes): PricingSet {
   const amounts = AMOUNTS[currency];
   const selfGuided = formatPriceAmount(amounts.selfGuided, currency);
+  const selfGuidedMonthly = formatPriceAmount(monthlyOverYear(amounts.selfGuided, currency), currency);
   const coached = formatPriceAmount(amounts.coachedStrong90, currency);
   const privateTier = formatPriceAmount(amounts.privateTransformation, currency);
 
@@ -60,6 +68,7 @@ export function buildPricing(currency: DisplayCurrency, suffixes: PriceSuffixes)
       amount: amounts.selfGuided,
       label: selfGuided,
       labelOneTime: `${selfGuided} ${suffixes.oneTime}`,
+      monthlyEquivalent: selfGuidedMonthly,
       stripeAmountFils: STRIPE_SELF_GUIDED_FILS,
     },
     coachedStrong90: {

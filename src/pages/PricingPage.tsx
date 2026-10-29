@@ -17,6 +17,7 @@ import { resolvePricingCms } from "@/lib/siteCms";
 const PricingPage = () => {
   const { t } = useTranslation("pricing");
   const { t: tDashboard } = useTranslation("dashboard");
+  const { t: tCommon } = useTranslation("common");
   const pricing = usePricing();
   const { user, hasProgramAccess, configured, loading } = useAuth();
   const navigate = useNavigate();
@@ -122,9 +123,12 @@ const PricingPage = () => {
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-4">
                 <Zap className="h-3 w-3" /> {content.launchBadge}
               </div>
-              <h2 className="text-4xl md:text-5xl font-black mb-2">{pricing.selfGuided.label}</h2>
-              <p className="text-muted-foreground text-[10px] leading-snug sm:text-xs md:text-sm tracking-tight text-center whitespace-normal sm:whitespace-nowrap px-1">
-                {t("oneTimeLifetime")}
+              <h2 className="text-4xl md:text-5xl font-black mb-2">
+                {pricing.selfGuided.monthlyEquivalent}{" "}
+                <span className="text-xl md:text-2xl font-bold text-muted-foreground">{tCommon("misc.perMonth")}</span>
+              </h2>
+              <p className="text-muted-foreground text-xs leading-snug md:text-sm tracking-tight text-center text-balance px-1">
+                {t("oneTimeLifetime", { price: pricing.selfGuided.label })}
               </p>
             </div>
 

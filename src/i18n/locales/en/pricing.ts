@@ -11,7 +11,7 @@ export default {
     subhead: "No subscriptions. No hidden fees. One payment, lifetime access — aligned with your manual.",
   },
   launchBadge: "LAUNCH PRICE — LIMITED TIME",
-  oneTimeLifetime: "One-time payment · Lifetime access",
+  oneTimeLifetime: "Pay {{price}} once · Lifetime access",
   everythingIncluded: "Everything Included:",
   features: [
     "3 Gym Training Programs (A/B/C)",

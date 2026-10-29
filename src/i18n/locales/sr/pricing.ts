@@ -11,7 +11,7 @@ export default {
     subhead: "Bez pretplata. Bez skrivenih troškova. Jedna uplata, doživotni pristup — u skladu sa vašim priručnikom.",
   },
   launchBadge: "LANSIRNA CENA — OGRANIČENO VREME",
-  oneTimeLifetime: "Jednokratna uplata · Doživotni pristup",
+  oneTimeLifetime: "Plaćaš {{price}} jednom · Doživotni pristup",
   everythingIncluded: "Sve uključeno:",
   features: [
     "3 teretanska programa (A/B/C)",
