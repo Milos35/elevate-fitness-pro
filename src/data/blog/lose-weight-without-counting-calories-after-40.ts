@@ -23,6 +23,7 @@ export const loseWeightWithoutCountingCaloriesPost: BlogPost = {
   coverImageAlt:
     "Coach Milos Ilic showing how to lose weight without counting calories after 40 with a simple system for busy parents",
   autoPublished: true,
+  featuredOnHomepage: true,
   blocks: [
     {
       type: "p",

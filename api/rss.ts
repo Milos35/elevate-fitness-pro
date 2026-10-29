@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    "slug": "increase-testosterone-naturally-after-40",
+    "title": "How to Increase Testosterone Naturally After 40: A Coach's Guide for Busy Men",
+    "excerpt": "Tired, softer around the middle and losing strength after 40? Here is how to increase testosterone naturally with the basics that matter: strength training, sleep, body fat, food and stress.",
+    "publishedAt": "2026-10-29"
+  },
+  {
     "slug": "lose-weight-without-counting-calories-after-40",
     "title": "How to Lose Weight Without Counting Calories After 40: A Simple System for Busy Parents",
     "excerpt": "You can lose weight without counting calories after 40. Here is the simple plate system I use with busy parents: protein first, hand-sized portions and a few rules you can follow at a family dinner.",

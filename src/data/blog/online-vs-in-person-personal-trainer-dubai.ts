@@ -22,6 +22,7 @@ export const onlineVsInPersonTrainerDubaiPost: BlogPost = {
   coverImage: "/blog/online-vs-in-person-personal-trainer-dubai.jpg",
   coverImageAlt: "Milos Ilic, personal trainer in Dubai and online fitness coach, in the gym with dumbbells",
   autoPublished: true,
+  featuredOnHomepage: true,
   blocks: [
     {
       type: "p",

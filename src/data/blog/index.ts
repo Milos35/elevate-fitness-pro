@@ -4,6 +4,7 @@ import { fiveFoodsBodybuildingPost } from "./five-foods-bodybuilding";
 import { fourMistakesArmsPost } from "./four-mistakes-training-arms";
 import { loseWeightWithoutCountingCaloriesPost } from "./lose-weight-without-counting-calories-after-40";
 import { healthFitnessSupplementsPost } from "./health-fitness-supplements";
+import { increaseTestosteroneNaturallyPost } from "./increase-testosterone-naturally-after-40";
 import { noTimeTooTiredPost } from "./no-time-too-tired";
 import { onlineVsInPersonTrainerDubaiPost } from "./online-vs-in-person-personal-trainer-dubai";
 import { tipsMuscleGrowthPost } from "./tips-muscle-growth";
@@ -13,6 +14,7 @@ import type { BlogBlock, BlogPost } from "./types";
 export type { BlogBlock, BlogPost } from "./types";
 
 export const blogPosts: BlogPost[] = [
+  increaseTestosteroneNaturallyPost,
   loseWeightWithoutCountingCaloriesPost,
   onlineVsInPersonTrainerDubaiPost,
   tipsMuscleGrowthPost,
