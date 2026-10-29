@@ -58,7 +58,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 px-3 pt-3 md:px-4">
+    <nav className="fixed top-0 left-0 right-0 z-50 px-3 pt-[max(0.75rem,env(safe-area-inset-top))] md:px-4">
       <div
         className={`mx-auto flex h-14 max-w-[1320px] items-center justify-between rounded-full border border-white/10 pe-2 ps-5 transition-[background-color,box-shadow] duration-300 ${
           scrolled || open

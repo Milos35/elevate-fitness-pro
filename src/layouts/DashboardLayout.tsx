@@ -108,8 +108,11 @@ export default function DashboardLayout() {
         </div>
       </aside>
 
+      {/* iOS home-screen app draws under the status bar (black-translucent); keep that strip solid so content scrolls behind it */}
+      <div className="fixed inset-x-0 top-0 z-30 h-[env(safe-area-inset-top)] bg-[#070707] md:hidden" aria-hidden />
+
       <div className="relative z-10 flex min-w-0 flex-1 flex-col">
-        <header className="dashboard-surface sticky top-3 z-20 mx-3 mt-3 rounded-[1.75rem] md:hidden">
+        <header className="dashboard-surface sticky top-[max(0.75rem,env(safe-area-inset-top))] z-20 mx-3 mt-[max(0.75rem,env(safe-area-inset-top))] rounded-[1.75rem] md:hidden">
           <div className="flex h-14 items-center justify-between ps-5 pe-2">
             <Link to="/dashboard" className="text-sm font-black tracking-tight">
               BUSY<span className="text-primary">STRONG</span>90
