@@ -14,4 +14,4 @@ export type GoogleReview = {
 export const GOOGLE_REVIEWS: GoogleReview[] = [];
 
 /** Link to the Google profile / reviews (Google Business Profile → Share). Empty = no link shown. */
-export const GOOGLE_REVIEWS_URL = "";
+export const GOOGLE_REVIEWS_URL = "https://share.google/wP5iNYDmQFWqfwKMA";

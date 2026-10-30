@@ -6,7 +6,23 @@ type Props = { className?: string; limit?: number; dark?: boolean };
 /** Real Google reviews. Renders nothing until reviews are added in src/data/googleReviews.ts. */
 export function GoogleReviews({ className = "", limit = 4, dark = true }: Props) {
   const reviews = GOOGLE_REVIEWS.slice(0, limit);
-  if (reviews.length === 0) return null;
+  if (reviews.length === 0) {
+    // No reviews copied in yet: still point people to the real ones on Google.
+    if (!GOOGLE_REVIEWS_URL) return null;
+    return (
+      <p className={`${className} text-center text-sm ${dark ? "text-white/70" : "text-muted-foreground"}`}>
+        <a
+          href={GOOGLE_REVIEWS_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 font-semibold text-primary hover:underline"
+        >
+          <Star className="h-4 w-4 fill-primary text-primary" aria-hidden />
+          Read client reviews on Google
+        </a>
+      </p>
+    );
+  }
 
   const avg = GOOGLE_REVIEWS.reduce((s, r) => s + r.rating, 0) / GOOGLE_REVIEWS.length;
 
