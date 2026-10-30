@@ -42,20 +42,8 @@ export default {
     failedTitle: "فشل الدفع",
     failedDescription: "إعداد رابط الدفع Stripe غير صالح.",
   },
-  testimonials: [
-    {
-      quote:
-        "أعود إلى المنزل بشكل مختلف الآن وأطفالي يلاحظون. لدي طاقة للعب معهم بعد العمل بدلاً من الانهيار على الأريكة.",
-      name: "David M.",
-      sub: "مدير مشروع، 42 — أب لـ 3 · دبي",
-    },
-    {
-      quote:
-        "ثلاث جلسات أستطيع فعلاً حمايتها في تقويمي — أقوى دون العيش في النادي. هذا أول برنامج أنهيته فعلاً.",
-      name: "Marcus V.",
-      sub: "قائد مؤسسي، 45 — أب لـ 1 · دبي",
-    },
-  ],
+  // Only real client reviews belong here (Google reviews live in src/data/googleReviews.ts).
+  testimonials: [],
   coachQuote: {
     text: "بنيت هذا البرنامج ليغيّر حياة الناس فعلاً — وليس فقط لبيع ملف PDF. إذا لديك أسئلة، تواصل معي. أقرأ كل رسالة.",
     attribution: "— Coach Milos",

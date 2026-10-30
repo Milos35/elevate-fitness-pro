@@ -17,7 +17,7 @@ export default {
   items: [
     {
       q: "Već sam probao programe i uvek odustanem. Zašto bi ovo bilo drugačije?",
-      a: "Većina zaposlenih muškaraca ne propada zbog nedostatka discipline — propadaju jer plan nije odgovarao stvarnom životu. Članarina u teretani koju nikad ne koristite, fitnes aplikacija sa fiksnim 12-nedeljnim blokom dok putujete, ili online trener koji počne jako pa šalje copy-paste nedelje treninga… ništa od toga ne preživi decu, rokove i prepun kalendar. Busy Strong 90 je napravljen obrnuto: tri sesije nedeljno, 30–40 minuta, trenirate kod kuće (ili u hotelu) bez putovanja, i ishrana bez kuhinjske vage — proteini na svakom obroku, jednostavna pravila. Sa Coached Strong 90, plan se gradi oko vašeg rasporeda i pratimo ono što zaista važi: težinu na vagi (kg) i energiju iz dana u dan — ne savršenstvo na papiru.",
+      a: "Većina zaposlenih muškaraca ne propada zbog nedostatka discipline — propadaju jer plan nije odgovarao stvarnom životu. Članarina u teretani koju nikad ne koristite, fitnes aplikacija sa fiksnim 12-nedeljnim blokom dok putujete, ili online trener koji počne jako pa šalje copy-paste nedelje treninga… ništa od toga ne preživi decu, rokove i prepun kalendar. Busy Strong 90 je napravljen obrnuto: tri sesije nedeljno, 22 minuta, trenirate kod kuće (ili u hotelu) bez putovanja, i ishrana bez kuhinjske vage — proteini na svakom obroku, jednostavna pravila. Sa Coached Strong 90, plan se gradi oko vašeg rasporeda i pratimo ono što zaista važi: težinu na vagi (kg) i energiju iz dana u dan — ne savršenstvo na papiru.",
     },
     {
       q: "Često putujem poslom. Mogu li i dalje ovo da radim?",
@@ -25,7 +25,7 @@ export default {
     },
     {
       q: "Nedelje mi krenu naopako — deca, rokovi, nema punog sata. Da li ću odustati?",
-      a: "Život prekida planove. Sistem to pretpostavlja. Ne propadate jer je sesija skraćena ili pomerena — propadate samo ako potpuno prestanete. Koristimo 30–40 minutne sesije koje možete zaštititi u kalendaru, opcione 10-minutne hitne treninge kad dan eksplodira, i coaching check-in-e da haotična nedelja ne postane izgubljen mesec.",
+      a: "Život prekida planove. Sistem to pretpostavlja. Ne propadate jer je sesija skraćena ili pomerena — propadate samo ako potpuno prestanete. Koristimo 22 minutne sesije koje možete zaštititi u kalendaru, opcione 10-minutne hitne treninge kad dan eksplodira, i coaching check-in-e da haotična nedelja ne postane izgubljen mesec.",
     },
     {
       q: "Posle posla sam iscrpljen. Nemam energije za trening.",

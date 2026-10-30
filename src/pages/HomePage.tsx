@@ -14,6 +14,8 @@ import { PageMeta } from "@/components/seo/PageMeta";
 import { HandbooksLeadSection } from "@/components/HandbooksLeadSection";
 import { AppShowcaseSection } from "@/components/AppShowcaseSection";
 import { TransformationsGallery } from "@/components/TransformationsGallery";
+import { GoogleReviews } from "@/components/GoogleReviews";
+import { GOOGLE_REVIEWS } from "@/data/googleReviews";
 import { CALENDLY_FREE_CALL_URL } from "@/lib/pricing";
 import { usePricing } from "@/hooks/usePricing";
 import { usePublishedHomepageCms } from "@/hooks/usePublishedHomepageCms";
@@ -260,6 +262,12 @@ const HomePage = () => {
 
       {/* Real client before/after photos right after the numbers: proof before the pitch */}
       <TransformationsGallery />
+
+      {GOOGLE_REVIEWS.length > 0 && (
+        <div className="bg-[#070707] px-6 py-14 md:py-20">
+          <GoogleReviews className="container mx-auto max-w-[1100px]" />
+        </div>
+      )}
 
       {/* Who — plain light #fdfcfa, no gradients */}
       <section className="theme-light section-padding bg-background">

@@ -3,7 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import type { User } from "@supabase/supabase-js";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import { Check, ArrowRight, Star, Loader2, PhoneCall, ShieldCheck, TrendingDown } from "lucide-react";
+import { Check, ArrowRight, Loader2, PhoneCall, ShieldCheck, TrendingDown } from "lucide-react";
 import { PageMeta } from "@/components/seo/PageMeta";
 import { useAuth } from "@/context/AuthContext";
 import { useToast } from "@/hooks/use-toast";
@@ -17,6 +17,7 @@ import { CALENDLY_FREE_CALL_URL } from "@/lib/pricing";
 import { usePublishedHomepageCms } from "@/hooks/usePublishedHomepageCms";
 import { resolveHomepageTiers } from "@/lib/homepageCms";
 import { useAppLocale } from "@/hooks/useAppLocale";
+import { GoogleReviews } from "@/components/GoogleReviews";
 
 const PricingPage = () => {
   const { t } = useTranslation("pricing");
@@ -36,7 +37,6 @@ const PricingPage = () => {
   const content = resolvePricingCms(pricingCms ?? null, t);
 
   const features = content.features;
-  const testimonials = content.testimonials;
 
   useEffect(() => {
     if (!configured) return;
@@ -257,22 +257,7 @@ const PricingPage = () => {
           </div>
         </div>
 
-        {testimonials.length > 0 && (
-          <div className="container mx-auto mt-12 grid max-w-3xl grid-cols-1 gap-6 md:grid-cols-2">
-            {testimonials.map((item) => (
-              <div key={item.name} className="rounded-xl border border-border bg-card/50 p-6 text-left">
-                <div className="mb-3 flex gap-1">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-primary text-primary" aria-hidden />
-                  ))}
-                </div>
-                <blockquote className="text-sm italic leading-relaxed text-muted-foreground">&ldquo;{item.quote}&rdquo;</blockquote>
-                <p className="mt-4 text-sm font-bold text-foreground">{item.name}</p>
-                <p className="text-xs text-muted-foreground">{item.sub}</p>
-              </div>
-            ))}
-          </div>
-        )}
+        <GoogleReviews className="container mx-auto mt-12 max-w-4xl" />
 
         <div className="container mx-auto mt-12 max-w-md text-center">
           <p className="text-sm italic text-muted-foreground">&ldquo;{content.coachQuote.text}&rdquo;</p>

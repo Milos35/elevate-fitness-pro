@@ -16,7 +16,7 @@ export default {
   facts: [
     { value: "90", label: "Days", note: "12 weeks, 3 phases" },
     { value: "36", label: "Sessions", note: "Every one planned for you" },
-    { value: "30–40", label: "Minutes", note: "Per session, start to finish" },
+    { value: "22", label: "Minutes", note: "Per session, start to finish" },
     { value: "3×", label: "Per week", note: "Mon · Wed · Fri" },
   ],
   ticker: [
@@ -72,7 +72,7 @@ export default {
     ],
     points: [
       { title: "Same structure every week", text: "A, B, C — push, legs, pull. You stop thinking about what to train and just show up." },
-      { title: "30–40 minutes", text: "Short enough to fit before the family wakes up or between calls. Every set has a purpose." },
+      { title: "22 minutes", text: "Short enough to fit before the family wakes up or between calls. Every set has a purpose." },
       { title: "Gym or home, one tap", text: "Travelling or stuck at home? Switch to the home or 10-minute version and the week still counts." },
       { title: "Progress moves with you", text: "Every session you tick off moves your 90-day progress forward — you always see how far you've come." },
     ],

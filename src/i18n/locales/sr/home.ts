@@ -2,7 +2,7 @@ export default {
   meta: {
     title: "Busy Strong 90 — 90-dnevni fitnes za zaposlene očeve u Dubaiju | Coach Milos",
     description:
-      "90-dnevni trening i ishrana za zaposlene očeve 35+ u Dubaiju. 30–40 min domaći treninzi, bez kuhinjske vage. Gubitak kilograma, povratak energije. Coached Strong 90 od {{coachingPrice}}.",
+      "90-dnevni trening i ishrana za zaposlene očeve 35+ u Dubaiju. 22 min domaći treninzi, bez kuhinjske vage. Gubitak kilograma, povratak energije. Coached Strong 90 od {{coachingPrice}}.",
   },
   hero: {
     eyebrow: "Online coaching u celom svetu · Uživo u Dubaiju",
@@ -16,14 +16,14 @@ export default {
     pills: ["Online, odakle god", "3× nedeljno", "Bez kuhinjske vage", "Aplikacija + trener"],
     trust: [
       "Treniraj kod kuće — bez putovanja",
-      "30–40 min · prati kg + energiju",
+      "22 min · prati kg + energiju",
       "Napravljeno za očeve 35+",
     ],
   },
   stats: [
     { value: "3×", label: "Nedeljno" },
     { value: "90", label: "Dnevni sistem" },
-    { value: "30-40", label: "Min / sesija" },
+    { value: "22", label: "Min / sesija" },
     { value: "35+", label: "Starosna grupa" },
   ],
   who: {
@@ -32,16 +32,16 @@ export default {
     headlineHighlight: "roditelje i profesionalce",
     headlineSuffix: "— online odakle god, uživo u Dubaiju",
     body:
-      "Ne treba vam još jedan influencer koji kaže da samo budite konzistentni. Treba vam 30–40 minuta, tri puta nedeljno, i plan koji i dalje radi kad putovanje, rokovi ili porodica rasporede nedelju.",
+      "Ne treba vam još jedan influencer koji kaže da samo budite konzistentni. Treba vam 22 minuta, tri puta nedeljno, i plan koji i dalje radi kad putovanje, rokovi ili porodica rasporede nedelju.",
     mostCommon: "Najčešće",
     cards: {
       fathers: {
         title: "Zaposleni očevi i roditelji",
-        text: "Vaša deca posmatraju sve što radite. Kad imate energiju posle posla, tu ste za njih — umesto da padnete na kauč. 30–40 minuta, 3× nedeljno, kod kuće dok spavaju ili se igraju.",
+        text: "Vaša deca posmatraju sve što radite. Kad imate energiju posle posla, tu ste za njih — umesto da padnete na kauč. 22 minuta, 3× nedeljno, kod kuće dok spavaju ili se igraju.",
       },
       founders: {
         title: "Osnivači i vlasnici biznisa",
-        text: "Rana jutra, kasne noći, pozivi jedan za drugim. Treba vam manje kilograma i više energije — ne još jedan sat u teretani. 30–40 minuta, 3× nedeljno, trenirate kod kuće između sastanaka.",
+        text: "Rana jutra, kasne noći, pozivi jedan za drugim. Treba vam manje kilograma i više energije — ne još jedan sat u teretani. 22 minuta, 3× nedeljno, trenirate kod kuće između sastanaka.",
       },
       professionals: {
         title: "Korporativni profesionalci",
@@ -61,7 +61,7 @@ export default {
       tier: "Samostalno",
       name: "Busy Strong 90",
       benefits: [
-        "Kompletan 90-dnevni program koji možete završiti — 36 sesija, po 30–40 min",
+        "Kompletan 90-dnevni program koji možete završiti — 36 sesija, po 22 min",
         "Tačno znate šta raditi na svakom treningu",
         "Jedite normalno — bez kuhinjske vage, bez makro aplikacije",
         "Navike koje traju i posle 90 dana",
@@ -102,7 +102,7 @@ export default {
     eyebrow: "Niste sigurni?",
     headline: "Ne znate koji put vam odgovara? Prvo razgovarajte sa trenerom Milošem.",
     body: "Zakažite besplatan poziv — recite Milošu svoj raspored i ciljeve, a on će vam iskreno reći da li vam više odgovara program ili lični coaching.",
-    chips: ["Sesije od 30–40 min", "3× nedeljno", "Treniraj kod kuće", "Bez kuhinjske vage"],
+    chips: ["Sesije od 22 min", "3× nedeljno", "Treniraj kod kuće", "Bez kuhinjske vage"],
   },
   app: {
     eyebrow: "Uključeno uz program",
@@ -139,7 +139,7 @@ export default {
       {
         num: "01",
         title: "Treniraj pametno",
-        text: "3× nedeljno. 30–40 minuta. Progresivno opterećenje. Složeni pokreti koji grade pravu snagu. Bez suvišnog volumena. Svako ponavljanje ima svrhu — jer vaše vreme ima cenu.",
+        text: "3× nedeljno. 22 minuta. Progresivno opterećenje. Složeni pokreti koji grade pravu snagu. Bez suvišnog volumena. Svako ponavljanje ima svrhu — jer vaše vreme ima cenu.",
       },
       {
         num: "02",

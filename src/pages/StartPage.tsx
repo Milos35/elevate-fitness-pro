@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { CALENDLY_FREE_CALL_URL } from "@/lib/pricing";
 import { trackLead } from "@/lib/metaPixel";
 import { useAppLocale } from "@/hooks/useAppLocale";
+import { GoogleReviews } from "@/components/GoogleReviews";
 
 /** The same free guides ManyChat sends for the comment keywords RESET / EAT / FUEL. */
 const FREE_GUIDES = [
@@ -92,6 +93,8 @@ export default function StartPage() {
             </a>
           ))}
         </div>
+
+        <GoogleReviews className="mt-9" limit={2} />
 
         <h2 className="mt-9 text-xs font-bold uppercase tracking-[0.2em] text-primary">Work with me</h2>
         <div className="mt-3 flex flex-col gap-3">

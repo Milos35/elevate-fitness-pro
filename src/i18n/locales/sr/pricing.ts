@@ -42,20 +42,8 @@ export default {
     failedTitle: "Checkout nije uspeo",
     failedDescription: "Neispravna Stripe payment link konfiguracija.",
   },
-  testimonials: [
-    {
-      quote:
-        "Sada dolazim kući drugačije i deca to primete. Imam energiju da se igram sa njima posle posla umesto da padnem na kauč.",
-      name: "David M.",
-      sub: "Menadžer projekata, 42 — Otac troje dece · Dubai",
-    },
-    {
-      quote:
-        "Tri sesije koje zaista mogu da zaštitim u kalendaru — jači bez života u teretani. Ovo je prvi program koji sam zaista završio.",
-      name: "Marcus V.",
-      sub: "Korporativni rukovodilac, 45 — Otac jednog deteta · Dubai",
-    },
-  ],
+  // Only real client reviews belong here (Google reviews live in src/data/googleReviews.ts).
+  testimonials: [],
   coachQuote: {
     text: "Napravio sam ovaj program da zaista promeni živote — ne samo da prodam PDF. Ako imate pitanja, javite se. Čitam svaku poruku.",
     attribution: "— Coach Milos",

@@ -17,7 +17,7 @@ export default {
   items: [
     {
       q: "I've tried programs before and always quit. Why would this be different?",
-      a: "Most busy men don't fail because they lack discipline — they fail because the plan didn't fit real life. A gym membership you never use, a fitness app with a fixed 12-week block you're supposed to follow while travelling, or an online coach who starts strong then sends copy-paste training weeks… none of that survives kids, deadlines, and a packed calendar. Busy Strong 90 is built the other way: three sessions per week, 30–40 minutes, train at home (or hotel) with no commute, and nutrition without a food scale — protein at every meal, simple rules. With Coached Strong 90, your plan is built around your schedule and we track what actually matters: weight on the scale (kg) and energy day to day — not perfection on paper.",
+      a: "Most busy men don't fail because they lack discipline — they fail because the plan didn't fit real life. A gym membership you never use, a fitness app with a fixed 12-week block you're supposed to follow while travelling, or an online coach who starts strong then sends copy-paste training weeks… none of that survives kids, deadlines, and a packed calendar. Busy Strong 90 is built the other way: three sessions per week, 22 minutes, train at home (or hotel) with no commute, and nutrition without a food scale — protein at every meal, simple rules. With Coached Strong 90, your plan is built around your schedule and we track what actually matters: weight on the scale (kg) and energy day to day — not perfection on paper.",
     },
     {
       q: "I travel a lot for work. Can I still do this?",
@@ -25,7 +25,7 @@ export default {
     },
     {
       q: "My weeks go sideways — kids, deadlines, no solid hour. Will I fall off?",
-      a: "Life interrupts. The system assumes that. You're not failing because a session got cut short or moved — you're failing only if you stop entirely. We use 30–40 minute sessions you can protect on the calendar, optional 10-minute emergency workouts when the day explodes, and coaching check-ins so a hectic week doesn't turn into a lost month.",
+      a: "Life interrupts. The system assumes that. You're not failing because a session got cut short or moved — you're failing only if you stop entirely. We use 22 minute sessions you can protect on the calendar, optional 10-minute emergency workouts when the day explodes, and coaching check-ins so a hectic week doesn't turn into a lost month.",
     },
     {
       q: "I'm wiped after work. I have no energy to train.",

@@ -42,20 +42,8 @@ export default {
     failedTitle: "Checkout failed",
     failedDescription: "Invalid Stripe payment link configuration.",
   },
-  testimonials: [
-    {
-      quote:
-        "I come home differently now and my kids notice. I have energy to play with them after work instead of collapsing on the couch.",
-      name: "David M.",
-      sub: "Project Manager, 42 — Father of 3 · Dubai",
-    },
-    {
-      quote:
-        "Three sessions I can actually protect on my calendar — stronger without living in the gym. This is the first program I actually finished.",
-      name: "Marcus V.",
-      sub: "Corporate Lead, 45 — Father of 1 · Dubai",
-    },
-  ],
+  // Only real client reviews belong here (Google reviews live in src/data/googleReviews.ts).
+  testimonials: [],
   coachQuote: {
     text: "I built this program to genuinely change lives — not just sell a PDF. If you have questions, reach out. I read every message.",
     attribution: "— Coach Milos",

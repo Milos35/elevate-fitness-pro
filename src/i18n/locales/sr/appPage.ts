@@ -16,7 +16,7 @@ export default {
   facts: [
     { value: "90", label: "Dana", note: "12 nedelja, 3 faze" },
     { value: "36", label: "Treninga", note: "Svaki unapred isplaniran" },
-    { value: "30–40", label: "Minuta", note: "Po treningu, od početka do kraja" },
+    { value: "22", label: "Minuta", note: "Po treningu, od početka do kraja" },
     { value: "3×", label: "Nedeljno", note: "Pon · Sre · Pet" },
   ],
   ticker: [
@@ -72,7 +72,7 @@ export default {
     ],
     points: [
       { title: "Ista struktura svake nedelje", text: "A, B, C — guranje, noge, vučenje. Prestaneš da razmišljaš šta treniraš i samo dođeš." },
-      { title: "30–40 minuta", text: "Dovoljno kratko da stane pre nego što se porodica probudi ili između sastanaka. Svaka serija ima svrhu." },
+      { title: "22 minuta", text: "Dovoljno kratko da stane pre nego što se porodica probudi ili između sastanaka. Svaka serija ima svrhu." },
       { title: "Teretana ili kuća, jednim klikom", text: "Na putu si ili ne možeš iz kuće? Prebaci na kućnu ili verziju od 10 minuta i nedelja se i dalje računa." },
       { title: "Napredak ide sa tobom", text: "Svaki čekiran trening pomera tvoj napredak kroz 90 dana — uvek vidiš koliko si odmakao." },
     ],
