@@ -330,11 +330,10 @@ const HomePage = () => {
               <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#717786]">{tiers.selfGuided.tier}</p>
               <h3 className="font-display mt-1.5 text-2xl leading-none">{tiers.selfGuided.name}</h3>
               <div className="mt-5 flex flex-wrap items-baseline gap-x-2">
-                <strong className="font-display text-[45px] font-normal leading-[0.95]">{pricing.selfGuided.monthlyEquivalent}</strong>
-                <span className="font-display text-[30px] leading-none">{tCommon("misc.perMonth")}</span>
+                <strong className="font-display text-[45px] font-normal leading-[0.95]">{pricing.selfGuided.label}</strong>
               </div>
               <p className="mt-2 text-[13px] font-semibold text-[#717786]">
-                {tCommon("misc.paidOnce", { price: pricing.selfGuided.label })}
+                {tCommon("misc.paidOnce")}
               </p>
               <Button
                 asChild

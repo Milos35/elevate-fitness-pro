@@ -375,10 +375,9 @@ const AppPage = () => {
           </h2>
           <p className="mx-auto mt-5 max-w-[480px] text-pretty text-white/70">{t("cta.body")}</p>
           <div className="mt-8 flex flex-wrap items-baseline justify-center gap-x-2">
-            <strong className="font-display text-5xl font-normal leading-none">{pricing.selfGuided.monthlyEquivalent}</strong>
-            <span className="font-display text-2xl leading-none text-white/70">{tCommon("misc.perMonth")}</span>
+            <strong className="font-display text-5xl font-normal leading-none">{pricing.selfGuided.label}</strong>
           </div>
-          <p className="mt-2 text-sm text-white/55">{tCommon("misc.paidOnce", { price: pricing.selfGuided.label })}</p>
+          <p className="mt-2 text-sm text-white/55">{tCommon("misc.paidOnce")}</p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <Button
               asChild

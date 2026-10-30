@@ -11,7 +11,7 @@ export default {
     subhead: "No subscriptions. No hidden fees. One payment, lifetime access — aligned with your manual.",
   },
   launchBadge: "LAUNCH PRICE — LIMITED TIME",
-  oneTimeLifetime: "Pay {{price}} once · Lifetime access",
+  oneTimeLifetime: "Pay {{price}} once · full 90-day program",
   everythingIncluded: "Everything Included:",
   features: [
     "3 Gym Training Programs (A/B/C)",
@@ -58,7 +58,7 @@ export default {
     proof: "110 kg → 78 kg in one year, at almost 50.",
     programName: "The Program",
     programTier: "Self-guided · app",
-    programOnce: "one payment · lifetime access",
+    programOnce: "one payment · full 90-day program",
     programCta: "Get the program",
     checkoutNote: "Secure Stripe checkout · card, Apple Pay, Google Pay · no account needed, your app login arrives by email",
     seeAll: "Everything in the app",

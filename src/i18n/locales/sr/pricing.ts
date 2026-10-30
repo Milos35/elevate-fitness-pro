@@ -11,7 +11,7 @@ export default {
     subhead: "Bez pretplata. Bez skrivenih troškova. Jedna uplata, doživotni pristup — u skladu sa vašim priručnikom.",
   },
   launchBadge: "LANSIRNA CENA — OGRANIČENO VREME",
-  oneTimeLifetime: "Plaćaš {{price}} jednom · Doživotni pristup",
+  oneTimeLifetime: "Plaćaš {{price}} jednom · ceo 90-dnevni program",
   everythingIncluded: "Sve uključeno:",
   features: [
     "3 teretanska programa (A/B/C)",
@@ -58,7 +58,7 @@ export default {
     proof: "110 kg → 78 kg za godinu dana, sa skoro 50 godina.",
     programName: "Program",
     programTier: "Samostalno · aplikacija",
-    programOnce: "jedna uplata · doživotni pristup",
+    programOnce: "jedna uplata · ceo 90-dnevni program",
     programCta: "Uzmi program",
     checkoutNote: "Sigurno plaćanje preko Stripe-a · kartica, Apple Pay, Google Pay · bez pravljenja naloga, login za aplikaciju stiže na email",
     seeAll: "Sve u aplikaciji",

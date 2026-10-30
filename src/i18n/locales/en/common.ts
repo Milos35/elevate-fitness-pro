@@ -65,7 +65,7 @@ export default {
   misc: {
     oneTime: "one-time",
     perMonth: "/ month",
-    paidOnce: "{{price}} paid once",
+    paidOnce: "One payment · full 90-day program",
     watchStory: "Watch story",
   },
   notFound: {
