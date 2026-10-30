@@ -1,8 +1,7 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import getRawBody from "raw-body";
 import Stripe from "stripe";
-import { grantProgramAccess } from "../_lib/grantProgramAccess.js";
-import { getSupabaseAdmin } from "../_lib/supabaseAdmin.js";
+import { fulfillPaidSession, sendWelcomeEmail } from "../_lib/fulfillCheckout.js";
 
 const DEFAULT_NOTIFY = "info@ptmilosilic.com";
 
@@ -73,20 +72,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         return res.status(200).json({ received: true });
       }
 
-      let userId = session.metadata?.supabase_user_id || session.client_reference_id || null;
+      // Logged-in buyer, existing account by email, or a guest: the account is created here.
+      const result = await fulfillPaidSession(session);
 
-      if (!userId) {
-        const email = session.customer_details?.email?.trim().toLowerCase() || session.customer_email?.trim().toLowerCase() || null;
-        if (email) {
-          const admin = getSupabaseAdmin();
-          const { data: profile } = await admin.from("profiles").select("id").eq("email", email).maybeSingle();
-          userId = profile?.id ?? null;
+      if (result) {
+        if (result.createdAccount && result.email) {
+          await sendWelcomeEmail(result.email, session.customer_details?.name ?? null);
         }
-      }
-
-      if (userId) {
-        await grantProgramAccess(userId, "stripe_webhook");
-        await notifyAdminPurchase(session.customer_details?.email ?? session.customer_email ?? null, userId);
+        await notifyAdminPurchase(result.email, result.userId);
       } else {
         console.error("[stripe/webhook] Could not map checkout session to a user", {
           sessionId: session.id,

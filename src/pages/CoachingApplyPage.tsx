@@ -62,7 +62,7 @@ export default function CoachingApplyPage() {
 
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (!age || !role || !fitness || !minutes || !goal.trim()) {
+    if (!goal.trim()) {
       toast({ title: t("toast.incompleteTitle"), variant: "destructive" });
       return;
     }
@@ -210,7 +210,6 @@ export default function CoachingApplyPage() {
               <Input
                 className="h-11 border-border bg-[#111] text-foreground"
                 placeholder={t("form.lastName.placeholder")}
-                required
                 value={lastName}
                 onChange={(ev) => setLastName(ev.target.value)}
                 disabled={submitting}
@@ -242,6 +241,25 @@ export default function CoachingApplyPage() {
               />
             </div>
           </div>
+          <div className="space-y-2">
+            <Label>{t("form.goal.label")}</Label>
+            <p className="text-xs text-muted-foreground">{t("form.goal.hint")}</p>
+            <Textarea
+              className="min-h-[100px] border-border bg-[#111] text-foreground"
+              placeholder={t("form.goal.placeholder")}
+              required
+              value={goal}
+              onChange={(ev) => setGoal(ev.target.value)}
+              disabled={submitting}
+            />
+          </div>
+
+          <details className="group rounded-xl border border-border bg-[#0d0d0d] p-4 open:pb-6">
+            <summary className="cursor-pointer list-none text-sm font-semibold text-foreground">
+              {t("form.moreOptional")}
+              <span className="ms-2 text-primary group-open:hidden">+</span>
+            </summary>
+            <div className="mt-6 flex flex-col gap-7">
           <div className="space-y-2">
             <Label>{t("form.location.label")}</Label>
             <Input
@@ -309,18 +327,6 @@ export default function CoachingApplyPage() {
             </RadioGroup>
           </div>
 
-          <div className="space-y-2">
-            <Label>{t("form.goal.label")}</Label>
-            <p className="text-xs text-muted-foreground">{t("form.goal.hint")}</p>
-            <Textarea
-              className="min-h-[100px] border-border bg-[#111] text-foreground"
-              placeholder={t("form.goal.placeholder")}
-              required
-              value={goal}
-              onChange={(ev) => setGoal(ev.target.value)}
-              disabled={submitting}
-            />
-          </div>
 
           <div className="space-y-2">
             <Label>{t("form.triedBefore.label")}</Label>
@@ -363,6 +369,9 @@ export default function CoachingApplyPage() {
               disabled={submitting}
             />
           </div>
+
+            </div>
+          </details>
 
           <div className="pt-2" id="apply">
             <Button

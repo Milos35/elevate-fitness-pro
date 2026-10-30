@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CalendarDays, Check, Home, PhoneCall, Scale, Timer } from "lucide-react";
+import { ArrowRight, CalendarDays, Check, Home, PhoneCall, Scale, Timer, TrendingDown } from "lucide-react";
 import { TestimonialVideoCard } from "@/components/TestimonialVideoCard";
 import { CountUpValue } from "@/components/CountUpValue";
 import { HomeBlogSection } from "@/components/blog/HomeBlogSection";
@@ -196,7 +196,7 @@ const HomePage = () => {
                 className="h-[3em] rounded-full bg-primary px-[1.75em] text-[1em] font-bold text-primary-foreground shadow-[0_8px_30px_hsl(171_47%_50%/0.35)] transition-[transform,background-color,box-shadow] duration-300 hover:scale-[1.04] hover:bg-primary/90 hover:shadow-[0_12px_40px_hsl(171_47%_50%/0.5)] motion-reduce:hover:scale-100"
               >
                 <Link to={to("/pricing")}>
-                  {tCommon("cta.getProgramPrice", { price: pricing.selfGuided.label })}
+                  {tCommon("cta.seePlans")}
                   <ArrowRight className="icon-directional ms-1 !h-[1em] !w-[1em]" />
                 </Link>
               </Button>
@@ -209,11 +209,16 @@ const HomePage = () => {
                 </a>
               </Button>
             </div>
-            <p data-hero-reveal className="mt-[1em] text-[0.875em] text-white/70">
-              <a href="#coaching" className="underline decoration-white/30 underline-offset-4 hover:text-primary">
-                {tCommon("cta.seeCoaching")}
-              </a>
-            </p>
+            {/* Proof in the first screen: one real client result (no photos, client's wish) */}
+            <div
+              data-hero-reveal
+              className="mt-[1.25em] inline-flex max-w-full items-center gap-[0.6em] rounded-2xl border border-primary/30 bg-black/40 px-[1em] py-[0.6em] backdrop-blur-sm"
+            >
+              <TrendingDown className="h-[1.4em] w-[1.4em] shrink-0 text-primary" aria-hidden />
+              <span className="text-[0.9em] leading-snug text-white/90">
+                <span className="font-bold text-primary">{t("hero.proofLabel")}:</span> {t("hero.proof")}
+              </span>
+            </div>
             <div data-hero-reveal className="mt-[1.5em] flex flex-wrap gap-[0.5em]">
               {hero.pills.map((pill) => (
                 <span
@@ -221,17 +226,6 @@ const HomePage = () => {
                   className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-[1em] py-[0.35em] text-[0.75em] font-semibold tracking-tight text-primary"
                 >
                   {pill}
-                </span>
-              ))}
-            </div>
-            <div data-hero-reveal className="mt-[1em] flex flex-wrap gap-[0.5em]">
-              {hero.trust.map((item) => (
-                <span
-                  key={item}
-                  className="glass-subtle inline-flex items-center gap-[0.4em] rounded-full px-[0.9em] py-[0.45em] text-[0.875em] text-white/90"
-                >
-                  <Check className="h-[1.1em] w-[1.1em] shrink-0 text-primary" />
-                  {item}
                 </span>
               ))}
             </div>
@@ -263,6 +257,9 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
+      {/* Real client before/after photos right after the numbers: proof before the pitch */}
+      <TransformationsGallery />
 
       {/* Who — plain light #fdfcfa, no gradients */}
       <section className="theme-light section-padding bg-background">
@@ -564,8 +561,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      <TransformationsGallery />
-
       <HomeBlogSection />
 
       {/* FAQ — Anatoly-style: dark; on lg the title + CTA stay sticky on the left while the questions scroll up on the right */}
@@ -642,7 +637,7 @@ const HomePage = () => {
                 className="h-12 rounded-full bg-primary px-7 text-base font-bold text-primary-foreground shadow-[0_8px_30px_hsl(171_47%_50%/0.35)] transition-[transform,background-color,box-shadow] duration-300 hover:scale-[1.04] hover:bg-primary/90 motion-reduce:hover:scale-100"
               >
                 <Link to={to("/pricing")}>
-                  {tCommon("cta.getProgramPrice", { price: pricing.selfGuided.label })}
+                  {tCommon("cta.seePlans")}
                   <ArrowRight className="icon-directional ms-1 h-4 w-4" />
                 </Link>
               </Button>

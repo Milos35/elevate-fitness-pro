@@ -181,7 +181,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-  if (!firstName || !lastName || !emailOk || !age || !role || !fitness || !goal || !minutes) {
+  // Short form: only name, email and goal are required; the rest is optional.
+  if (!firstName || !emailOk || !goal) {
     return res.status(400).json({ error: "Please complete all required fields with a valid email." });
   }
 

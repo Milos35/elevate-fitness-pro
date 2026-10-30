@@ -17,7 +17,7 @@ export default {
     memberLogin: "Member Login",
   },
   footer: {
-    tagline: "90-day training for busy fathers in Dubai. 30–40 min, 3x/week. Weight down. Energy back.",
+    tagline: "Online coaching for busy parents, worldwide. In person in Dubai. 3x/week. Weight down. Energy back.",
     program: "Program",
     programOverview: "Program Overview",
     nutritionGuide: "Nutrition Guide",
@@ -28,6 +28,7 @@ export default {
     motto: "90 Days. 3x/Week. No Excuses.",
   },
   cta: {
+    seePlans: "See plans & prices",
     getProgram: "Get the Program",
     getProgramPrice: "Get the Program — {{price}}",
     bookFreeCall: "Book a Free Call",

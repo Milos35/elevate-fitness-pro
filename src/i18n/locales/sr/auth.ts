@@ -15,6 +15,12 @@ export default {
     createOne: "Napravite ga",
     backToWebsite: "← Nazad na sajt",
     toastFailed: "Prijava nije uspela",
+    magicTitle: "Nemaš lozinku? Dobij link za prijavu",
+    magicSubmit: "Pošalji mi link za prijavu",
+    magicSending: "Šaljem…",
+    magicSent: "Proveri email",
+    magicSentDescription: "Otvori link na ovom uređaju da se prijaviš.",
+    magicOr: "ili se prijavi lozinkom",
   },
   signup: {
     meta: {

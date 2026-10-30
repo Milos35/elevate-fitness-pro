@@ -31,6 +31,7 @@ export default {
     },
   },
   form: {
+    moreOptional: "More about you (optional, helps me prepare for our call)",
     firstName: {
       label: "First Name",
       placeholder: "Your first name",

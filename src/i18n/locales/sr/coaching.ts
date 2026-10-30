@@ -31,6 +31,7 @@ export default {
     },
   },
   form: {
+    moreOptional: "Više o tebi (nije obavezno, pomaže mi da se pripremim za razgovor)",
     firstName: {
       label: "Ime",
       placeholder: "Vaše ime",

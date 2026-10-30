@@ -21,6 +21,7 @@ const NotFound = lazyRoute(() => import("@/pages/NotFound"));
 const LoginPage = lazyRoute(() => import("@/pages/auth/LoginPage"));
 const SignupPage = lazyRoute(() => import("@/pages/auth/SignupPage"));
 const AuthCallbackPage = lazyRoute(() => import("@/pages/auth/AuthCallbackPage"));
+const WelcomePage = lazyRoute(() => import("@/pages/WelcomePage"));
 const DashboardHome = lazyRoute(() => import("@/pages/dashboard/DashboardHome"));
 const DashboardTrainingPage = lazyRoute(() => import("@/pages/dashboard/DashboardTrainingPage"));
 const DashboardWorkoutDetailPage = lazyRoute(() => import("@/pages/dashboard/DashboardWorkoutDetailPage"));
@@ -94,6 +95,14 @@ const App = () => (
             element={
               <Lazy>
                 <SignupPage />
+              </Lazy>
+            }
+          />
+          <Route
+            path="/welcome"
+            element={
+              <Lazy>
+                <WelcomePage />
               </Lazy>
             }
           />

@@ -2,17 +2,18 @@ export default {
   meta: {
     title: "Busy Strong 90 — 90-Day Fitness for Busy Fathers in Dubai | Coach Milos",
     description:
-      "90-day training & nutrition for busy fathers 35+ in Dubai. 30–40 min home workouts, no food scale. Lose weight, restore energy. Coached Strong 90 from {{coachingPrice}}.",
+      "Online coaching worldwide and 90-day training & nutrition for busy parents 35+. 30–40 min home workouts, no food scale. Lose weight, restore energy. Coached Strong 90 from {{coachingPrice}}.",
   },
   hero: {
-    offer: "Limited-time offer until October 8th",
-    eyebrow: "You haven't trained in months. You're tired. Your kids see it.",
-    headline: "For busy fathers who want their",
+    eyebrow: "Online coaching worldwide · In person in Dubai",
+    headline: "For busy parents who want their",
     headlineEnergy: "energy",
     headlineSuffix: "back.",
     subhead:
-      "The 90-day system built for men who don't have time — 30–40 minutes, 3× per week, train at home (no commute). No food scale. Coached plans from {{coachingPrice}}.",
-    pills: ["30–40 min", "No food scale", "Train at home", "Dubai, UAE"],
+      "The 90-day system for people with no time: 3 sessions a week at home or in the gym, normal family food, no food scale. Built by Coach Milos: 3rd at Mr. Universe, 15 years of coaching, dad of two.",
+    proofLabel: "Real client result",
+    proof: "110 kg → 78 kg in one year, at almost 50.",
+    pills: ["Online, anywhere", "3× per week", "No food scale", "App + coach"],
     trust: [
       "Train at home — no commute",
       "30–40 min · track kg + energy",
@@ -28,8 +29,8 @@ export default {
   who: {
     eyebrow: "Built For You",
     headline: "Built for busy",
-    headlineHighlight: "fathers in Dubai",
-    headlineSuffix: "— founders & professionals welcome too",
+    headlineHighlight: "parents and professionals",
+    headlineSuffix: "— online anywhere, in person in Dubai",
     body:
       "You don't need another influencer telling you to \"just be consistent.\" You need 30–40 minutes, three times a week, and a plan that still works when travel, deadlines, or family blows up the week.",
     mostCommon: "Most common",

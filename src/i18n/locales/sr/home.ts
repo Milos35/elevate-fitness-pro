@@ -5,14 +5,15 @@ export default {
       "90-dnevni trening i ishrana za zaposlene očeve 35+ u Dubaiju. 30–40 min domaći treninzi, bez kuhinjske vage. Gubitak kilograma, povratak energije. Coached Strong 90 od {{coachingPrice}}.",
   },
   hero: {
-    offer: "Ograničena ponuda do 8. oktobra",
-    eyebrow: "Niste trenirali mesecima. Umorni ste. Vaša deca to vide.",
-    headline: "Za zaposlene očeve koji žele",
+    eyebrow: "Online coaching u celom svetu · Uživo u Dubaiju",
+    headline: "Za zaposlene roditelje koji žele",
     headlineEnergy: "energiju",
     headlineSuffix: "nazad.",
     subhead:
-      "90-dnevni sistem napravljen za muškarce bez vremena — 30–40 minuta, 3× nedeljno, trenirate kod kuće (bez putovanja). Bez kuhinjske vage. Coaching planovi od {{coachingPrice}}.",
-    pills: ["30–40 min", "Bez kuhinjske vage", "Treniraj kod kuće", "Dubai, UAE"],
+      "90-dnevni sistem za ljude bez vremena: 3 treninga nedeljno kod kuće ili u teretani, normalna porodična hrana, bez kuhinjske vage. Napravio ga je Coach Miloš: 3. na Mr. Universe, 15 godina coachinga, otac dvoje dece.",
+    proofLabel: "Stvaran rezultat klijenta",
+    proof: "110 kg → 78 kg za godinu dana, sa skoro 50 godina.",
+    pills: ["Online, odakle god", "3× nedeljno", "Bez kuhinjske vage", "Aplikacija + trener"],
     trust: [
       "Treniraj kod kuće — bez putovanja",
       "30–40 min · prati kg + energiju",
@@ -28,8 +29,8 @@ export default {
   who: {
     eyebrow: "Napravljeno za vas",
     headline: "Napravljeno za zaposlene",
-    headlineHighlight: "očeve u Dubaiju",
-    headlineSuffix: "— osnivači i profesionalci takođe dobrodošli",
+    headlineHighlight: "roditelje i profesionalce",
+    headlineSuffix: "— online odakle god, uživo u Dubaiju",
     body:
       "Ne treba vam još jedan influencer koji kaže da samo budite konzistentni. Treba vam 30–40 minuta, tri puta nedeljno, i plan koji i dalje radi kad putovanje, rokovi ili porodica rasporede nedelju.",
     mostCommon: "Najčešće",

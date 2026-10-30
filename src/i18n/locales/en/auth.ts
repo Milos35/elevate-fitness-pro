@@ -15,6 +15,12 @@ export default {
     createOne: "Create one",
     backToWebsite: "← Back to website",
     toastFailed: "Sign in failed",
+    magicTitle: "No password? Get a login link",
+    magicSubmit: "Email me a login link",
+    magicSending: "Sending…",
+    magicSent: "Check your email",
+    magicSentDescription: "Open the link on this device to log in.",
+    magicOr: "or log in with password",
   },
   signup: {
     meta: {

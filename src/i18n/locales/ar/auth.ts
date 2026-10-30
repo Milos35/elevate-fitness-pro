@@ -15,6 +15,12 @@ export default {
     createOne: "أنشئ حساباً",
     backToWebsite: "← العودة للموقع",
     toastFailed: "فشل تسجيل الدخول",
+    magicTitle: "بدون كلمة مرور؟ احصل على رابط الدخول",
+    magicSubmit: "أرسل لي رابط الدخول",
+    magicSending: "جارٍ الإرسال…",
+    magicSent: "تحقق من بريدك",
+    magicSentDescription: "افتح الرابط على هذا الجهاز لتسجيل الدخول.",
+    magicOr: "أو سجّل الدخول بكلمة المرور",
   },
   signup: {
     meta: {

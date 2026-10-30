@@ -14,6 +14,7 @@ const PricingPage = lazyRoute(() => import("@/pages/PricingPage"));
 const CoachingApplyPage = lazyRoute(() => import("@/pages/CoachingApplyPage"));
 const BlogIndexPage = lazyRoute(() => import("@/pages/BlogIndexPage"));
 const BlogPostPage = lazyRoute(() => import("@/pages/BlogPostPage"));
+const StartPage = lazyRoute(() => import("@/pages/StartPage"));
 
 function Lazy({ children }: { children: ReactNode }) {
   return <Suspense fallback={<RoutePageFallback />}>{children}</Suspense>;
@@ -81,6 +82,14 @@ export function publicRouteElements() {
         element={
           <Lazy>
             <CoachingApplyPage />
+          </Lazy>
+        }
+      />
+      <Route
+        path="start"
+        element={
+          <Lazy>
+            <StartPage />
           </Lazy>
         }
       />

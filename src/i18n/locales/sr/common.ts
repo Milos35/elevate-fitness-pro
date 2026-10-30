@@ -17,7 +17,7 @@ export default {
     memberLogin: "Prijava članova",
   },
   footer: {
-    tagline: "90-dnevni trening za zaposlene očeve u Dubaiju. 30–40 min, 3× nedeljno. Manje kilograma. Više energije.",
+    tagline: "Online coaching za zaposlene roditelje, u celom svetu. Uživo u Dubaiju. 3× nedeljno. Manje kilograma. Više energije.",
     program: "Program",
     programOverview: "Pregled programa",
     nutritionGuide: "Vodič za ishranu",
@@ -28,6 +28,7 @@ export default {
     motto: "90 dana. 3× nedeljno. Bez izgovora.",
   },
   cta: {
+    seePlans: "Pogledaj planove i cene",
     getProgram: "Uzmi program",
     getProgramPrice: "Uzmi program — {{price}}",
     bookFreeCall: "Zakaži besplatan poziv",

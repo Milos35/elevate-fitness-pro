@@ -36,6 +36,12 @@ export function ProtectedRoute({ children, requireAdmin, requireProgramAccess }:
   }
 
   if (!user) {
+    // Guest checkout: Stripe sent a buyer without an account here — finish on /welcome (auto-login).
+    const params = new URLSearchParams(location.search);
+    const sid = params.get("session_id");
+    if (params.get("checkout") === "success" && sid) {
+      return <Navigate to={`/welcome?session_id=${encodeURIComponent(sid)}`} replace />;
+    }
     const fullPath = `${location.pathname}${location.search}`;
     return <Navigate to={`/login?redirect=${encodeURIComponent(fullPath)}`} replace />;
   }

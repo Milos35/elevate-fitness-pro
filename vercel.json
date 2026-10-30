@@ -18,6 +18,9 @@
     },
     "api/push/daily.ts": {
       "maxDuration": 60
+    },
+    "api/stripe/claim.ts": {
+      "maxDuration": 30
     }
   },
   "rewrites": [

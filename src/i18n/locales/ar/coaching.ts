@@ -31,6 +31,7 @@ export default {
     },
   },
   form: {
+    moreOptional: "المزيد عنك (اختياري)",
     firstName: {
       label: "الاسم الأول",
       placeholder: "اسمك الأول",

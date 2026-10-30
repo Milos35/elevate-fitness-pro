@@ -10,12 +10,15 @@ import { useAuth } from "@/context/AuthContext";
 import { useToast } from "@/hooks/use-toast";
 import { useAppLocale } from "@/hooks/useAppLocale";
 import { safeInternalPath } from "@/lib/safeRedirect";
+import { supabase } from "@/lib/supabase";
 
 export default function LoginPage() {
   const { t } = useTranslation("auth");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [busy, setBusy] = useState(false);
+  const [magicBusy, setMagicBusy] = useState(false);
+  const [magicSent, setMagicSent] = useState(false);
   const { signIn, configured } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
@@ -35,6 +38,28 @@ export default function LoginPage() {
     }
     navigate(from, { replace: true });
   }
+
+  async function sendMagicLink() {
+    if (!email) {
+      document.getElementById("email")?.focus();
+      return;
+    }
+    setMagicBusy(true);
+    const site = import.meta.env.VITE_SITE_URL?.trim().replace(/\/$/, "") || window.location.origin;
+    const { error } = await supabase.auth.signInWithOtp({
+      email,
+      options: { shouldCreateUser: false, emailRedirectTo: `${site}/auth/callback` },
+    });
+    setMagicBusy(false);
+    if (error) {
+      toast({ title: t("login.toastFailed"), description: error.message, variant: "destructive" });
+      return;
+    }
+    setMagicSent(true);
+    toast({ title: t("login.magicSent"), description: t("login.magicSentDescription") });
+  }
+
+  const magicFirst = searchParams.get("magic") === "1";
 
   return (
     <>
@@ -63,6 +88,19 @@ export default function LoginPage() {
                 required
               />
             </div>
+            <div className={`rounded-lg border p-3 ${magicFirst ? "border-primary/50 bg-primary/5" : "border-border/60"}`}>
+              <p className="mb-2 text-xs text-muted-foreground">{magicSent ? t("login.magicSentDescription") : t("login.magicTitle")}</p>
+              <Button
+                type="button"
+                variant="outline"
+                className="w-full font-semibold"
+                disabled={magicBusy || !configured}
+                onClick={() => void sendMagicLink()}
+              >
+                {magicBusy ? t("login.magicSending") : magicSent ? t("login.magicSent") : t("login.magicSubmit")}
+              </Button>
+            </div>
+            <p className="text-center text-xs text-muted-foreground">{t("login.magicOr")}</p>
             <div className="space-y-2">
               <Label htmlFor="password">{t("login.password")}</Label>
               <Input

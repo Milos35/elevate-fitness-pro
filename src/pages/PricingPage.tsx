@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import type { User } from "@supabase/supabase-js";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import { Check, ArrowRight, Zap, Star, Loader2 } from "lucide-react";
+import { Check, ArrowRight, Star, Loader2, PhoneCall, ShieldCheck, TrendingDown } from "lucide-react";
 import { PageMeta } from "@/components/seo/PageMeta";
 import { useAuth } from "@/context/AuthContext";
 import { useToast } from "@/hooks/use-toast";
@@ -13,14 +13,21 @@ import { trackInitiateCheckout } from "@/lib/metaPixel";
 import { usePricing } from "@/hooks/usePricing";
 import { usePublishedSiteCms } from "@/hooks/usePublishedSiteCms";
 import { resolvePricingCms } from "@/lib/siteCms";
+import { CALENDLY_FREE_CALL_URL } from "@/lib/pricing";
+import { usePublishedHomepageCms } from "@/hooks/usePublishedHomepageCms";
+import { resolveHomepageTiers } from "@/lib/homepageCms";
+import { useAppLocale } from "@/hooks/useAppLocale";
 
 const PricingPage = () => {
   const { t } = useTranslation("pricing");
   const { t: tDashboard } = useTranslation("dashboard");
   const { t: tCommon } = useTranslation("common");
+  const { t: tHome } = useTranslation("home");
+  const { to } = useAppLocale();
+  const { data: homepageCms } = usePublishedHomepageCms();
+  const tiers = resolveHomepageTiers(homepageCms?.tiers, tHome);
   const pricing = usePricing();
   const { user, hasProgramAccess, configured, loading } = useAuth();
-  const navigate = useNavigate();
   const { toast } = useToast();
   const [searchParams, setSearchParams] = useSearchParams();
   const [checkoutBusy, setCheckoutBusy] = useState(false);
@@ -80,10 +87,7 @@ const PricingPage = () => {
       const { data } = await supabase.auth.getSession();
       payer = data.session?.user ?? null;
     }
-    if (!payer) {
-      navigate(`/login?redirect=${encodeURIComponent("/pricing")}`);
-      return;
-    }
+    // No account needed: guests pay first, the account is created from the email used at Stripe.
     setCheckoutBusy(true);
     try {
       trackInitiateCheckout(pricing.selfGuided.amount, pricing.currency);
@@ -99,6 +103,39 @@ const PricingPage = () => {
     }
   }
 
+  const programButton = loading ? (
+    <Button type="button" className="h-12 w-full bg-primary font-bold text-primary-foreground" disabled>
+      <Loader2 className="me-2 h-4 w-4 shrink-0 animate-spin" aria-hidden />
+      {t("checkout.checkingAccount")}
+    </Button>
+  ) : hasProgramAccess ? (
+    <Button className="h-12 w-full bg-primary font-bold text-primary-foreground hover:bg-primary/90" asChild>
+      <Link to="/dashboard" className="inline-flex w-full items-center justify-center gap-2">
+        {tDashboard("openYourTraining")}
+        <ArrowRight className="icon-directional h-4 w-4 shrink-0" aria-hidden />
+      </Link>
+    </Button>
+  ) : (
+    <Button
+      type="button"
+      className="h-12 w-full bg-primary font-bold text-primary-foreground hover:bg-primary/90"
+      disabled={checkoutBusy || !configured}
+      onClick={() => void startCheckout()}
+    >
+      {checkoutBusy ? (
+        <>
+          <Loader2 className="me-2 h-4 w-4 shrink-0 animate-spin" aria-hidden />
+          {t("checkout.redirecting")}
+        </>
+      ) : (
+        <>
+          {t("plans.programCta")} · {pricing.selfGuided.label}
+          <ArrowRight className="icon-directional ms-1 h-4 w-4 shrink-0" aria-hidden />
+        </>
+      )}
+    </Button>
+  );
+
   return (
     <div>
       <PageMeta
@@ -106,115 +143,127 @@ const PricingPage = () => {
         description={t("meta.description", { priceOneTime: pricing.selfGuided.labelOneTime })}
         path="/pricing"
       />
-      <section className="py-28 md:py-36">
-        <div className="container mx-auto px-4 text-center">
-          <div className="text-xs text-primary font-bold tracking-widest mb-4">{content.hero.eyebrow}</div>
-          <h1 className="text-4xl md:text-6xl font-black mb-6">
-            {content.hero.headline} <span className="text-gradient">{content.hero.headlineHighlight}</span>
+
+      <section className="px-4 pb-10 pt-24 md:pb-14 md:pt-32">
+        <div className="container mx-auto max-w-3xl text-center">
+          <div className="mb-4 text-xs font-bold tracking-widest text-primary">{t("plans.eyebrow")}</div>
+          <h1 className="text-balance text-4xl font-black md:text-6xl">
+            {t("plans.headline")} <span className="text-gradient">{t("plans.headlineHighlight")}</span>
           </h1>
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto">{content.hero.subhead}</p>
+          <p className="mx-auto mt-5 max-w-xl text-pretty text-lg text-muted-foreground">{t("plans.subhead")}</p>
+          <div className="mx-auto mt-6 inline-flex items-center gap-3 rounded-2xl border border-primary/30 bg-primary/10 px-4 py-3 text-start">
+            <TrendingDown className="h-6 w-6 shrink-0 text-primary" aria-hidden />
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-wider text-primary">{t("plans.proofLabel")}</p>
+              <p className="text-sm font-semibold text-foreground">{t("plans.proof")}</p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="pb-20 md:pb-28 px-3 sm:px-4">
-        <div className="container mx-auto max-w-lg min-w-0">
-          <div className="glass-card glow-green overflow-hidden min-w-0">
-            <div className="bg-gradient-to-r from-primary/20 to-primary/5 p-5 sm:p-8 text-center border-b border-border/50">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-4">
-                <Zap className="h-3 w-3" /> {content.launchBadge}
-              </div>
-              <h2 className="text-4xl md:text-5xl font-black mb-2">
-                {pricing.selfGuided.monthlyEquivalent}{" "}
-                <span className="text-xl md:text-2xl font-bold text-muted-foreground">{tCommon("misc.perMonth")}</span>
-              </h2>
-              <p className="text-muted-foreground text-xs leading-snug md:text-sm tracking-tight text-center text-balance px-1">
-                {t("oneTimeLifetime", { price: pricing.selfGuided.label })}
-              </p>
-            </div>
-
-            <div className="p-5 sm:p-8">
-              <h3 className="font-bold text-sm uppercase tracking-wider text-primary mb-6">{t("everythingIncluded")}</h3>
-              <div className="space-y-3 mb-8">
-                {features.map((feature) => (
-                  <div key={feature} className="flex items-start gap-3 min-w-0">
-                    <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
-                      <Check className="h-3 w-3 text-primary" />
-                    </div>
-                    <span className="text-sm text-left break-words">{feature}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="flex flex-col gap-3">
-                {loading ? (
-                  <Button
-                    type="button"
-                    className="w-full bg-primary text-primary-foreground font-bold text-xs sm:text-sm md:text-base h-auto min-h-12 py-3 px-2 leading-snug whitespace-normal"
-                    disabled
-                  >
-                    <Loader2 className="me-2 h-4 w-4 animate-spin shrink-0" aria-hidden />
-                    {t("checkout.checkingAccount")}
-                  </Button>
-                ) : hasProgramAccess ? (
-                  <Button
-                    className="w-full bg-primary text-primary-foreground font-bold text-sm md:text-base h-12 hover:bg-primary/90 animate-pulse-glow"
-                    asChild
-                  >
-                    <Link to="/dashboard" className="inline-flex w-full items-center justify-center gap-2">
-                      {tDashboard("openYourTraining")}
-                      <ArrowRight className="icon-directional h-4 w-4 shrink-0" aria-hidden />
-                    </Link>
-                  </Button>
-                ) : (
-                  <Button
-                    type="button"
-                    className="w-full bg-primary text-primary-foreground font-bold text-xs sm:text-sm md:text-base h-auto min-h-12 py-3 px-2 hover:bg-primary/90 animate-pulse-glow leading-snug whitespace-normal"
-                    disabled={checkoutBusy || !configured}
-                    onClick={() => void startCheckout()}
-                  >
-                    {checkoutBusy ? (
-                      <>
-                        <Loader2 className="me-2 h-4 w-4 animate-spin shrink-0" aria-hidden />
-                        {t("checkout.redirecting")}
-                      </>
-                    ) : (
-                      <>
-                        <span className="max-w-full text-pretty">{t("checkout.getProgram")}</span>
-                        <ArrowRight className="icon-directional ms-1 h-4 w-4 shrink-0 sm:h-5 sm:w-5" aria-hidden />
-                      </>
-                    )}
-                  </Button>
-                )}
-
-                {!hasProgramAccess && !loading && (
-                  <p className="text-center text-xs text-muted-foreground">
-                    {checkoutUser ? (
-                      <>{t("checkout.checkoutOpensStripe")}</>
-                    ) : (
-                      <>
-                        {t("checkout.alreadyRegistered")}{" "}
-                        <Link to="/login?redirect=/pricing" className="text-primary font-semibold hover:underline">
-                          {t("checkout.logIn")}
-                        </Link>
-                        {" · "}
-                        {t("checkout.newHere")}{" "}
-                        <Link to="/signup?redirect=/pricing" className="text-primary font-semibold hover:underline">
-                          {t("checkout.signUp")}
-                        </Link>
-                      </>
-                    )}
-                  </p>
-                )}
-              </div>
-            </div>
+      <section id="plans" className="px-3 pb-16 sm:px-4 md:pb-24">
+        <div className="container mx-auto grid max-w-6xl grid-cols-1 gap-5 md:grid-cols-3">
+          {/* Coached first on mobile: the main offer */}
+          <div className="glass-card glow-green relative order-1 flex flex-col border-2 border-primary p-6 sm:p-8 md:order-2">
+            <span className="absolute -top-3 start-6 rounded-full bg-primary px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-primary-foreground">
+              {tiers.coached.recommended || t("plans.coachedNote")}
+            </span>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">{tiers.coached.tier}</p>
+            <h2 className="mt-1 text-2xl font-black">{tiers.coached.name}</h2>
+            <p className="mt-4 text-4xl font-black">
+              {pricing.coachedStrong90.label}
+              <span className="text-lg font-bold text-muted-foreground">{t("plans.perMonth")}</span>
+            </p>
+            <p className="mt-1 text-xs text-muted-foreground">{t("plans.coachedNote")}</p>
+            <Button asChild className="mt-6 h-12 w-full bg-primary font-bold text-primary-foreground hover:bg-primary/90">
+              <Link to={to("/coaching-apply?plan=coached-strong-90#apply")}>
+                {t("plans.coachedCta")}
+                <ArrowRight className="icon-directional ms-1 h-4 w-4" aria-hidden />
+              </Link>
+            </Button>
+            <ul className="mt-6 space-y-3 border-t border-border/50 pt-6 text-sm">
+              {tiers.coached.benefits.map((x) => (
+                <li key={x} className="flex gap-3">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" strokeWidth={3} aria-hidden />
+                  {x}
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 max-w-3xl mx-auto">
+          <div className="glass-card order-2 flex flex-col p-6 sm:p-8 md:order-1">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t("plans.programTier")}</p>
+            <h2 className="mt-1 text-2xl font-black">{t("plans.programName")}</h2>
+            <p className="mt-4 text-4xl font-black">{pricing.selfGuided.label}</p>
+            <p className="mt-1 text-xs text-muted-foreground">{t("plans.programOnce")}</p>
+            <div className="mt-6">{programButton}</div>
+            <p className="mt-2 flex items-start gap-1.5 text-[11px] leading-snug text-muted-foreground">
+              <ShieldCheck className="mt-px h-3.5 w-3.5 shrink-0 text-primary" aria-hidden />
+              {t("plans.checkoutNote")}
+            </p>
+            <p className="mt-6 border-t border-border/50 pt-6 text-xs font-bold uppercase tracking-wider text-primary">
+              {t("plans.seeAll")}
+            </p>
+            <ul className="mt-3 space-y-2.5 text-sm">
+              {features.map((feature) => (
+                <li key={feature} className="flex gap-3">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" strokeWidth={3} aria-hidden />
+                  <span className="break-words">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="glass-card order-3 flex flex-col p-6 sm:p-8">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{tiers.elite.tier}</p>
+            <h2 className="mt-1 text-2xl font-black">{tiers.elite.name}</h2>
+            <p className="mt-4 text-4xl font-black">
+              {pricing.privateTransformation.label}
+              <span className="text-lg font-bold text-muted-foreground">{t("plans.perMonth")}</span>
+            </p>
+            <Button asChild variant="outline" className="mt-6 h-12 w-full font-bold">
+              <Link to={to("/coaching-apply?plan=private-transformation#apply")}>
+                {t("plans.eliteCta")}
+                <ArrowRight className="icon-directional ms-1 h-4 w-4" aria-hidden />
+              </Link>
+            </Button>
+            <ul className="mt-6 space-y-3 border-t border-border/50 pt-6 text-sm">
+              {tiers.elite.benefits.map((x) => (
+                <li key={x} className="flex gap-3">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" strokeWidth={3} aria-hidden />
+                  {x}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="container mx-auto mt-10 max-w-6xl">
+          <div className="flex flex-col gap-5 rounded-3xl border-s-4 border-primary bg-card/60 p-6 sm:p-8 md:flex-row md:items-center md:justify-between">
+            <div className="flex gap-4">
+              <PhoneCall className="mt-1 hidden h-8 w-8 shrink-0 text-primary sm:block" aria-hidden />
+              <div>
+                <p className="text-xs font-bold uppercase tracking-widest text-primary">{t("plans.callEyebrow")}</p>
+                <h3 className="mt-1 text-2xl font-black">{t("plans.callHeadline")}</h3>
+                <p className="mt-2 max-w-xl text-sm text-muted-foreground">{t("plans.callBody")}</p>
+              </div>
+            </div>
+            <Button asChild className="h-12 shrink-0 bg-primary px-8 font-bold text-primary-foreground hover:bg-primary/90">
+              <a href={CALENDLY_FREE_CALL_URL} target="_blank" rel="noopener noreferrer">
+                {t("plans.callCta")}
+                <ArrowRight className="icon-directional ms-1 h-4 w-4" aria-hidden />
+              </a>
+            </Button>
+          </div>
+        </div>
+
+        {testimonials.length > 0 && (
+          <div className="container mx-auto mt-12 grid max-w-3xl grid-cols-1 gap-6 md:grid-cols-2">
             {testimonials.map((item) => (
               <div key={item.name} className="rounded-xl border border-border bg-card/50 p-6 text-left">
-                <div className="flex gap-1 mb-3">
+                <div className="mb-3 flex gap-1">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                    <Star key={i} className="h-4 w-4 fill-primary text-primary" aria-hidden />
                   ))}
                 </div>
                 <blockquote className="text-sm italic leading-relaxed text-muted-foreground">&ldquo;{item.quote}&rdquo;</blockquote>
@@ -223,16 +272,12 @@ const PricingPage = () => {
               </div>
             ))}
           </div>
+        )}
 
-          <div className="mt-12 text-center">
-            <div className="flex justify-center gap-1 mb-3">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="h-5 w-5 fill-primary text-primary" />
-              ))}
-            </div>
-            <p className="text-sm text-muted-foreground italic max-w-md mx-auto">&ldquo;{content.coachQuote.text}&rdquo;</p>
-            <p className="text-sm font-bold mt-2">{content.coachQuote.attribution}</p>
-          </div>
+        <div className="container mx-auto mt-12 max-w-md text-center">
+          <p className="text-sm italic text-muted-foreground">&ldquo;{content.coachQuote.text}&rdquo;</p>
+          <p className="mt-2 text-sm font-bold">{content.coachQuote.attribution}</p>
+          <p className="mt-6 text-xs text-muted-foreground">{t("plans.guarantee")}</p>
         </div>
       </section>
     </div>
