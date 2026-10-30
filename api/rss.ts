@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    "slug": "vitamin-d-deficiency-dubai",
+    "title": "Vitamin D Deficiency in Dubai: Why It's So Common and What Busy Parents Can Do",
+    "excerpt": "Sun almost every day, yet low vitamin D is common in Dubai and the UAE. A coach's practical guide for busy parents: why it happens, when to get tested and the simple habits that help.",
+    "publishedAt": "2026-10-30"
+  },
+  {
     "slug": "increase-testosterone-naturally-after-40",
     "title": "How to Increase Testosterone Naturally After 40: A Coach's Guide for Busy Men",
     "excerpt": "Tired, softer around the middle and losing strength after 40? Here is how to increase testosterone naturally with the basics that matter: strength training, sleep, body fat, food and stress.",

@@ -7,6 +7,7 @@ import { healthFitnessSupplementsPost } from "./health-fitness-supplements";
 import { increaseTestosteroneNaturallyPost } from "./increase-testosterone-naturally-after-40";
 import { noTimeTooTiredPost } from "./no-time-too-tired";
 import { onlineVsInPersonTrainerDubaiPost } from "./online-vs-in-person-personal-trainer-dubai";
+import { vitaminDDeficiencyDubaiPost } from "./vitamin-d-deficiency-dubai";
 import { tipsMuscleGrowthPost } from "./tips-muscle-growth";
 import type { AppLanguage } from "@/i18n/constants";
 import type { BlogBlock, BlogPost } from "./types";
@@ -14,6 +15,7 @@ import type { BlogBlock, BlogPost } from "./types";
 export type { BlogBlock, BlogPost } from "./types";
 
 export const blogPosts: BlogPost[] = [
+  vitaminDDeficiencyDubaiPost,
   increaseTestosteroneNaturallyPost,
   loseWeightWithoutCountingCaloriesPost,
   onlineVsInPersonTrainerDubaiPost,
