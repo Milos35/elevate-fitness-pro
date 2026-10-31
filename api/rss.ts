@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    "slug": "how-to-deadlift-safely-after-40",
+    "title": "How to Deadlift Safely After 40: A Coach's Step-by-Step Guide for Busy Parents",
+    "excerpt": "Want to get stronger after 40 without hurting your back? Here is how to deadlift safely after 40: the right variation to start with, step-by-step form, how heavy to go and a simple weekly plan.",
+    "publishedAt": "2026-10-31"
+  },
+  {
     "slug": "vitamin-d-deficiency-dubai",
     "title": "Vitamin D Deficiency in Dubai: Why It's So Common and What Busy Parents Can Do",
     "excerpt": "Sun almost every day, yet low vitamin D is common in Dubai and the UAE. A coach's practical guide for busy parents: why it happens, when to get tested and the simple habits that help.",
