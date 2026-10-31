@@ -1,4 +1,5 @@
 import { dadBodPost } from "./dad-bod";
+import { deadliftSafelyAfter40Post } from "./how-to-deadlift-safely-after-40";
 import { fallenOffWagonPost } from "./fallen-off-wagon";
 import { fiveFoodsBodybuildingPost } from "./five-foods-bodybuilding";
 import { fourMistakesArmsPost } from "./four-mistakes-training-arms";
@@ -15,6 +16,7 @@ import type { BlogBlock, BlogPost } from "./types";
 export type { BlogBlock, BlogPost } from "./types";
 
 export const blogPosts: BlogPost[] = [
+  deadliftSafelyAfter40Post,
   vitaminDDeficiencyDubaiPost,
   increaseTestosteroneNaturallyPost,
   loseWeightWithoutCountingCaloriesPost,
