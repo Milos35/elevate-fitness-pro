@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    "slug": "hotel-room-workout-no-equipment",
+    "title": "Hotel Room Workout: A 22-Minute No-Equipment Plan for Busy Parents Who Travel",
+    "excerpt": "Travelling for work and no time for the hotel gym? Here is my 22-minute hotel room workout with no equipment: two circuits, a 10-minute backup and simple rules to stay on track on the road.",
+    "publishedAt": "2026-11-01"
+  },
+  {
     "slug": "how-to-deadlift-safely-after-40",
     "title": "How to Deadlift Safely After 40: A Coach's Step-by-Step Guide for Busy Parents",
     "excerpt": "Want to get stronger after 40 without hurting your back? Here is how to deadlift safely after 40: the right variation to start with, step-by-step form, how heavy to go and a simple weekly plan.",
