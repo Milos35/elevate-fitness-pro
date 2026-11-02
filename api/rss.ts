@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    "slug": "personal-trainer-dubai-cost",
+    "title": "Personal Trainer Dubai Cost: What You Really Pay For (and How Busy Parents Get Value)",
+    "excerpt": "Wondering about personal trainer Dubai cost? A Dubai coach with 15 years of experience explains what drives the price, what you should get for your money and how busy parents get the most value.",
+    "publishedAt": "2026-11-02"
+  },
+  {
     "slug": "hotel-room-workout-no-equipment",
     "title": "Hotel Room Workout: A 22-Minute No-Equipment Plan for Busy Parents Who Travel",
     "excerpt": "Travelling for work and no time for the hotel gym? Here is my 22-minute hotel room workout with no equipment: two circuits, a 10-minute backup and simple rules to stay on track on the road.",

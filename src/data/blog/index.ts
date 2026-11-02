@@ -8,6 +8,7 @@ import { hotelRoomWorkoutPost } from "./hotel-room-workout-no-equipment";
 import { healthFitnessSupplementsPost } from "./health-fitness-supplements";
 import { increaseTestosteroneNaturallyPost } from "./increase-testosterone-naturally-after-40";
 import { noTimeTooTiredPost } from "./no-time-too-tired";
+import { personalTrainerDubaiCostPost } from "./personal-trainer-dubai-cost";
 import { onlineVsInPersonTrainerDubaiPost } from "./online-vs-in-person-personal-trainer-dubai";
 import { vitaminDDeficiencyDubaiPost } from "./vitamin-d-deficiency-dubai";
 import { tipsMuscleGrowthPost } from "./tips-muscle-growth";
@@ -17,6 +18,7 @@ import type { BlogBlock, BlogPost } from "./types";
 export type { BlogBlock, BlogPost } from "./types";
 
 export const blogPosts: BlogPost[] = [
+  personalTrainerDubaiCostPost,
   hotelRoomWorkoutPost,
   deadliftSafelyAfter40Post,
   vitaminDDeficiencyDubaiPost,
