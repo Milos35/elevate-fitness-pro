@@ -1,0 +1,55 @@
+# Runs in Milos's fork (Milos35/elevate-fitness-pro) the moment a new blog lands on its main,
+# and fast-forwards Goran's repo (the one Vercel publishes) right away.
+# Same safety rules as sync-blog-from-fork.yml: fast-forward only, blog files only.
+# Needs one secret in the FORK: SITE_REPO_TOKEN (a GitHub token of Milos35 with write access to Goran's repo).
+# The hourly sync-blog-from-fork.yml in Goran's repo stays as a backup.
+name: Push blog to site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: push-blog-to-site
+  cancel-in-progress: false
+
+jobs:
+  push:
+    if: github.repository == 'Milos35/elevate-fitness-pro'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Fast-forward the site repo to this main
+        env:
+          TOKEN: ${{ secrets.SITE_REPO_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "::error::Secret SITE_REPO_TOKEN is missing in Milos35/elevate-fitness-pro."
+            exit 1
+          fi
+          SITE="https://x-access-token:${TOKEN}@github.com/goransantic92-hue/elevate-fitness-pro.git"
+          git fetch "$SITE" main
+          if git merge-base --is-ancestor HEAD FETCH_HEAD; then
+            echo "The site already has everything."
+            exit 0
+          fi
+          if ! git merge-base --is-ancestor FETCH_HEAD HEAD; then
+            echo "::error::This main is not a continuation of the site's main. Rebase on it first."
+            exit 1
+          fi
+          disallowed=$(git diff --name-only FETCH_HEAD HEAD | grep -vE '^(src/data/blog/|public/blog/|public/sitemap\.xml$|api/rss\.ts$)' || true)
+          if [ -n "$disallowed" ]; then
+            echo "::error::Changes outside the blog, not pushed to the site:"
+            echo "$disallowed"
+            exit 1
+          fi
+          git push "$SITE" HEAD:main
+          git log --oneline -3
