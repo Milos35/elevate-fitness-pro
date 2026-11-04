@@ -4,6 +4,7 @@ import { fallenOffWagonPost } from "./fallen-off-wagon";
 import { fiveFoodsBodybuildingPost } from "./five-foods-bodybuilding";
 import { fourMistakesArmsPost } from "./four-mistakes-training-arms";
 import { loseWeightWithoutCountingCaloriesPost } from "./lose-weight-without-counting-calories-after-40";
+import { howMuchProteinAfter40Post } from "./how-much-protein-per-day-after-40";
 import { hotelRoomWorkoutPost } from "./hotel-room-workout-no-equipment";
 import { healthFitnessSupplementsPost } from "./health-fitness-supplements";
 import { increaseTestosteroneNaturallyPost } from "./increase-testosterone-naturally-after-40";
@@ -18,6 +19,7 @@ import type { BlogBlock, BlogPost } from "./types";
 export type { BlogBlock, BlogPost } from "./types";
 
 export const blogPosts: BlogPost[] = [
+  howMuchProteinAfter40Post,
   personalTrainerDubaiCostPost,
   hotelRoomWorkoutPost,
   deadliftSafelyAfter40Post,

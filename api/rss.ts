@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    "slug": "how-much-protein-per-day-after-40",
+    "title": "How Much Protein Per Day After 40? A Simple Guide for Busy Parents (No Counting)",
+    "excerpt": "How much protein per day after 40 do you really need to keep muscle and lose fat? A coach and dad of two explains a simple hand-size method, easy family meals and the mistakes that hold busy parents back.",
+    "publishedAt": "2026-11-04"
+  },
+  {
     "slug": "personal-trainer-dubai-cost",
     "title": "Personal Trainer Dubai Cost: What You Really Pay For (and How Busy Parents Get Value)",
     "excerpt": "Wondering about personal trainer Dubai cost? A Dubai coach with 15 years of experience explains what drives the price, what you should get for your money and how busy parents get the most value.",
