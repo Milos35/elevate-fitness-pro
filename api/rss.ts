@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    "slug": "strength-training-for-women-over-40",
+    "title": "Strength Training for Women Over 40: A Simple 3-Day Plan for Busy Moms",
+    "excerpt": "Strength training for women over 40 doesn't need hours in the gym. A coach with 15 years of experience shares a simple 3-day plan, how to start, what to expect and the mistakes that hold busy moms back.",
+    "publishedAt": "2026-11-05"
+  },
+  {
     "slug": "how-much-protein-per-day-after-40",
     "title": "How Much Protein Per Day After 40? A Simple Guide for Busy Parents (No Counting)",
     "excerpt": "How much protein per day after 40 do you really need to keep muscle and lose fat? A coach and dad of two explains a simple hand-size method, easy family meals and the mistakes that hold busy parents back.",
