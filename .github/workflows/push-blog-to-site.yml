@@ -26,6 +26,7 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Fast-forward the site repo to this main
         env:
@@ -35,7 +36,15 @@ jobs:
             echo "::error::Secret SITE_REPO_TOKEN is missing in Milos35/elevate-fitness-pro."
             exit 1
           fi
-          SITE="https://x-access-token:${TOKEN}@github.com/goransantic92-hue/elevate-fitness-pro.git"
+          # remove spaces or line breaks that can sneak in when the token is pasted
+          TOKEN=$(printf '%s' "$TOKEN" | tr -d '[:space:]')
+          AUTH=$(printf 'x-access-token:%s' "$TOKEN" | base64 -w0)
+          git config --global http.https://github.com/.extraheader "AUTHORIZATION: basic $AUTH"
+          SITE="https://github.com/goransantic92-hue/elevate-fitness-pro.git"
+          if ! git ls-remote "$SITE" main >/dev/null 2>&1; then
+            echo "::error::SITE_REPO_TOKEN was rejected by GitHub. Make a new token (scope public_repo) and save it again as SITE_REPO_TOKEN."
+            exit 1
+          fi
           git fetch "$SITE" main
           if git merge-base --is-ancestor HEAD FETCH_HEAD; then
             echo "The site already has everything."
