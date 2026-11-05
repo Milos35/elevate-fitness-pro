@@ -1,3 +1,4 @@
+import { creatineAfter40Post } from "./creatine-after-40";
 import { dadBodPost } from "./dad-bod";
 import { deadliftSafelyAfter40Post } from "./how-to-deadlift-safely-after-40";
 import { fallenOffWagonPost } from "./fallen-off-wagon";
@@ -20,6 +21,7 @@ import type { BlogBlock, BlogPost } from "./types";
 export type { BlogBlock, BlogPost } from "./types";
 
 export const blogPosts: BlogPost[] = [
+  creatineAfter40Post,
   strengthTrainingWomenOver40Post,
   howMuchProteinAfter40Post,
   personalTrainerDubaiCostPost,

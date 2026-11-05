@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    "slug": "creatine-after-40",
+    "title": "Creatine After 40: Should Busy Parents Take It? A Coach's Simple Guide",
+    "excerpt": "Thinking about creatine after 40? A simple, no-hype guide for busy parents: what it does, how much to take, side effects people ask about, and when to talk to your doctor first.",
+    "publishedAt": "2026-11-05"
+  },
+  {
     "slug": "strength-training-for-women-over-40",
     "title": "Strength Training for Women Over 40: A Simple 3-Day Plan for Busy Moms",
     "excerpt": "Strength training for women over 40 doesn't need hours in the gym. A coach with 15 years of experience shares a simple 3-day plan, how to start, what to expect and the mistakes that hold busy moms back.",
