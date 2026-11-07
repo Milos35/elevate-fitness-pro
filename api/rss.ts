@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    "slug": "how-to-lose-belly-fat-after-35",
+    "title": "How to Lose Belly Fat After 35: What Actually Works for Busy Parents",
+    "excerpt": "How to lose belly fat after 35 without crunches, fad diets or hours of cardio. A coach and dad of two explains why belly fat shows up, what actually works and a simple weekly plan for busy parents.",
+    "publishedAt": "2026-11-07"
+  },
+  {
     "slug": "creatine-after-40",
     "title": "Creatine After 40: Should Busy Parents Take It? A Coach's Simple Guide",
     "excerpt": "Thinking about creatine after 40? A simple, no-hype guide for busy parents: what it does, how much to take, side effects people ask about, and when to talk to your doctor first.",

@@ -16,11 +16,13 @@ import { onlineVsInPersonTrainerDubaiPost } from "./online-vs-in-person-personal
 import { vitaminDDeficiencyDubaiPost } from "./vitamin-d-deficiency-dubai";
 import { tipsMuscleGrowthPost } from "./tips-muscle-growth";
 import type { AppLanguage } from "@/i18n/constants";
+import { loseBellyFatAfter35Post } from "./how-to-lose-belly-fat-after-35";
 import type { BlogBlock, BlogPost } from "./types";
 
 export type { BlogBlock, BlogPost } from "./types";
 
 export const blogPosts: BlogPost[] = [
+  loseBellyFatAfter35Post,
   creatineAfter40Post,
   strengthTrainingWomenOver40Post,
   howMuchProteinAfter40Post,
