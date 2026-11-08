@@ -17,11 +17,13 @@ import { vitaminDDeficiencyDubaiPost } from "./vitamin-d-deficiency-dubai";
 import { tipsMuscleGrowthPost } from "./tips-muscle-growth";
 import type { AppLanguage } from "@/i18n/constants";
 import { loseBellyFatAfter35Post } from "./how-to-lose-belly-fat-after-35";
+import { twentyTwoMinuteWorkoutBuildMusclePost } from "./22-minute-workout-build-muscle";
 import type { BlogBlock, BlogPost } from "./types";
 
 export type { BlogBlock, BlogPost } from "./types";
 
 export const blogPosts: BlogPost[] = [
+  twentyTwoMinuteWorkoutBuildMusclePost,
   loseBellyFatAfter35Post,
   creatineAfter40Post,
   strengthTrainingWomenOver40Post,

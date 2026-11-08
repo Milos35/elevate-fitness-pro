@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    "slug": "22-minute-workout-build-muscle",
+    "title": "Is a 22-Minute Workout 3x a Week Really Enough to Build Muscle?",
+    "excerpt": "Can a 22 minute workout build muscle? A coach with 15 years of experience explains why short sessions work for busy parents, what makes them effective and how to structure 3 days a week.",
+    "publishedAt": "2026-11-08"
+  },
+  {
     "slug": "how-to-lose-belly-fat-after-35",
     "title": "How to Lose Belly Fat After 35: What Actually Works for Busy Parents",
     "excerpt": "How to lose belly fat after 35 without crunches, fad diets or hours of cardio. A coach and dad of two explains why belly fat shows up, what actually works and a simple weekly plan for busy parents.",
