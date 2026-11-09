@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    "slug": "workout-in-dubai-heat",
+    "title": "Workout in Dubai Summer Heat: How Busy Parents Stay Fit Indoors and at Home",
+    "excerpt": "How to keep your workout going in Dubai summer heat. A Dubai coach with 15 years of experience shares when to train, how to stay safe and hydrated, and a 22-minute indoor plan for busy parents.",
+    "publishedAt": "2026-11-09"
+  },
+  {
     "slug": "22-minute-workout-build-muscle",
     "title": "Is a 22-Minute Workout 3x a Week Really Enough to Build Muscle?",
     "excerpt": "Can a 22 minute workout build muscle? A coach with 15 years of experience explains why short sessions work for busy parents, what makes them effective and how to structure 3 days a week.",
