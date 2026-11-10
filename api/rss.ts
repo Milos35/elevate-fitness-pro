@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    "slug": "how-to-squat-safely-after-40",
+    "title": "How to Squat Safely After 40: Protect Your Knees and Build Strong Legs",
+    "excerpt": "Worried squats will hurt your knees? Here is how to squat safely after 40: which squat to start with, step-by-step form, how to handle knee discomfort and a simple plan for busy parents.",
+    "publishedAt": "2026-11-10"
+  },
+  {
     "slug": "workout-in-dubai-heat",
     "title": "Workout in Dubai Summer Heat: How Busy Parents Stay Fit Indoors and at Home",
     "excerpt": "How to keep your workout going in Dubai summer heat. A Dubai coach with 15 years of experience shares when to train, how to stay safe and hydrated, and a 22-minute indoor plan for busy parents.",

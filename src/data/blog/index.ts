@@ -19,11 +19,13 @@ import type { AppLanguage } from "@/i18n/constants";
 import { loseBellyFatAfter35Post } from "./how-to-lose-belly-fat-after-35";
 import { twentyTwoMinuteWorkoutBuildMusclePost } from "./22-minute-workout-build-muscle";
 import { workoutInDubaiHeatPost } from "./workout-in-dubai-heat";
+import { squatSafelyAfter40Post } from "./how-to-squat-safely-after-40";
 import type { BlogBlock, BlogPost } from "./types";
 
 export type { BlogBlock, BlogPost } from "./types";
 
 export const blogPosts: BlogPost[] = [
+  squatSafelyAfter40Post,
   workoutInDubaiHeatPost,
   twentyTwoMinuteWorkoutBuildMusclePost,
   loseBellyFatAfter35Post,
