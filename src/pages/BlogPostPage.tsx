@@ -68,6 +68,8 @@ const BlogPostPage = () => {
         publishedAt={post.publishedAt}
         keywords={post.keywords}
         locale={locale}
+        coverImage={post.coverImage}
+        blocks={post.blocksByLocale?.[locale] ?? post.blocks}
       />
 
       <section className="pt-8 pb-8 md:pt-12">
