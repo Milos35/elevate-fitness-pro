@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    "slug": "meal-prep-for-busy-parents",
+    "title": "Meal Prep for Busy Parents: My 1-Hour Sunday Method (High Protein)",
+    "excerpt": "Meal prep for busy parents without three hours in the kitchen. A coach and dad of two shares his 1-hour Sunday method: one protein, one carb, one vegetable, a different sauce every day, plus a shopping list and fridge tips.",
+    "publishedAt": "2026-11-11"
+  },
+  {
     "slug": "how-to-squat-safely-after-40",
     "title": "How to Squat Safely After 40: Protect Your Knees and Build Strong Legs",
     "excerpt": "Worried squats will hurt your knees? Here is how to squat safely after 40: which squat to start with, step-by-step form, how to handle knee discomfort and a simple plan for busy parents.",
