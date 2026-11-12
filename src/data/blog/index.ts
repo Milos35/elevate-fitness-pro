@@ -22,11 +22,13 @@ import { workoutInDubaiHeatPost } from "./workout-in-dubai-heat";
 import { squatSafelyAfter40Post } from "./how-to-squat-safely-after-40";
 import { mealPrepForBusyParentsPost } from "./meal-prep-for-busy-parents";
 import { fitnessForExpatsInDubaiPost } from "./fitness-for-expats-in-dubai";
+import { strengthTrainingVsCardioForFatLossPost } from "./strength-training-vs-cardio-for-fat-loss";
 import type { BlogBlock, BlogPost } from "./types";
 
 export type { BlogBlock, BlogPost } from "./types";
 
 export const blogPosts: BlogPost[] = [
+  strengthTrainingVsCardioForFatLossPost,
   fitnessForExpatsInDubaiPost,
   mealPrepForBusyParentsPost,
   squatSafelyAfter40Post,

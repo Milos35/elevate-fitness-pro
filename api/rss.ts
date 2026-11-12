@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    "slug": "strength-training-vs-cardio-for-fat-loss",
+    "title": "Strength Training vs Cardio for Fat Loss After 35: What Busy Parents Should Do",
+    "excerpt": "Weights or cardio to lose fat after 35? A coach with 15 years of experience explains what each one really does, why strength training should come first for busy parents, and how much cardio you actually need.",
+    "publishedAt": "2026-11-12"
+  },
+  {
     "slug": "fitness-for-expats-in-dubai",
     "title": "Fitness for Expats in Dubai: How to Get in Shape With a Busy Schedule",
     "excerpt": "New job, long hours, brunches and a car for every trip. A Dubai coach with 15 years of experience explains why expats lose their fitness here and shares a simple 3-day plan to get in shape with a busy schedule.",
