@@ -7,7 +7,7 @@ export const strengthTrainingVsCardioForFatLossPost: BlogPost = {
     "Weights or cardio to lose fat after 35? A coach with 15 years of experience explains what each one really does, why strength training should come first for busy parents, and how much cardio you actually need.",
   metaTitle: "Strength Training vs Cardio for Fat Loss After 35",
   metaDescription:
-    "Strength training vs cardio for fat loss after 35: what each one does, which to choose when you only have 3 short sessions a week, and a simple weekly plan for busy parents.",
+    "Strength training vs cardio for fat loss after 35: what each does, which to pick with only 3 short sessions a week, and a simple plan for busy parents.",
   keywords: [
     "strength training vs cardio for fat loss",
     "weights or cardio for fat loss",
