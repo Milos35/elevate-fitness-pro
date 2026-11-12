@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    "slug": "fitness-for-expats-in-dubai",
+    "title": "Fitness for Expats in Dubai: How to Get in Shape With a Busy Schedule",
+    "excerpt": "New job, long hours, brunches and a car for every trip. A Dubai coach with 15 years of experience explains why expats lose their fitness here and shares a simple 3-day plan to get in shape with a busy schedule.",
+    "publishedAt": "2026-11-12"
+  },
+  {
     "slug": "meal-prep-for-busy-parents",
     "title": "Meal Prep for Busy Parents: My 1-Hour Sunday Method (High Protein)",
     "excerpt": "Meal prep for busy parents without three hours in the kitchen. A coach and dad of two shares his 1-hour Sunday method: one protein, one carb, one vegetable, a different sauce every day, plus a shopping list and fridge tips.",
