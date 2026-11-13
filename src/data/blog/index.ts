@@ -23,11 +23,13 @@ import { squatSafelyAfter40Post } from "./how-to-squat-safely-after-40";
 import { mealPrepForBusyParentsPost } from "./meal-prep-for-busy-parents";
 import { fitnessForExpatsInDubaiPost } from "./fitness-for-expats-in-dubai";
 import { strengthTrainingVsCardioForFatLossPost } from "./strength-training-vs-cardio-for-fat-loss";
+import { whyHarderToLoseWeightAfter35Post } from "./why-is-it-harder-to-lose-weight-after-35";
 import type { BlogBlock, BlogPost } from "./types";
 
 export type { BlogBlock, BlogPost } from "./types";
 
 export const blogPosts: BlogPost[] = [
+  whyHarderToLoseWeightAfter35Post,
   strengthTrainingVsCardioForFatLossPost,
   fitnessForExpatsInDubaiPost,
   mealPrepForBusyParentsPost,

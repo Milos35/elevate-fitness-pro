@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    "slug": "why-is-it-harder-to-lose-weight-after-35",
+    "title": "Why Is It Harder to Lose Weight After 35? (And How to Fix It)",
+    "excerpt": "Doing the same things that worked at 25 but the scale won't move? A coach with 15 years of experience explains the real reasons weight loss gets harder after 35, and the simple fixes that work for busy parents.",
+    "publishedAt": "2026-11-13"
+  },
+  {
     "slug": "strength-training-vs-cardio-for-fat-loss",
     "title": "Strength Training vs Cardio for Fat Loss After 35: What Busy Parents Should Do",
     "excerpt": "Weights or cardio to lose fat after 35? A coach with 15 years of experience explains what each one really does, why strength training should come first for busy parents, and how much cardio you actually need.",
