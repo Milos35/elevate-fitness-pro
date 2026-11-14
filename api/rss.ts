@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    "slug": "protein-powder-for-weight-loss-after-40",
+    "title": "Protein Powder for Weight Loss After 40: Do You Really Need It?",
+    "excerpt": "Is protein powder for weight loss worth it after 40, or just expensive marketing? A coach with 15 years of experience explains when a shake helps busy parents, when it doesn't, and how to choose and use one.",
+    "publishedAt": "2026-11-14"
+  },
+  {
     "slug": "why-is-it-harder-to-lose-weight-after-35",
     "title": "Why Is It Harder to Lose Weight After 35? (And How to Fix It)",
     "excerpt": "Doing the same things that worked at 25 but the scale won't move? A coach with 15 years of experience explains the real reasons weight loss gets harder after 35, and the simple fixes that work for busy parents.",
