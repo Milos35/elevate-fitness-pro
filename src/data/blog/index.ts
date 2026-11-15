@@ -25,11 +25,13 @@ import { fitnessForExpatsInDubaiPost } from "./fitness-for-expats-in-dubai";
 import { strengthTrainingVsCardioForFatLossPost } from "./strength-training-vs-cardio-for-fat-loss";
 import { whyHarderToLoseWeightAfter35Post } from "./why-is-it-harder-to-lose-weight-after-35";
 import { proteinPowderForWeightLossAfter40Post } from "./protein-powder-for-weight-loss-after-40";
+import { workOutWithKidsAndFullTimeJobPost } from "./how-to-work-out-with-kids-and-full-time-job";
 import type { BlogBlock, BlogPost } from "./types";
 
 export type { BlogBlock, BlogPost } from "./types";
 
 export const blogPosts: BlogPost[] = [
+  workOutWithKidsAndFullTimeJobPost,
   proteinPowderForWeightLossAfter40Post,
   whyHarderToLoseWeightAfter35Post,
   strengthTrainingVsCardioForFatLossPost,

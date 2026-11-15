@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    "slug": "how-to-work-out-with-kids-and-full-time-job",
+    "title": "How to Work Out With Kids and a Full-Time Job: A Realistic Plan for Busy Parents",
+    "excerpt": "Full-time job, kids, no energy left at 9 pm? A coach and dad of two explains how to work out with kids and a full-time job using 3 short sessions a week, a simple schedule and a plan for the weeks that fall apart.",
+    "publishedAt": "2026-11-15"
+  },
+  {
     "slug": "protein-powder-for-weight-loss-after-40",
     "title": "Protein Powder for Weight Loss After 40: Do You Really Need It?",
     "excerpt": "Is protein powder for weight loss worth it after 40, or just expensive marketing? A coach with 15 years of experience explains when a shake helps busy parents, when it doesn't, and how to choose and use one.",
