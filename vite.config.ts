@@ -5,7 +5,7 @@ import { VitePWA } from "vite-plugin-pwa";
 import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
+export default defineConfig(({ mode, isSsrBuild }) => ({
   server: {
     host: "::",
     port: 8080,
@@ -16,7 +16,8 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     ...(mode === "development" ? [componentTagger()] : []),
-    VitePWA({
+    // The SSR build only bundles src/seo/prerender.ts for the build-time head prerender (scripts/prerender.mjs); no service worker there.
+    ...(isSsrBuild ? [] : [VitePWA({
       registerType: "autoUpdate",
       includeAssets: [
         "favicon.ico",
@@ -85,7 +86,7 @@ export default defineConfig(({ mode }) => ({
       devOptions: {
         enabled: false,
       },
-    }),
+    })]),
   ],
   resolve: {
     alias: {
@@ -93,17 +94,19 @@ export default defineConfig(({ mode }) => ({
     },
     dedupe: ["react", "react-dom", "react/jsx-runtime", "react/jsx-dev-runtime", "@tanstack/react-query", "@tanstack/query-core"],
   },
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          if (!id.includes("node_modules")) return;
-          if (id.includes("recharts") || id.includes("d3-")) return "charts";
-          if (id.includes("@supabase")) return "supabase";
-          if (id.includes("@radix-ui")) return "radix-ui";
-          return "vendor";
+  build: isSsrBuild
+    ? {}
+    : {
+        rollupOptions: {
+          output: {
+            manualChunks(id) {
+              if (!id.includes("node_modules")) return;
+              if (id.includes("recharts") || id.includes("d3-")) return "charts";
+              if (id.includes("@supabase")) return "supabase";
+              if (id.includes("@radix-ui")) return "radix-ui";
+              return "vendor";
+            },
+          },
         },
       },
-    },
-  },
 }));

@@ -1,8 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
-import { allLocaleAlternates, localePath } from "@/i18n/localePaths";
 import { DEFAULT_LANGUAGE, type AppLanguage } from "@/i18n/constants";
-import { DEFAULT_OG_IMAGE, SITE_ORIGIN } from "./BlogPostingSchema";
+import { buildPageHead } from "@/seo/siteMeta";
 
 type PageMetaProps = {
   title: string;
@@ -10,53 +9,66 @@ type PageMetaProps = {
   path?: string;
   ogImage?: string;
   ogType?: "website" | "article";
+  /** Kept for existing callers; search engines ignore the keywords tag, so it is no longer output. */
   keywords?: string[];
   locale?: AppLanguage;
+  /** Languages this page is really translated into. Defaults to every site language. */
+  locales?: readonly AppLanguage[];
+  /** Member, account and checkout pages: keep them out of search results. */
+  noindex?: boolean;
+  jsonLd?: Record<string, unknown>[];
+  social?: { title?: string; description?: string; imageAlt?: string };
 };
 
-const siteName = "BUSY STRONG 90";
+/** React attribute names for the few head attributes that differ from HTML. */
+const REACT_ATTR: Record<string, string> = { hreflang: "hrefLang" };
+
+function toReactProps(attrs: Record<string, string>): Record<string, string> {
+  const props: Record<string, string> = {};
+  for (const [key, value] of Object.entries(attrs)) props[REACT_ATTR[key] ?? key] = value;
+  return props;
+}
 
 export function PageMeta({
   title,
   description,
   path = "",
-  ogImage = DEFAULT_OG_IMAGE,
+  ogImage,
   ogType = "website",
-  keywords,
   locale,
+  locales,
+  noindex,
+  jsonLd,
+  social,
 }: PageMetaProps) {
   const { i18n } = useTranslation();
   const activeLocale = locale ?? ((i18n.language?.split("-")[0] ?? DEFAULT_LANGUAGE) as AppLanguage);
-  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
-  const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
-  const canonical = `${SITE_ORIGIN}${localePath(normalizedPath, activeLocale)}`;
-  const alternates = allLocaleAlternates(normalizedPath, SITE_ORIGIN);
+  const head = buildPageHead({
+    title,
+    description,
+    path: path.startsWith("/") ? path : `/${path}`,
+    locale: activeLocale,
+    locales,
+    ogImage,
+    ogType,
+    noindex,
+    jsonLd,
+    social,
+  });
 
   return (
     <Helmet>
-      <html lang={activeLocale} />
-      <title>{fullTitle}</title>
-      <meta name="description" content={description} />
-      {keywords && keywords.length > 0 && <meta name="keywords" content={keywords.join(", ")} />}
-      <link rel="canonical" href={canonical} />
-      {alternates.map(({ hreflang, href }) => (
-        <link key={hreflang} rel="alternate" hrefLang={hreflang} href={href} />
+      <html lang={head.lang} />
+      <title>{head.title}</title>
+      {head.tags.map(({ tag, attrs }) => {
+        const key = `${tag}:${attrs.name ?? attrs.property ?? attrs.rel}:${attrs.hreflang ?? ""}`;
+        return tag === "meta" ? <meta key={key} {...toReactProps(attrs)} /> : <link key={key} {...toReactProps(attrs)} />;
+      })}
+      {head.jsonLd.map((schema, index) => (
+        <script key={`ld-${index}`} type="application/ld+json">
+          {JSON.stringify(schema)}
+        </script>
       ))}
-      <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
-      <meta property="og:url" content={canonical} />
-      <meta property="og:locale" content={activeLocale === "sr" ? "sr_RS" : activeLocale === "ar" ? "ar_AE" : "en_GB"} />
-      <meta property="og:type" content={ogType} />
-      <meta property="og:image" content={ogImage} />
-      <meta property="og:image:secure_url" content={ogImage} />
-      <meta property="og:image:type" content="image/jpeg" />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-      <meta property="og:site_name" content={siteName} />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImage} />
     </Helmet>
   );
 }

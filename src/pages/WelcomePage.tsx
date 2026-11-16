@@ -79,7 +79,7 @@ export default function WelcomePage() {
 
   return (
     <>
-      <PageMeta title="Welcome to Busy Strong 90" description="Your program is ready." path="/welcome" />
+      <PageMeta title="Welcome to Busy Strong 90" description="Your program is ready." path="/welcome" noindex />
       <div className="min-h-screen flex items-center justify-center bg-background px-4 py-16">
         <div className="glass-card w-full max-w-md border-border/60 p-8 text-center">
           {state.kind === "working" && (

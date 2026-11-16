@@ -1,4 +1,5 @@
 import { Link, Outlet, useLocation } from "react-router-dom";
+import { NoIndex } from "@/components/seo/NoIndex";
 import { LayoutDashboard, Users, FileText, Bell, Dumbbell, ArrowLeft, BookOpen, Home, Layers, Smartphone, Video, Newspaper } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -47,6 +48,7 @@ export default function AdminLayout() {
 
   return (
     <div className="min-h-screen bg-background flex flex-col lg:flex-row">
+      <NoIndex />
       <div className="lg:hidden border-b border-border bg-card/50">
         <div className="flex items-center justify-between gap-3 px-4 py-3">
           <div>
