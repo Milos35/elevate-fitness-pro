@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    "slug": "weight-loss-program-dubai",
+    "title": "How to Choose a Weight Loss Program in Dubai: A Coach's Checklist for Busy Professionals",
+    "excerpt": "Bootcamps, challenges, meal plans, apps, trainers: which weight loss program in Dubai actually fits a busy life? A coach with 15 years in the UAE shares his checklist, the red flags and the questions to ask before you pay.",
+    "publishedAt": "2026-11-16"
+  },
+  {
     "slug": "how-to-work-out-with-kids-and-full-time-job",
     "title": "How to Work Out With Kids and a Full-Time Job: A Realistic Plan for Busy Parents",
     "excerpt": "Full-time job, kids, no energy left at 9 pm? A coach and dad of two explains how to work out with kids and a full-time job using 3 short sessions a week, a simple schedule and a plan for the weeks that fall apart.",
