@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && vite build --ssr src/seo/prerender.ts --outDir dist-ssr && node scripts/prerender.mjs",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -14,7 +14,8 @@
     "upload:testimonials": "node scripts/upload-testimonials.mjs",
     "upload:workout-demos": "node scripts/upload-workout-demos.mjs",
     "retrim:tricep-pushdown": "node scripts/retrim-workout-demo.mjs gym/a/05-tricep-pushdown.mp4 2",
-    "generate:brand-icons": "python3 scripts/generate-brand-icons.py"
+    "generate:brand-icons": "python3 scripts/generate-brand-icons.py",
+    "build:client": "vite build"
   },
   "dependencies": {
     "@fontsource-variable/dm-sans": "^5.2.8",

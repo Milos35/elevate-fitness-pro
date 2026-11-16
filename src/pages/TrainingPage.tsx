@@ -65,7 +65,7 @@ const TrainingPage = () => {
 
   return (
     <div>
-      <PageMeta title={t("meta.title")} description={t("meta.description")} path="/training" />
+      <PageMeta title={t("meta.title")} description={t("meta.description")} path="/training" noindex />
       <section className="relative py-28 md:py-36 overflow-hidden">
         <div className="absolute inset-0">
           <img

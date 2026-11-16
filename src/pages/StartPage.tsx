@@ -45,6 +45,7 @@ export default function StartPage() {
         title="Start here — Coach Milos | Busy Strong 90"
         description="Free training, nutrition and supplement guides from Coach Milos, plus online coaching for busy parents worldwide."
         path="/start"
+        locales={["en"]}
       />
       <div className="mx-auto flex min-h-screen max-w-md flex-col px-5 pb-14 pt-24">
         <div className="flex items-center gap-4">

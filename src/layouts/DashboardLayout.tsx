@@ -1,4 +1,5 @@
 import { Link, Outlet, useLocation } from "react-router-dom";
+import { NoIndex } from "@/components/seo/NoIndex";
 import { useTranslation } from "react-i18next";
 import { StripeCheckoutSuccess } from "@/components/StripeCheckoutSuccess";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
@@ -40,6 +41,7 @@ export default function DashboardLayout() {
   return (
     // Dark page with teal glows; sidebar, header and cards are light see-through frosted glass (see .dashboard-app in index.css)
     <div className="dashboard-app relative flex min-h-screen bg-[#070707]">
+      <NoIndex />
       <div className="pointer-events-none fixed inset-0 overflow-hidden" aria-hidden>
         <div className="absolute -top-32 start-[20%] h-[32rem] w-[32rem] rounded-full bg-primary/25 blur-3xl" />
         <div className="absolute bottom-[-10rem] end-[5%] h-[30rem] w-[30rem] rounded-full bg-[hsl(190_70%_55%/0.2)] blur-3xl" />

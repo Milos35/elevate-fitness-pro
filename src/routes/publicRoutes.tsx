@@ -60,7 +60,7 @@ export function publicRouteElements() {
           </Lazy>
         }
       />
-      <Route path="results" element={<Navigate to="program" replace />} />
+      <Route path="results" element={<Navigate to="../program" relative="path" replace />} />
       <Route
         path="faq"
         element={

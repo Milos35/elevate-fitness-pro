@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Check, ArrowRight, Loader2, PhoneCall, ShieldCheck, TrendingDown } from "lucide-react";
 import { PageMeta } from "@/components/seo/PageMeta";
+import { pricingJsonLdFromSet } from "@/seo/siteMeta";
 import { useAuth } from "@/context/AuthContext";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/lib/supabase";
@@ -24,7 +25,7 @@ const PricingPage = () => {
   const { t: tDashboard } = useTranslation("dashboard");
   const { t: tCommon } = useTranslation("common");
   const { t: tHome } = useTranslation("home");
-  const { to } = useAppLocale();
+  const { to, locale } = useAppLocale();
   const { data: homepageCms } = usePublishedHomepageCms();
   const tiers = resolveHomepageTiers(homepageCms?.tiers, tHome);
   const pricing = usePricing();
@@ -142,6 +143,7 @@ const PricingPage = () => {
         title={t("meta.title")}
         description={t("meta.description", { priceOneTime: pricing.selfGuided.labelOneTime })}
         path="/pricing"
+        jsonLd={[pricingJsonLdFromSet(pricing, locale)]}
       />
 
       <section className="px-4 pb-10 pt-24 md:pb-14 md:pt-32">

@@ -4,9 +4,10 @@ import { useTranslation } from "react-i18next";
 import { ArrowLeft, ArrowRight, Clock, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BlogArticleBody } from "@/components/blog/BlogArticleBody";
-import { BlogPostingSchema } from "@/components/seo/BlogPostingSchema";
 import { PageMeta } from "@/components/seo/PageMeta";
-import type { BlogBlock } from "@/data/blog";
+import { getBlogPostBySlug, hasLocalizedBlogBody, type BlogBlock } from "@/data/blog";
+import { SUPPORTED_LANGUAGES } from "@/i18n/constants";
+import { blogPostingJsonLd } from "@/seo/siteMeta";
 import { formatBlogDate } from "@/lib/formatBlogDate";
 import { usePricing } from "@/hooks/usePricing";
 import { useAppLocale } from "@/hooks/useAppLocale";
@@ -57,17 +58,32 @@ const BlogPostPage = () => {
   const title = post.title;
   const metaTitle = post.metaTitle || post.title;
   const metaDescription = post.metaDescription || post.excerpt;
+  // Languages with a real translation of the article body; other language URLs point their canonical at the original.
+  const repoPost = getBlogPostBySlug(post.slug);
+  const availableLocales = repoPost
+    ? SUPPORTED_LANGUAGES.filter((lang) => hasLocalizedBlogBody(repoPost, lang))
+    : SUPPORTED_LANGUAGES.filter((lang) => lang === "en");
 
   return (
     <div className="font-sans">
-      <PageMeta title={metaTitle} description={metaDescription} path={path} ogType="article" keywords={post.keywords} locale={locale} />
-      <BlogPostingSchema
-        title={title}
+      <PageMeta
+        title={metaTitle}
         description={metaDescription}
-        slug={post.slug}
-        publishedAt={post.publishedAt}
-        keywords={post.keywords}
+        path={path}
+        ogType="article"
+        ogImage={post.coverImage}
         locale={locale}
+        locales={availableLocales}
+        jsonLd={blogPostingJsonLd({
+          title,
+          description: metaDescription,
+          slug: post.slug,
+          publishedAt: post.publishedAt,
+          locale,
+          availableLocales,
+          coverImage: post.coverImage,
+          keywords: post.keywords,
+        })}
       />
 
       <section className="pt-8 pb-8 md:pt-12">

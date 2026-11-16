@@ -11,6 +11,7 @@ import { usePublishedTestimonials } from "@/hooks/usePublishedTestimonials";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import coachAbout from "@/assets/coach-about.webp";
 import { PageMeta } from "@/components/seo/PageMeta";
+import { HOME_SOCIAL } from "@/seo/siteMeta";
 import { HandbooksLeadSection } from "@/components/HandbooksLeadSection";
 import { AppShowcaseSection } from "@/components/AppShowcaseSection";
 import { TransformationsGallery } from "@/components/TransformationsGallery";
@@ -134,7 +135,7 @@ const HomePage = () => {
 
   return (
     <div className="font-sans">
-      <PageMeta title={t("meta.title")} description={metaDescription} path="/" />
+      <PageMeta title={t("meta.title")} description={metaDescription} path="/" social={HOME_SOCIAL} />
 
       {/* Hero — lg+: full-bleed photo with text over it, everything sized in em off a vw-based font-size so it scales with the screen; below lg: photo first, text underneath */}
       <section

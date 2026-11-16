@@ -31,7 +31,7 @@ const NutritionPage = () => {
 
   return (
     <div>
-      <PageMeta title={t("meta.title")} description={t("meta.description")} path="/nutrition" />
+      <PageMeta title={t("meta.title")} description={t("meta.description")} path="/nutrition" noindex />
       {/* Hero */}
       <section className="relative py-28 md:py-36 overflow-hidden">
         <div className="absolute inset-0">

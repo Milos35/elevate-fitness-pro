@@ -23,6 +23,18 @@
       "maxDuration": 30
     }
   },
+  "redirects": [
+    {
+      "source": "/results",
+      "destination": "/program",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(sr|ar)/results",
+      "destination": "/:lang/program",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/((?!api/).*)",

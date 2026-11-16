@@ -37,7 +37,7 @@ export default function SignupPage() {
 
   return (
     <>
-      <PageMeta title={t("signup.meta.title")} description={t("signup.meta.description")} path="/signup" />
+      <PageMeta title={t("signup.meta.title")} description={t("signup.meta.description")} path="/signup" noindex />
       <div className="min-h-screen flex items-center justify-center px-4 py-16 bg-background relative">
         <div className="absolute top-4 end-4">
           <LanguageSwitcher />

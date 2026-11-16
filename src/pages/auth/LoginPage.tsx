@@ -63,7 +63,7 @@ export default function LoginPage() {
 
   return (
     <>
-      <PageMeta title={t("login.meta.title")} description={t("login.meta.description")} path="/login" />
+      <PageMeta title={t("login.meta.title")} description={t("login.meta.description")} path="/login" noindex />
       <div className="min-h-screen flex items-center justify-center px-4 py-16 bg-background relative">
         <div className="absolute top-4 end-4">
           <LanguageSwitcher />
