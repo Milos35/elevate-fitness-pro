@@ -27,11 +27,13 @@ import { whyHarderToLoseWeightAfter35Post } from "./why-is-it-harder-to-lose-wei
 import { proteinPowderForWeightLossAfter40Post } from "./protein-powder-for-weight-loss-after-40";
 import { workOutWithKidsAndFullTimeJobPost } from "./how-to-work-out-with-kids-and-full-time-job";
 import { weightLossProgramDubaiPost } from "./weight-loss-program-dubai";
+import { morningVsEveningWorkoutPost } from "./morning-vs-evening-workout";
 import type { BlogBlock, BlogPost } from "./types";
 
 export type { BlogBlock, BlogPost } from "./types";
 
 export const blogPosts: BlogPost[] = [
+  morningVsEveningWorkoutPost,
   weightLossProgramDubaiPost,
   workOutWithKidsAndFullTimeJobPost,
   proteinPowderForWeightLossAfter40Post,

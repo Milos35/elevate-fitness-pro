@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    "slug": "morning-vs-evening-workout",
+    "title": "Morning vs Evening Workout: Which Is Better for Busy Professionals?",
+    "excerpt": "Morning or evening: when should a busy professional train? A coach with 15 years of experience explains the pros and cons of each, what it means for fat loss, muscle and sleep, and how to pick the time you can actually keep.",
+    "publishedAt": "2026-11-17"
+  },
+  {
     "slug": "weight-loss-program-dubai",
     "title": "How to Choose a Weight Loss Program in Dubai: A Coach's Checklist for Busy Professionals",
     "excerpt": "Bootcamps, challenges, meal plans, apps, trainers: which weight loss program in Dubai actually fits a busy life? A coach with 15 years in the UAE shares his checklist, the red flags and the questions to ask before you pay.",
