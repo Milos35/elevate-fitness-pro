@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    "slug": "shoulder-workout-for-men-over-40",
+    "title": "Shoulder Workout for Men Over 40: Build Strong Shoulders Without the Pain",
+    "excerpt": "Want broad, strong shoulders after 40 without a sore, clicking joint? A coach and former Mr. Universe finalist shares the 2-minute warm-up, the 5 best exercises, sets and reps, and the form rules he gives busy clients.",
+    "publishedAt": "2026-11-18"
+  },
+  {
     "slug": "morning-vs-evening-workout",
     "title": "Morning vs Evening Workout: Which Is Better for Busy Professionals?",
     "excerpt": "Morning or evening: when should a busy professional train? A coach with 15 years of experience explains the pros and cons of each, what it means for fat loss, muscle and sleep, and how to pick the time you can actually keep.",

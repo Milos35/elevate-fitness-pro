@@ -28,11 +28,13 @@ import { proteinPowderForWeightLossAfter40Post } from "./protein-powder-for-weig
 import { workOutWithKidsAndFullTimeJobPost } from "./how-to-work-out-with-kids-and-full-time-job";
 import { weightLossProgramDubaiPost } from "./weight-loss-program-dubai";
 import { morningVsEveningWorkoutPost } from "./morning-vs-evening-workout";
+import { shoulderWorkoutForMenOver40Post } from "./shoulder-workout-for-men-over-40";
 import type { BlogBlock, BlogPost } from "./types";
 
 export type { BlogBlock, BlogPost } from "./types";
 
 export const blogPosts: BlogPost[] = [
+  shoulderWorkoutForMenOver40Post,
   morningVsEveningWorkoutPost,
   weightLossProgramDubaiPost,
   workOutWithKidsAndFullTimeJobPost,
