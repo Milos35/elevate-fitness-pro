@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    "slug": "how-to-eat-healthy-when-eating-out",
+    "title": "How to Eat Healthy When Eating Out for Work: A Coach's Guide to Business Lunches and Dinners",
+    "excerpt": "Client lunches, team dinners and hotel breakfasts undoing your progress? A coach with 15 years in Dubai shares the plate rule, what to order at common restaurants and simple business lunch habits that don't look awkward.",
+    "publishedAt": "2026-11-19"
+  },
+  {
     "slug": "shoulder-workout-for-men-over-40",
     "title": "Shoulder Workout for Men Over 40: Build Strong Shoulders Without the Pain",
     "excerpt": "Want broad, strong shoulders after 40 without a sore, clicking joint? A coach and former Mr. Universe finalist shares the 2-minute warm-up, the 5 best exercises, sets and reps, and the form rules he gives busy clients.",

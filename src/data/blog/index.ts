@@ -29,11 +29,13 @@ import { workOutWithKidsAndFullTimeJobPost } from "./how-to-work-out-with-kids-a
 import { weightLossProgramDubaiPost } from "./weight-loss-program-dubai";
 import { morningVsEveningWorkoutPost } from "./morning-vs-evening-workout";
 import { shoulderWorkoutForMenOver40Post } from "./shoulder-workout-for-men-over-40";
+import { howToEatHealthyWhenEatingOutPost } from "./how-to-eat-healthy-when-eating-out";
 import type { BlogBlock, BlogPost } from "./types";
 
 export type { BlogBlock, BlogPost } from "./types";
 
 export const blogPosts: BlogPost[] = [
+  howToEatHealthyWhenEatingOutPost,
   shoulderWorkoutForMenOver40Post,
   morningVsEveningWorkoutPost,
   weightLossProgramDubaiPost,
