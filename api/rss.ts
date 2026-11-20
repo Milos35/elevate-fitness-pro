@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    "slug": "does-sleep-affect-weight-loss",
+    "title": "Does Sleep Affect Weight Loss? What Busy Parents Over 35 Need to Know",
+    "excerpt": "Training, eating protein and the scale still won't move? A coach and dad of two explains how sleep affects weight loss after 35, how many hours to aim for and a realistic sleep routine for busy parents.",
+    "publishedAt": "2026-11-20"
+  },
+  {
     "slug": "how-to-eat-healthy-when-eating-out",
     "title": "How to Eat Healthy When Eating Out for Work: A Coach's Guide to Business Lunches and Dinners",
     "excerpt": "Client lunches, team dinners and hotel breakfasts undoing your progress? A coach with 15 years in Dubai shares the plate rule, what to order at common restaurants and simple business lunch habits that don't look awkward.",
