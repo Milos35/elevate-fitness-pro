@@ -31,11 +31,13 @@ import { morningVsEveningWorkoutPost } from "./morning-vs-evening-workout";
 import { shoulderWorkoutForMenOver40Post } from "./shoulder-workout-for-men-over-40";
 import { howToEatHealthyWhenEatingOutPost } from "./how-to-eat-healthy-when-eating-out";
 import { doesSleepAffectWeightLossPost } from "./does-sleep-affect-weight-loss";
+import { exerciseForKidsAtHomePost } from "./exercise-for-kids-at-home";
 import type { BlogBlock, BlogPost } from "./types";
 
 export type { BlogBlock, BlogPost } from "./types";
 
 export const blogPosts: BlogPost[] = [
+  exerciseForKidsAtHomePost,
   doesSleepAffectWeightLossPost,
   howToEatHealthyWhenEatingOutPost,
   shoulderWorkoutForMenOver40Post,

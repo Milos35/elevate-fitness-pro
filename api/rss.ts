@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    slug: "exercise-for-kids-at-home",
+    title: "Exercise for Kids at Home: A Coach Dad's Guide for Ages 4 to 7",
+    excerpt: "Kids in Dubai sit in the car, at school and in front of screens. A coach and dad of two shares how much exercise young kids need and a simple 10-minute exercise routine for kids at home, ages 4 to 7, with no equipment.",
+    publishedAt: "2026-11-21",
+  },
+  {
     "slug": "does-sleep-affect-weight-loss",
     "title": "Does Sleep Affect Weight Loss? What Busy Parents Over 35 Need to Know",
     "excerpt": "Training, eating protein and the scale still won't move? A coach and dad of two explains how sleep affects weight loss after 35, how many hours to aim for and a realistic sleep routine for busy parents.",
