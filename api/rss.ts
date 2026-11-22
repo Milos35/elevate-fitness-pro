@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    slug: "home-workout-for-dads",
+    title: "Home Workout for Dads Over 35: A 22-Minute No-Equipment Plan",
+    excerpt: "No gym, no equipment, no free hours? A coach and dad of two shares the 22-minute home workout for dads over 35: warm-up, two blocks, how to make bodyweight exercises harder and how to fit it around kids and work.",
+    publishedAt: "2026-11-22",
+  },
+  {
     slug: "exercise-for-kids-at-home",
     title: "Exercise for Kids at Home: A Coach Dad's Guide for Ages 4 to 7",
     excerpt: "Kids in Dubai sit in the car, at school and in front of screens. A coach and dad of two shares how much exercise young kids need and a simple 10-minute exercise routine for kids at home, ages 4 to 7, with no equipment.",
