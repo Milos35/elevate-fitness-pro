@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    slug: "omega-3-after-40",
+    title: "Omega-3 After 40: Do You Really Need Fish Oil?",
+    excerpt: "Should you take omega-3 after 40, or is fish oil just another supplement you don't need? A coach with 15 years of experience explains when food is enough, when a supplement makes sense, how to choose one and the mistakes busy people make.",
+    publishedAt: "2026-11-23",
+  },
+  {
     slug: "home-workout-for-dads",
     title: "Home Workout for Dads Over 35: A 22-Minute No-Equipment Plan",
     excerpt: "No gym, no equipment, no free hours? A coach and dad of two shares the 22-minute home workout for dads over 35: warm-up, two blocks, how to make bodyweight exercises harder and how to fit it around kids and work.",
