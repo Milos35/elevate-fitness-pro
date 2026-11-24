@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    slug: "weight-loss-without-tracking",
+    title: "Weight Loss Without Tracking: My 4-Week Method, One Habit at a Time",
+    excerpt: "Tired of calorie apps? A coach with 15 years of experience shares his 4-week method for weight loss without tracking: one new habit per week, how to check progress without an app, and what to change when the scale stops moving.",
+    publishedAt: "2026-11-24",
+  },
+  {
     slug: "omega-3-after-40",
     title: "Omega-3 After 40: Do You Really Need Fish Oil?",
     excerpt: "Should you take omega-3 after 40, or is fish oil just another supplement you don't need? A coach with 15 years of experience explains when food is enough, when a supplement makes sense, how to choose one and the mistakes busy people make.",
