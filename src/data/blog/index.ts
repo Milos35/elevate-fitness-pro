@@ -35,11 +35,13 @@ import { exerciseForKidsAtHomePost } from "./exercise-for-kids-at-home";
 import { homeWorkoutForDadsPost } from "./home-workout-for-dads";
 import { omega3After40Post } from "./omega-3-after-40";
 import { weightLossWithoutTrackingPost } from "./weight-loss-without-tracking";
+import { plateMethodForWeightLossPost } from "./plate-method-for-weight-loss";
 import type { BlogBlock, BlogPost } from "./types";
 
 export type { BlogBlock, BlogPost } from "./types";
 
 export const blogPosts: BlogPost[] = [
+  plateMethodForWeightLossPost,
   weightLossWithoutTrackingPost,
   omega3After40Post,
   homeWorkoutForDadsPost,

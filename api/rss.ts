@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    slug: "plate-method-for-weight-loss",
+    title: "The Plate Method for Weight Loss: One Family Dinner, Two Plates",
+    excerpt: "Cooking one dinner for the whole family but trying to lose fat yourself? A coach and dad of two explains the plate method for weight loss: how to build your plate from the same pot as the kids, with real meal examples and no apps.",
+    publishedAt: "2026-11-25",
+  },
+  {
     slug: "weight-loss-without-tracking",
     title: "Weight Loss Without Tracking: My 4-Week Method, One Habit at a Time",
     excerpt: "Tired of calorie apps? A coach with 15 years of experience shares his 4-week method for weight loss without tracking: one new habit per week, how to check progress without an app, and what to change when the scale stops moving.",
