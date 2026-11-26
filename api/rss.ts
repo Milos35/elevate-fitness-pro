@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    slug: "back-workout-for-men-over-40",
+    title: "Back Workout for Men Over 40: A 22-Minute Plan for a Strong Back",
+    excerpt: "Sitting at a desk all day and feeling it in your upper back? A coach with 15 years of experience shares a simple back workout for men over 40: five exercises, sets and reps, a home version with dumbbells or bands, and the mistakes to avoid.",
+    publishedAt: "2026-11-26",
+  },
+  {
     slug: "plate-method-for-weight-loss",
     title: "The Plate Method for Weight Loss: One Family Dinner, Two Plates",
     excerpt: "Cooking one dinner for the whole family but trying to lose fat yourself? A coach and dad of two explains the plate method for weight loss: how to build your plate from the same pot as the kids, with real meal examples and no apps.",
