@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    slug: "does-stress-cause-weight-gain",
+    title: "Does Stress Cause Weight Gain? What Busy Parents Over 35 Can Do",
+    excerpt: "Eating the same but gaining weight in a stressful season? A coach with 15 years of experience explains how stress and weight gain are connected, what \"cortisol belly\" really means, and a simple 5-step plan for busy parents over 35.",
+    publishedAt: "2026-11-27",
+  },
+  {
     slug: "back-workout-for-men-over-40",
     title: "Back Workout for Men Over 40: A 22-Minute Plan for a Strong Back",
     excerpt: "Sitting at a desk all day and feeling it in your upper back? A coach with 15 years of experience shares a simple back workout for men over 40: five exercises, sets and reps, a home version with dumbbells or bands, and the mistakes to avoid.",

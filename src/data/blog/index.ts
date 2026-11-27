@@ -37,11 +37,13 @@ import { omega3After40Post } from "./omega-3-after-40";
 import { weightLossWithoutTrackingPost } from "./weight-loss-without-tracking";
 import { plateMethodForWeightLossPost } from "./plate-method-for-weight-loss";
 import { backWorkoutForMenOver40Post } from "./back-workout-for-men-over-40";
+import { doesStressCauseWeightGainPost } from "./does-stress-cause-weight-gain";
 import type { BlogBlock, BlogPost } from "./types";
 
 export type { BlogBlock, BlogPost } from "./types";
 
 export const blogPosts: BlogPost[] = [
+  doesStressCauseWeightGainPost,
   backWorkoutForMenOver40Post,
   plateMethodForWeightLossPost,
   weightLossWithoutTrackingPost,
