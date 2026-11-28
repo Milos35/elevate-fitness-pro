@@ -52,6 +52,12 @@ const builtinPosts: Post[] = [
 // Newest first; add each new auto-published article here too.
 const autoPosts: Post[] = [
   {
+    slug: "posture-exercises-for-kids",
+    title: "Posture Exercises for Kids: A Coach Dad's 10-Minute Plan for Ages 8 to 12",
+    excerpt: "Kids aged 8 to 12 sit at school, in the car, for homework and with screens. A coach and dad of two shares a 10-minute posture routine for kids at home, good sitting habits and sports that help, with no equipment.",
+    publishedAt: "2026-11-28",
+  },
+  {
     slug: "does-stress-cause-weight-gain",
     title: "Does Stress Cause Weight Gain? What Busy Parents Over 35 Can Do",
     excerpt: "Eating the same but gaining weight in a stressful season? A coach with 15 years of experience explains how stress and weight gain are connected, what \"cortisol belly\" really means, and a simple 5-step plan for busy parents over 35.",

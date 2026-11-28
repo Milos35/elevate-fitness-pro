@@ -38,11 +38,13 @@ import { weightLossWithoutTrackingPost } from "./weight-loss-without-tracking";
 import { plateMethodForWeightLossPost } from "./plate-method-for-weight-loss";
 import { backWorkoutForMenOver40Post } from "./back-workout-for-men-over-40";
 import { doesStressCauseWeightGainPost } from "./does-stress-cause-weight-gain";
+import { postureExercisesForKidsPost } from "./posture-exercises-for-kids";
 import type { BlogBlock, BlogPost } from "./types";
 
 export type { BlogBlock, BlogPost } from "./types";
 
 export const blogPosts: BlogPost[] = [
+  postureExercisesForKidsPost,
   doesStressCauseWeightGainPost,
   backWorkoutForMenOver40Post,
   plateMethodForWeightLossPost,
